@@ -3,7 +3,9 @@ import { Poppins } from "next/font/google";
 import "./globalStyles/globals.css";
 import StyledComponentsRegistry from "./utils/registry";
 import AnimatedBackground from "./globalStyles/animatedBackground";
-import {LayoutGrid, Sidebar, Navbar, Main} from "./globalStyles/layout";
+import {LayoutGrid, SidebarContainer, NavbarContainer, Main} from "./globalStyles/layout";
+import { Navbar } from "./components/navbar/navbar";
+import { Sidebar } from "./components/sidebar/sidebar";
 
 const poppins = Poppins({weight: "400", style: "normal", subsets: ["latin"]});
 
@@ -23,8 +25,12 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <AnimatedBackground />
           <LayoutGrid>
-            <Sidebar></Sidebar>
-            <Navbar></Navbar>
+            <SidebarContainer>
+              <Sidebar/>
+            </SidebarContainer>
+            <NavbarContainer>
+              <Navbar/>
+            </NavbarContainer>
             <Main>
               {children}
             </Main>

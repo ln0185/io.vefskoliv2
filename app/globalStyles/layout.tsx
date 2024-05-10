@@ -8,30 +8,28 @@ export const LayoutGrid = styled.div`
   grid-template-areas: 
     "sidebar navbar" 
     "sidebar main";
-  gap: 5rem;
-  padding: 5rem;
+  padding: 2rem;
+  gap: 2rem;
+  height: 100vh;
 `;
 
-export const Sidebar = styled.div`
-  background: #aaffaa;
+export const SidebarContainer = styled.div`
   max-height: 100vh;
   grid-area: sidebar;
+  border-radius:.8rem;
 `
-export const Navbar = styled.div`
-  background: #ffaaaa;
+export const NavbarContainer = styled.div`
   max-width: 100%;
+  border-radius: 0.8rem;
   grid-area: navbar;
 `
 export const Main = styled.div`
     max-width: 100%;
-    height: 69dvh;
     display: flex;
+    background-color: white;
+    border: solid 1px #6563EB;
     flex-direction: column;
-    background: #ffffff;
-    box-shadow: 0px 7px 8px rgba(139, 139, 139, 0.25);
-    gap: 5rem;
-    border-radius: 4.2rem;
-    padding: 5rem;
+    border-radius: 0.8rem;
     transition: 1s ease-in-out;
     overflow-y: scroll;
     overflow-x: hidden;
