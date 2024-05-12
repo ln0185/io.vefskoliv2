@@ -4,9 +4,11 @@ import {
   ProfileImageContainer,
   ProfileName,
   ProfileWrapper,
+  ModalContent,
 } from "./style";
 import { useState } from "react";
 import Modal from "../../modal/modal";
+import Input from "../../../globalStyles/input";
 
 type Props = {};
 export const Profile = ({}: Props) => {
@@ -24,8 +26,12 @@ export const Profile = ({}: Props) => {
         <ProfileName>Dummy student name</ProfileName>
       </ProfileWrapper>
       {isModalOpen && (
-        <Modal shouldShow={isModalOpen} onClose={() => setIsModalOpen(!isModalOpen)}>
-          <div>Hello</div>
+        <Modal shouldShow={isModalOpen}>
+          <ModalContent>
+            <button onClick={()=> setIsModalOpen(!isModalOpen)}>X</button>
+            <Input componentType="input" label="hello"/>
+            <Input componentType="textarea" label="write something about yourself"/>
+          </ModalContent>
         </Modal>
       )}
     </>

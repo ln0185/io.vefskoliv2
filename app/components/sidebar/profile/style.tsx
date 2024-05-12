@@ -26,3 +26,12 @@ export const ProfileImage = styled.img`
 export const ProfileName = styled.h2`
   font-size: 24px;
 `;
+
+export const ModalContent = styled.div`
+  background-color: white;
+  width: 50%;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 8px;
+  z-index: 11;
+`;
