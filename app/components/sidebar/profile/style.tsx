@@ -29,7 +29,7 @@ export const ProfileName = styled.h2`
 
 export const ModalContent = styled.div`
   background-color: white;
-  width: 50%;
+  width: 439px;
   margin: 0 auto;
   padding: 16px;
   border-radius: 8px;

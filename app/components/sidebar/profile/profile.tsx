@@ -29,8 +29,8 @@ export const Profile = ({}: Props) => {
         <Modal shouldShow={isModalOpen}>
           <ModalContent>
             <button onClick={()=> setIsModalOpen(!isModalOpen)}>X</button>
-            <Input componentType="input" label="hello"/>
-            <Input componentType="textarea" label="write something about yourself"/>
+            <Input type="password" label="hello"/>
+            <Input type="textarea" label="write something about yourself"/>
           </ModalContent>
         </Modal>
       )}
