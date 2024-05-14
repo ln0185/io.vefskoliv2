@@ -2,10 +2,10 @@
 import styled from 'styled-components'
 
 export const NavbarButton = styled.a`
-    background-color: white;
-    border: solid 1px #6563EB;
+    background-color: var(--primary-white);
+    border: solid 1px var(--theme-module3-100);
     width: 128px;
-    color: #6563EB;
+    color: var(--theme-module3-100);
     text-align: center;
     font-size: 15px;
     padding: 10px;
@@ -14,7 +14,7 @@ export const NavbarButton = styled.a`
     cursor: pointer;
     transition: 0.2s ease-in-out;
     &:hover {
-        background-color: #cfcfcf;
+        background-color: var(--primary-black-10);
     }
 `
 
