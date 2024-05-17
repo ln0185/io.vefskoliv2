@@ -6,6 +6,15 @@ export const ReusableInput = styled.input`
     padding: 10px;
     border: 1px solid var(--primary-black-30);
     border-radius: 8px;
+
+    &:hover {
+        border: 1px solid var(--theme-module3-60);
+    }
+
+    &:focus {
+        outline: none;
+        border: 1px solid var(--theme-module3-100);
+    }
     `;
 
 export const ReusableTextarea = styled.textarea`
@@ -14,6 +23,15 @@ export const ReusableTextarea = styled.textarea`
     padding: 10px;
     border: 1px solid var(--primary-black-30);
     border-radius: 8px;
+
+    &:hover {
+        border: 1px solid var(--theme-module3-60);
+    }
+
+    &:focus {
+        outline: none;
+        border: 1px solid var(--theme-module3-100);
+    }
     `;
 
 export const Label = styled.label`
