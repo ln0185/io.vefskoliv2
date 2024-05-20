@@ -1,6 +1,11 @@
+
 import { getGuides } from "./query";
 import { UserWithIdType } from "../models/user";
 import { ObjectId } from "mongodb";
+import GuideCard  from "../components/guideCard";
+
+import { Grid } from "./style";
+
 
 
 const Guides = async () => {
@@ -22,15 +27,16 @@ const Guides = async () => {
     const fetchedGuides = await getGuides(user);
 
     console.log(fetchedGuides);
+
+    let nr = 0;
+
     
     return ( 
-    <div>
+    <Grid>
         {fetchedGuides && fetchedGuides.map(guide => (
-            <div key={guide._id}>
-                <h1>{guide.title}</h1>
-            </div>
+                <GuideCard key={guide._id} guideNr={++nr} name={guide.title} status="Guide not Returned"/>
         ))}
-    </div> 
+    </Grid> 
     );
 }
  
