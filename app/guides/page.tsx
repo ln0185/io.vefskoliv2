@@ -34,7 +34,7 @@ const Guides = async () => {
     return ( 
     <Grid>
         {fetchedGuides && fetchedGuides.map(guide => (
-                <GuideCard key={guide._id} guideNr={++nr} name={guide.title} status="Guide not Returned"/>
+                <GuideCard forReturn={`guides/${guide._id}`} forReview="nothing for now" key={guide._id} guideNr={++nr} name={guide.title} status="Guide not Returned"/>
         ))}
     </Grid> 
     );

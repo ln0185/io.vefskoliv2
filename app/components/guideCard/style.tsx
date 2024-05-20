@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link  from 'next/link';
 
 export const CardWrapper = styled.div`
 display: flex;
@@ -6,16 +7,25 @@ flex-direction: column;
 gap: 8px;
 `;
 
-export const Info = styled.div`
+export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     border: 1px solid var(--theme-module3-100);
     align-items: center;
-    padding-top: 25px;
     gap: 16px;
     width: 190px;
     height: 160px;
     border-radius: 8px 8px 0 0;
+    overflow: hidden;
+`;
+
+export const Info = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding-top: 25px;
 `;
 
 export const GuideNr = styled.h2`
@@ -37,10 +47,26 @@ export const StatusWrapper = styled.div`
     width: 190px;
     height: 50px;
     border-radius: 0 0 8px 8px;
+    overflow: hidden;
 `;
 
 export const Status = styled.h3`
     font-size: 12px;
     padding: 10px;
     font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+`;
+
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    
+    &:hover {
+        background-color: var(--primary-black-10);
+    }
 `;
