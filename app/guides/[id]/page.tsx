@@ -12,6 +12,8 @@ import {
   Side,
   Content,
   BlackSubTitle,
+  Requirements,
+  KnowledgeAndSkills
 } from "./style";
 import Button from "../../globalStyles/buttons/default";
 
@@ -67,10 +69,18 @@ const guide = async ({ params }: { params: { id: string } }) => {
           <Wrapper>
             <BlackSubTitle>MATERIALS</BlackSubTitle>
             <Border>
-              {allMaterials.map((material) => (
-                  <a style={{textAlign:"left", textDecoration:"none"}} href={material.link} target="_blank">
+              {allMaterials.map((material, index) => (
+                /* Checking if the link has title if not it won't be displayed ---- FIX IT THE DATA BASE*/
+                  material.title ? (
+                  <a
+                    key={index}
+                    style={{textAlign:"left", textDecoration:"none"}}
+                    href={material.link}
+                    target="_blank"
+                  >
                     <Button style="default">{material.title}</Button>
                   </a>
+                  ) : null
               ))}
             </Border>
           </Wrapper>
@@ -96,7 +106,32 @@ const guide = async ({ params }: { params: { id: string } }) => {
 
       <Wrapper>
         <BlackSubTitle>REQUIREMENTS</BlackSubTitle>
-        <Border></Border>
+        <Border style={{minHeight:"238px"}}>
+            <Requirements>
+          <KnowledgeAndSkills>
+            <SubTitle>KNOWLEDGE</SubTitle>
+              {g.knowledge.map((knowledge) => {
+                return (
+                  <MarkdownReader>
+                  {String(knowledge.knowledge)}
+                  </MarkdownReader>
+                  
+                )
+              })}
+          </KnowledgeAndSkills>
+          <KnowledgeAndSkills>
+          <SubTitle>SKILLS</SubTitle>
+          {g.skills.map((skills) => {
+                return (
+                  <MarkdownReader>
+                  {String(skills.skill)}
+                  </MarkdownReader>
+                  
+                )
+              })}
+          </KnowledgeAndSkills>
+          </Requirements>
+        </Border>
       </Wrapper>
     </Container>
   );

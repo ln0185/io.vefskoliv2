@@ -14,7 +14,7 @@ const GuideCard = ({guideNr, name, status, forReturn, forReview} : GuideCardProp
     return (
         <CardWrapper>
             
-            <InfoWrapper >
+            <InfoWrapper>
                 <StyledLink href={forReturn}>
                     <Info>
                     <GuideNr>GUIDE {guideNr}</GuideNr>

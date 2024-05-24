@@ -61,3 +61,16 @@ export const Title = styled.h1`
 export const styledLink = styled(Link)`
     text-align: left;
 `
+
+export const Requirements = styled.div`
+    display:flex;
+    flex-direction: row;
+    gap: 64px;
+    padding: 16px;
+`
+
+export const KnowledgeAndSkills = styled.div`
+    display:flex;
+    flex-direction: column;
+    gap: 16px;
+`
