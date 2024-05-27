@@ -1,6 +1,8 @@
 import { connectToDatabase } from "../../utils/mongoose-connector";
 import { Guide as G, GuideType } from "../../models/guide";
 import { Types } from "mongoose";
+import { useState } from "react";
+import Modal from "../../components/modal/modal";
 
 import {
   Title,
@@ -13,12 +15,14 @@ import {
   Content,
   BlackSubTitle,
   Requirements,
-  KnowledgeAndSkills
+  KnowledgeAndSkills,
+  ReturnWrapper
 } from "./style";
-import Button from "../../globalStyles/buttons/default";
+import Button from "../../globalStyles/buttons/default"
 
 import MarkdownReader from "../../components/markdown/reader";
 import { StyledLink } from "../../components/guideCard/style";
+import ReturnForm from "./returnForm";
 
 //Getting the guide and all of it's data/content here
 const getGuide = async (id: string) => {
@@ -35,6 +39,7 @@ const getGuide = async (id: string) => {
 
 //displaying the guide here
 const guide = async ({ params }: { params: { id: string } }) => {
+
   const g = await getGuide(params.id);
   if (!g) {
     return (
@@ -133,6 +138,10 @@ const guide = async ({ params }: { params: { id: string } }) => {
           </Requirements>
         </Border>
       </Wrapper>
+      <ReturnWrapper>
+      <ReturnForm />
+      </ReturnWrapper>
+      {}
     </Container>
   );
 };

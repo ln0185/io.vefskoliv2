@@ -65,7 +65,7 @@ export const styledLink = styled(Link)`
 export const Requirements = styled.div`
     display:flex;
     flex-direction: row;
-    gap: 64px;
+    justify-content: space-between;
     padding: 16px;
 `
 
@@ -74,3 +74,28 @@ export const KnowledgeAndSkills = styled.div`
     flex-direction: column;
     gap: 16px;
 `
+
+export const ReturnWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+`;
+
+export const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-white);
+  width: 590px;
+  padding: 32px;
+  gap: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--theme-module3-100);
+  z-index: 11;
+`;
