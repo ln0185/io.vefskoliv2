@@ -1,10 +1,9 @@
-
 import { getGuides } from "./query";
 import { UserWithIdType } from "../models/user";
 import { ObjectId } from "mongodb";
-import GuideCard  from "../components/guideCard";
 
-import { Grid } from "./style";
+import GuidesClient from "./guidesClient";
+import { GuideType } from "../models/guide";
 
 
 
@@ -24,20 +23,16 @@ const Guides = async () => {
         "avatarUrl": "",
       }
 
-    const fetchedGuides = await getGuides(user);
+    const fetchingGuides = await getGuides(user) || [];
 
-    console.log(fetchedGuides);
+    const link = fetchingGuides.map((guide: GuideType) => ({
+        ...guide,
+        individualGuideLink: `guides/${(guide as any)._id}`
+    }))
 
-    let nr = 0;
-
-    
-    return ( 
-    <Grid>
-        {fetchedGuides && fetchedGuides.map(guide => (
-                <GuideCard forReturn={`guides/${guide._id}`} forReview="nothing for now" key={guide._id} guideNr={++nr} name={guide.title} status="Guide not Returned"/>
-        ))}
-    </Grid> 
+    return (
+        <GuidesClient fetchedGuides={link}/>
     );
 }
- 
+
 export default Guides;

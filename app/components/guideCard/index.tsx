@@ -1,19 +1,22 @@
 "use client"
 
-import { CardWrapper, Info, Name, GuideNr, Status, StatusWrapper, StyledLink, InfoWrapper } from "./style";
+import ReviewModal from "../reviewModal";
+import { CardWrapper, Info, Name, GuideNr, Status, StatusWrapper, StyledLink, InfoWrapper, Review } from "./style";
+import { useState } from "react";
 
 type GuideCardProps = {
     guideNr: number;
     name: string;
     status: string;
     forReturn: string;
-    forReview: string;
 }
 
-const GuideCard = ({guideNr, name, status, forReturn, forReview} : GuideCardProps) => {
+const GuideCard = ({guideNr, name, status, forReturn} : GuideCardProps) => {
+    const [openReviewForm, setOpenReviewForm] = useState(false);
+
     return (
+        <>
         <CardWrapper>
-            
             <InfoWrapper>
                 <StyledLink href={forReturn}>
                     <Info>
@@ -25,13 +28,19 @@ const GuideCard = ({guideNr, name, status, forReturn, forReview} : GuideCardProp
             
             
             <StatusWrapper>
-            <StyledLink href={forReview}>
+            <Review onClick={() => setOpenReviewForm(!openReviewForm)}>
                 <Status>
                     {status}
                 </Status>
-                </StyledLink>
+                </Review>
             </StatusWrapper>
         </CardWrapper>
+        {/* This is a modal for review from */}
+        {openReviewForm && (
+            <ReviewModal shouldShow={openReviewForm} onClose={() => setOpenReviewForm(false)}/>
+        )}
+        </>
+
      );
 }
  
