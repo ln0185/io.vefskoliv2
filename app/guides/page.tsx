@@ -26,7 +26,7 @@ const Guides = async () => {
 
     const fetchedGuides = await getGuides(user);
 
-    console.log(fetchedGuides);
+    //console.log(fetchedGuides);
 
     let nr = 0;
 
