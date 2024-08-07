@@ -19,10 +19,14 @@ import Input from "../../../globalStyles/input";
 import ExitButton from "../../../globalStyles/buttons/exit";
 import logouticon from "../../../assets/logout.svg";
 import DefaultButton from "../../../globalStyles/buttons/default";
+import { signOut } from "../../../utils/actions";
+import { useSession } from "next-auth/react";
 
 type Props = {};
 export const Profile = ({}: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const session = useSession();
+  console.log("session", session);
   return (
     <>
       <ProfileWrapper>
@@ -33,7 +37,7 @@ export const Profile = ({}: Props) => {
             alt="Dummy student picture"
           />
         </ProfileImageContainer>
-        <ProfileName>Hulda Ragnarsdóttir</ProfileName>
+        <ProfileName>{session?.data?.user?.name}</ProfileName>
       </ProfileWrapper>
 
       {isModalOpen && (
@@ -41,7 +45,7 @@ export const Profile = ({}: Props) => {
           <ModalContent>
             <ExitAndLogoutWrapper>
               <ExitButton onClick={()=> setIsModalOpen(!isModalOpen)} />
-              <LogoutButton><LogoutIcon alt="hello" src={logouticon}/></LogoutButton>
+              <LogoutButton onClick={async ()=> await signOut()}><LogoutIcon alt="hello" src={logouticon}/></LogoutButton>
             </ExitAndLogoutWrapper>
             <ProfileDetails>
               <ProfileImageContainer>

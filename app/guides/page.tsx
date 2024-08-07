@@ -25,10 +25,12 @@ const Guides = async () => {
 
     const fetchingGuides = await getGuides(user) || [];
 
+
     const link = fetchingGuides.map((guide: GuideType) => ({
         ...guide,
         individualGuideLink: `guides/${(guide as any)._id}`
     }))
+
 
     return (
         <GuidesClient fetchedGuides={link}/>

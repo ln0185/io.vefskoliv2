@@ -6,6 +6,8 @@ import AnimatedBackground from "./globalStyles/animatedBackground";
 import {LayoutGrid, SidebarContainer, NavbarContainer, Main} from "./globalStyles/layout";
 import { Navbar } from "./components/navbar/navbar";
 import { Sidebar } from "./components/sidebar/sidebar";
+import { SessionProvider } from "next-auth/react"
+
 
 const poppins = Poppins({weight: "400", style: "normal", subsets: ["latin"]});
 
@@ -15,8 +17,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
+  session,
   children,
 }: Readonly<{
+  session: any;
   children: React.ReactNode;
 }>) {
   return (
@@ -24,17 +28,21 @@ export default function RootLayout({
       <body className={poppins.className}>
         <StyledComponentsRegistry>
           <AnimatedBackground />
+          <SessionProvider session={session}>
           <LayoutGrid>
-            <SidebarContainer>
-              <Sidebar/>
-            </SidebarContainer>
-            <NavbarContainer>
-              <Navbar/>
-            </NavbarContainer>
+              {session?.data && <>
+                <SidebarContainer>
+                  <Sidebar />
+                </SidebarContainer>
+                <NavbarContainer>
+                  <Navbar />
+                </NavbarContainer>
+              </>}
             <Main>
               {children}
             </Main>
           </LayoutGrid>
+          </SessionProvider>
           </StyledComponentsRegistry>
       </body>
     </html>
