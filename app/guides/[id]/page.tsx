@@ -1,8 +1,6 @@
 import { connectToDatabase } from "../../utils/mongoose-connector";
 import { Guide as G, GuideType } from "../../models/guide";
 import { Types } from "mongoose";
-import { useState } from "react";
-import Modal from "../../components/modal/modal";
 
 import {
   Title,
@@ -21,7 +19,6 @@ import {
 import Button from "../../globalStyles/buttons/default"
 
 import MarkdownReader from "../../components/markdown/reader";
-import { StyledLink } from "../../components/guideCard/style";
 import ReturnForm from "./returnForm";
 
 //Getting the guide and all of it's data/content here
@@ -120,7 +117,7 @@ const guide = async ({ params }: { params: { id: string } }) => {
                   <MarkdownReader>
                   {String(knowledge.knowledge)}
                   </MarkdownReader>
-                  
+
                 )
               })}
           </KnowledgeAndSkills>
@@ -131,7 +128,7 @@ const guide = async ({ params }: { params: { id: string } }) => {
                   <MarkdownReader>
                   {String(skills.skill)}
                   </MarkdownReader>
-                  
+
                 )
               })}
           </KnowledgeAndSkills>
@@ -141,7 +138,6 @@ const guide = async ({ params }: { params: { id: string } }) => {
       <ReturnWrapper>
       <ReturnForm />
       </ReturnWrapper>
-      {}
     </Container>
   );
 };

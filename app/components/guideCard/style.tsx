@@ -71,3 +71,14 @@ export const StyledLink = styled(Link)`
         background-color: var(--primary-black-10);
     }
 `;
+
+export const Review = styled.div`
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: var(--primary-black-10);
+    }
+`
