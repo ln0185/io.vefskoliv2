@@ -8,6 +8,7 @@ import { Navbar } from "./components/navbar/navbar";
 import { Sidebar } from "./components/sidebar/sidebar";
 import { SessionProvider } from "next-auth/react"
 import { auth } from "../auth";
+import LoginForm from "./login/page";
 
 
 const poppins = Poppins({weight: "400", style: "normal", subsets: ["latin"]});
@@ -30,19 +31,20 @@ export default async function RootLayout({
         <StyledComponentsRegistry>
           <AnimatedBackground />
           <SessionProvider session={session}>
+            {session?.user && <>
           <LayoutGrid>
-              {session?.user && <>
                 <SidebarContainer>
                   <Sidebar />
                 </SidebarContainer>
                 <NavbarContainer>
                   <Navbar />
                 </NavbarContainer>
-              </>}
             <Main>
               {children}
             </Main>
           </LayoutGrid>
+          </>}
+            <LoginForm/>
           </SessionProvider>
           </StyledComponentsRegistry>
       </body>
