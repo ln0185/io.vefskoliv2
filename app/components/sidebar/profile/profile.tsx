@@ -31,7 +31,7 @@ export const Profile = () => {
 
   //creating a placeholder image if avatarUrl is empty
   if (session?.data?.user?.avatarUrl === "") {
-    session.data.user.avatarUrl = "../../../../public/defaultuser.svg";
+    session.data.user.avatarUrl = "https://raw.githubusercontent.com/ellertsmari/io.vefskoliv2/84c5d37f267d240f7c3172c28474e350b30e97f1/public/Defaultuser.svg";
   }
   return (
     <>
