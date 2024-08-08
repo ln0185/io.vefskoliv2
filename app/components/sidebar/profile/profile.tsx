@@ -21,20 +21,26 @@ import logouticon from "../../../assets/logout.svg";
 import DefaultButton from "../../../globalStyles/buttons/default";
 import { signOut } from "../../../utils/actions";
 import { useSession } from "next-auth/react";
+import Defaultuser from "../../../../public/defaultuser.svg";
 
-type Props = {};
-export const Profile = ({}: Props) => {
+
+export const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const session = useSession();
   console.log("session", session);
+
+  //creating a placeholder image if avatarUrl is empty
+  if (session?.data?.user?.avatarUrl === "") {
+    session.data.user.avatarUrl = "../../../../public/defaultuser.svg";
+  }
   return (
     <>
       <ProfileWrapper>
         <ProfileImageContainer>
           <ProfileImage
             onClick={() => setIsModalOpen(!isModalOpen)}
-            src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Dummy student picture"
+            src={session?.data?.user?.avatarUrl}
+            alt="student picture"
           />
         </ProfileImageContainer>
         <ProfileName>{session?.data?.user?.name}</ProfileName>
@@ -50,19 +56,19 @@ export const Profile = ({}: Props) => {
             <ProfileDetails>
               <ProfileImageContainer>
               <ProfileImage
-                src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Dummy student picture"
+                src={session?.data?.user?.avatarUrl}
+                alt="student picture"
               />
               </ProfileImageContainer>
-              <ProfileName style={{fontSize:"16px"}}>Hulda Ragnarsdóttir</ProfileName>
-              <AdditionalInfo>STUDENT</AdditionalInfo>
-              <AdditionalInfo style={{color:"var(--primary-black-100)"}}>hulda.ragnars@gmail.com</AdditionalInfo>
+              <ProfileName style={{fontSize:"16px"}}>{session?.data?.user?.name}</ProfileName>
+              <AdditionalInfo>{session.data?.user?.role}</AdditionalInfo>
+              <AdditionalInfo style={{color:"var(--primary-black-100)"}}>{session.data?.user?.email}</AdditionalInfo>
             </ProfileDetails>
             <Form>
-              <Input type="text" placeholder="I'm am a lawyer" label="BACKGROUND"/>
-              <Input type="text" placeholder="I want to be good designer and coder" label="NEAR FUTURE CAREER GOALS"/>
-              <Input type="text" placeholder="Playing video games" label="MAIN INTERESTS"/>
-              <Input type="text" placeholder="KISS" label="FAVORITE BAND/ARTIST"/>
+              <Input type="text" placeholder={session.data?.user?.background} label="BACKGROUND"/>
+              <Input type="text" placeholder={session.data?.user?.careerGoals} label="NEAR FUTURE CAREER GOALS"/>
+              <Input type="text" placeholder={session.data?.user?.interests} label="MAIN INTERESTS"/>
+              <Input type="text" placeholder={session.data?.user?.favoriteArtists} label="FAVORITE BAND/ARTIST"/>
             </Form>
             <ButtonWrapper>
               <DefaultButton style="default">SAVE</DefaultButton>
