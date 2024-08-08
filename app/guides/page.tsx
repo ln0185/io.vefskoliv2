@@ -33,7 +33,7 @@ const Guides = async () => {
 
 
     return (
-        <GuidesClient fetchedGuides={link}/>
+        <GuidesClient fetchedGuides={JSON.parse(JSON.stringify(link))}/>
     );
 }
 
