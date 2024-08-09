@@ -27,6 +27,7 @@ export const ProfileImageContainer = styled.div`
 export const ProfileImage = styled.img`
   width: 142px;
   height: auto;
+  background-color: var(--primary-white);
 `;
 
 
