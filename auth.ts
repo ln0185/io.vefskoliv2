@@ -6,6 +6,7 @@ import type { UserWithIdType } from "./app/models/user";
 import { User } from "./app/models/user";
 import bcrypt from "bcrypt";
 import { connectToDatabase } from "./app/utils/mongoose-connector";
+import { AdapterUser } from "next-auth/adapters";
 
 async function getUser(email: string): Promise<UserWithIdType | null> {
   try {
@@ -41,18 +42,17 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
+
   callbacks: {
-    async session({ session, user }) {
+    async session({ session }) {
       const dbuser: UserWithIdType | null = await User.findOne({
         email: session.user.email,
       });
-      //add user to session
-
-      //@ts-ignore
-      const { avatarUrl, background, careerGoals, createdAt, email, favoriteArtists, interests, name, role} = dbuser;
-      //@ts-ignore
-      session.user = {avatarUrl, background, careerGoals, createdAt, email, favoriteArtists, interests, name, role};
-      console.log("this is the user: ", session);
+      // @ts-ignore
+      const {avatarUrl, background, name, email, careerGoals, favoriteArtists, interests, role, createdAt} = dbuser;
+      // @ts-ignore
+      session.user = { avatarUrl, background, name, email, careerGoals, favoriteArtists, interests, role, createdAt };
+      console.log("session1234", session);
 
       return session;
     },
