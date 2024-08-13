@@ -6,6 +6,7 @@ import type { UserWithIdType } from "./app/models/user";
 import { User } from "./app/models/user";
 import bcrypt from "bcrypt";
 import { connectToDatabase } from "./app/utils/mongoose-connector";
+import
 
 async function getUser(email: string): Promise<UserWithIdType | null> {
   try {
@@ -29,7 +30,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         if (parsedCredentials.success) {
           const { email, password } = parsedCredentials.data;
-          const user = await getUser(email);
+          const user =  await getUser(email);
           console.log("user", user);
           if (!user) return null;
           const passwordsMatch = await bcrypt.compare(password, user.password);
@@ -47,11 +48,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         email: session.user.email,
       });
       //add user to session
-
+      if (!dbuser) {
+        return session
+      }
       //@ts-ignore
       const { avatarUrl, background, careerGoals, createdAt, email, favoriteArtists, interests, name, role} = dbuser;
-      //@ts-ignore
-      session.user = {avatarUrl, background, careerGoals, createdAt, email, favoriteArtists, interests, name, role};
+      const id = dbuser._id.toString();
+      const emailVerified = new Date();
+
+      session.user = {avatarUrl, background, careerGoals, createdAt, email, favoriteArtists, interests, name, role, id, emailVerified };
       console.log("this is the user: ", session);
 
       return session;
