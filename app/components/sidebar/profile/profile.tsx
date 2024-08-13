@@ -21,29 +21,31 @@ import logouticon from "../../../assets/logout.svg";
 import DefaultButton from "../../../globalStyles/buttons/default";
 import { signOut } from "../../../utils/actions";
 import { useSession } from "next-auth/react";
-import Defaultuser from "../../../../public/defaultuser.svg";
+import DefaultUserPic from "../../../../public/defaultuser.svg";
+import { UserWithIdType } from "../../../models/user";
 
 
 export const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const session = useSession();
+
+
+  //getting the user from session
+  const { data: session } = useSession();
+  const user = session?.user as UserWithIdType;
   console.log("session", session);
 
-  //creating a placeholder image if avatarUrl is empty
-  if (session?.data?.user?.avatarUrl === "") {
-    session.data.user.avatarUrl = "https://raw.githubusercontent.com/ellertsmari/io.vefskoliv2/84c5d37f267d240f7c3172c28474e350b30e97f1/public/Defaultuser.svg";
-  }
+  const DefaultUserPic = "/defaultuser.svg";
   return (
     <>
       <ProfileWrapper>
         <ProfileImageContainer>
           <ProfileImage
             onClick={() => setIsModalOpen(!isModalOpen)}
-            src={session?.data?.user?.avatarUrl}
+            src={user.avatarUrl ? user.avatarUrl : DefaultUserPic}
             alt="student picture"
           />
         </ProfileImageContainer>
-        <ProfileName>{session?.data?.user?.name}</ProfileName>
+        <ProfileName>{user.name}</ProfileName>
       </ProfileWrapper>
 
       {isModalOpen && (
@@ -56,19 +58,19 @@ export const Profile = () => {
             <ProfileDetails>
               <ProfileImageContainer>
               <ProfileImage
-                src={session?.data?.user?.avatarUrl}
+                src={user.avatarUrl ? user.avatarUrl : DefaultUserPic}
                 alt="student picture"
               />
               </ProfileImageContainer>
-              <ProfileName style={{fontSize:"16px"}}>{session?.data?.user?.name}</ProfileName>
-              <AdditionalInfo>{session.data?.user?.role}</AdditionalInfo>
-              <AdditionalInfo style={{color:"var(--primary-black-100)"}}>{session.data?.user?.email}</AdditionalInfo>
+              <ProfileName style={{fontSize:"16px"}}>{user.name}</ProfileName>
+              <AdditionalInfo>{user.role}</AdditionalInfo>
+              <AdditionalInfo style={{color:"var(--primary-black-100)"}}>{user.email}</AdditionalInfo>
             </ProfileDetails>
             <Form>
-              <Input type="text" placeholder={session.data?.user?.background} label="BACKGROUND"/>
-              <Input type="text" placeholder={session.data?.user?.careerGoals} label="NEAR FUTURE CAREER GOALS"/>
-              <Input type="text" placeholder={session.data?.user?.interests} label="MAIN INTERESTS"/>
-              <Input type="text" placeholder={session.data?.user?.favoriteArtists} label="FAVORITE BAND/ARTIST"/>
+              <Input type="text" placeholder={user.background} label="BACKGROUND"/>
+              <Input type="text" placeholder={user.careerGoals} label="NEAR FUTURE CAREER GOALS"/>
+              <Input type="text" placeholder={user.interests} label="MAIN INTERESTS"/>
+              <Input type="text" placeholder={user.favoriteArtists} label="FAVORITE BAND/ARTIST"/>
             </Form>
             <ButtonWrapper>
               <DefaultButton style="default">SAVE</DefaultButton>
