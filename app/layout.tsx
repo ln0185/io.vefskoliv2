@@ -44,7 +44,7 @@ export default async function RootLayout({
             </Main>
           </LayoutGrid>
           </>}
-            <LoginForm/>
+            {!session?.user && <LoginForm/>}
           </SessionProvider>
           </StyledComponentsRegistry>
       </body>
