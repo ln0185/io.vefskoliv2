@@ -24,7 +24,7 @@ export const ProfileImageContainer = styled.div`
   }
 `;
 
-export const ProfileImage = styled.img`
+export const ProfileImage = styled(Image)`
   width: 142px;
   height: auto;
   background-color: var(--primary-white);
@@ -99,4 +99,3 @@ export const ButtonWrapper = styled.div`
   align-items: center;
   gap: 16px;
 `;
-

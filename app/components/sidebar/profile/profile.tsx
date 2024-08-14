@@ -21,7 +21,7 @@ import logouticon from "../../../assets/logout.svg";
 import DefaultButton from "../../../globalStyles/buttons/default";
 import { signOut } from "../../../utils/actions";
 import { useSession } from "next-auth/react";
-import DefaultUserPic from "../../../../public/defaultuser.svg";
+import ProfilePic from "./Defaultuser.svg";
 import { UserWithIdType } from "../../../models/user";
 
 
@@ -31,17 +31,18 @@ export const Profile = () => {
 
   //getting the user from session
   const { data: session } = useSession();
-  const user = session?.user as UserWithIdType;
-  console.log("session", session);
+  //fix unknown later
+  const user = session?.user as unknown as UserWithIdType;
 
-  const DefaultUserPic = "/defaultuser.svg";
   return (
     <>
       <ProfileWrapper>
         <ProfileImageContainer>
           <ProfileImage
             onClick={() => setIsModalOpen(!isModalOpen)}
-            src={user.avatarUrl ? user.avatarUrl : DefaultUserPic}
+            width={145}
+            height={145}
+            src={user.avatarUrl ? user.avatarUrl : ProfilePic}
             alt="student picture"
           />
         </ProfileImageContainer>
@@ -58,8 +59,10 @@ export const Profile = () => {
             <ProfileDetails>
               <ProfileImageContainer>
               <ProfileImage
-                src={user.avatarUrl ? user.avatarUrl : DefaultUserPic}
+                src={user.avatarUrl ? user.avatarUrl : ProfilePic}
                 alt="student picture"
+                width={145}
+                height={145}
               />
               </ProfileImageContainer>
               <ProfileName style={{fontSize:"16px"}}>{user.name}</ProfileName>
