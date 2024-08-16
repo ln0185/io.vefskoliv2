@@ -35,6 +35,8 @@ export const Profile = () => {
   const user = session?.user as unknown as UserWithIdType;
 
   return (
+  <div>
+    {user ? (
     <>
       <ProfileWrapper>
         <ProfileImageContainer>
@@ -42,12 +44,15 @@ export const Profile = () => {
             onClick={() => setIsModalOpen(!isModalOpen)}
             width={145}
             height={145}
-            src={user.avatarUrl ? user.avatarUrl : ProfilePic}
+            src={user?.avatarUrl ? user.avatarUrl : ProfilePic}
             alt="student picture"
           />
         </ProfileImageContainer>
         <ProfileName>{user.name}</ProfileName>
       </ProfileWrapper>
+      </>
+    ) : ( <div>loading...</div>)}
+
 
       {isModalOpen && (
         <Modal onClick={() => setIsModalOpen(!isModalOpen)} shouldShow={isModalOpen}>
@@ -82,6 +87,6 @@ export const Profile = () => {
           </ModalContent>
         </Modal>
       )}
-    </>
+    </div>
   );
 };

@@ -54,7 +54,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
       //@ts-ignore
       const { avatarUrl, background, careerGoals, createdAt, email, favoriteArtists, interests, name, role} = dbuser;
-      const id = dbuser._id.toString();
+      const id = dbuser.id.toString();
       const emailVerified = new Date();
 
       session.user = {avatarUrl, background, careerGoals, createdAt, email, favoriteArtists, interests, name, role, id, emailVerified };
