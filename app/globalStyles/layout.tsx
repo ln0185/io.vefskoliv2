@@ -9,8 +9,6 @@ export const LayoutGrid = styled.div`
   grid-template-areas:
     "navbar"
     "main";
-  padding: 1rem;
-  gap: 1rem;
   width: 100%;
   height: 100dvh;
   grid-auto-rows: min-content;
@@ -28,8 +26,8 @@ export const SidebarContainer = styled.div`
   max-height: 100dvh;
   width: 100%;
   grid-area: sidebar;
-  border-radius: 0.8rem;
   display: none;
+  background-color: pink;
 
   @media (min-width: ${breakpoint}) {
     display: block;
@@ -38,13 +36,12 @@ export const SidebarContainer = styled.div`
 export const NavbarContainer = styled.div`
   width: 100%;
   grid-area: navbar;
+  background-color: red;
 `;
 export const Main = styled.div`
   max-width: 100%;
   height: 100%;
   overflow: scroll;
   background-color: white;
-  border: solid 1px #6563eb;
-  border-radius: 0.8rem;
   grid-area: main;
 `;
