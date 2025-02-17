@@ -5,6 +5,7 @@ type Link = { page: string; title: string };
 export type NavBarProps = { links: Link[] };
 
 const links: Link[] = [
+  { page: "/dashboard", title: "DASHBOARD" },
   // { href: "/", label: "HOME" },
   { page: "/guides", title: "GUIDES" },
   // { href: "/resources", label: "RESOURCES" },
