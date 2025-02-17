@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Plus_Jakarta_Sans, Raleway } from "next/font/google";
 import "globalStyles/globals.css";
 import StyledComponentsRegistry from "utils/registry";
 import AnimatedBackground from "globalStyles/animatedBackground";
@@ -14,7 +14,13 @@ import { auth } from "../auth";
 import LoginPage from "pages/login/page";
 import { NavBar } from "components/navigation/NavBar";
 
-const poppins = Poppins({ weight: "400", style: "normal", subsets: ["latin"] });
+const plusJarkaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
+  subsets: ["latin"],
+});
+
+// const poppins = Poppins({ weight: "400", style: "normal", subsets: ["latin"] });
+
 // trigger rebuild
 export const metadata: Metadata = {
   title: "Vefskólinn LMS",
@@ -31,9 +37,8 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={plusJarkaSans.className}>
         <StyledComponentsRegistry>
-          <AnimatedBackground />
           {session?.user ? (
             <LayoutGrid>
               <SidebarContainer>
