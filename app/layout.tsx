@@ -15,26 +15,8 @@ import LoginPage from "pages/login/page";
 import { NavBar } from "components/navigation/NavBar";
 import { Header } from "components/header/Header";
 
-const lightPlusJarkaSans = Plus_Jakarta_Sans({
-  weight: "300",
-  style: "normal",
-  subsets: ["latin"],
-});
-
-const regularPlusJarkaSans = Plus_Jakarta_Sans({
-  weight: "400",
-  style: "normal",
-  subsets: ["latin"],
-});
-
-const mediumPlusJarkaSans = Plus_Jakarta_Sans({
-  weight: "500",
-  style: "normal",
-  subsets: ["latin"],
-});
-
-const semiBoldPlusJarkaSans = Plus_Jakarta_Sans({
-  weight: "600",
+const plusJarkaSans = Plus_Jakarta_Sans({
+  weight: ["300", "400", "500", "600"],
   style: "normal",
   subsets: ["latin"],
 });
@@ -57,7 +39,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={semiBoldPlusJarkaSans.className}>
+      <body className={plusJarkaSans.className}>
         <StyledComponentsRegistry>
           {session?.user ? (
             <LayoutGrid>

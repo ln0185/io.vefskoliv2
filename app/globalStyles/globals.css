@@ -68,6 +68,12 @@ h1 {
   --waiting-bg: #FFF7D9;
 
 
+  /* Font Weights */
+  --light: 300;
+  --regular: 400;
+  --medium: 500;
+  --semibold: 600;
+
 
   /* WE ARE NOT USING THESE COLORS -magnea */
   
