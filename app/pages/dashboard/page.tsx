@@ -1,26 +1,57 @@
-import React from "react";
-import Card from "../../components/cards/cards";
+"use client";
+import { use, useState } from "react";
+import styled from "styled-components";
+import { FilterSection } from "components/filterSection/FilterSection";
+import { CardIcon, ListIcon } from "assets/Icons";
 
-const Dashboard: React.FC = () => {
-  const cardsData = [
-    { title: "Guide 1", description: "Description for Card 1" },
-    { title: "Guide 2", description: "Description for Card 2" },
-    { title: "Guide 3", description: "Description for Card 3" },
-    { title: "Guide 4", description: "Description for Card 4" },
-    { title: "Guide 5", description: "Description for Card 5" },
-    { title: "Guide 6", description: "Description for Card 6" },
-    { title: "Guide 7", description: "Description for Card 7" },
-    { title: "Guide 8", description: "Description for Card 8" },
-    { title: "Group Project", description: "Description for Card 9" },
-  ];
+const ViewSwitcher = styled.div`
+  display: flex;
+  gap: 10px;
+`;
 
+const IconButton = styled.button<{ active: boolean }>`
+  background: ${(props) => (props.active ? "#e0e0e0" : "transparent")};
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: ${(props) => (props.active ? "#e0e0e0" : "#f0f0f0")};
+  }
+`;
+
+type ViewType = "list" | "card";
+
+export default function DashboardPage() {
+  const [currentView, setCurrentView] = useState<ViewType>("list");
   return (
-    <div className="grid-container">
-      {cardsData.map((card, index) => (
-        <Card key={index} title={card.title} description={card.description} />
-      ))}
+    <div>
+      <FilterSection />
+      <ViewSwitcher>
+        <IconButton
+          active={currentView === "list"}
+          onClick={() => setCurrentView("list")}
+          aria-label="Show as list"
+        >
+          <ListIcon />
+        </IconButton>
+        <IconButton
+          active={currentView === "card"}
+          onClick={() => setCurrentView("card")}
+          aria-label="Show as cards"
+        >
+          <CardIcon />
+        </IconButton>
+      </ViewSwitcher>
+      {currentView === "list" ? (
+        <h1>ListViewComponent</h1>
+      ) : (
+        <h1>CardViewComponent</h1>
+      )}
     </div>
   );
-};
+}
 
 export default Dashboard;

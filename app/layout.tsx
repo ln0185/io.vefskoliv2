@@ -13,9 +13,11 @@ import Sidebar from "./components/sidebar/sidebar";
 import { auth } from "../auth";
 import LoginPage from "pages/login/page";
 import { NavBar } from "components/navigation/NavBar";
+import { Header } from "components/header/Header";
 
 const plusJarkaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
+  weight: ["300", "400", "500", "600"],
+  style: "normal",
   subsets: ["latin"],
 });
 
@@ -44,9 +46,7 @@ export default async function RootLayout({
               <SidebarContainer>
                 <Sidebar />
               </SidebarContainer>
-              <NavbarContainer>
-                <NavBar />
-              </NavbarContainer>
+              <Header></Header>
               <Main>{children}</Main>
             </LayoutGrid>
           ) : (

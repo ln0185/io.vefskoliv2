@@ -330,15 +330,15 @@ export const ResourcesIcon = () => (
   </svg>
 );
 
-const zoomMeetingIconLabel = "Zoom meeting icon";
-export const ZoomMeetingIcon = () => (
+const lectureIconLabel = "Zoom meeting icon";
+export const LectureIcon = () => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={zoomMeetingIconLabel}
+    aria-label={lectureIconLabel}
   >
     <path
       d="M2 10V8C2 7.05719 2 6.58579 2.29289 6.29289C2.58579 6 3.05719 6 4 6H7C10.7712 6 12.6569 6 13.8284 7.17157C15 8.34315 15 10.2288 15 14V16C15 16.9428 15 17.4142 14.7071 17.7071C14.4142 18 13.9428 18 13 18H10C6.22876 18 4.34315 18 3.17157 16.8284C2 15.6569 2 13.7712 2 10Z"
@@ -795,9 +795,8 @@ export const exportedForTesting = {
   logOutIconLabel,
   defaultUserIconLabel,
 
-  
   resourcesIconLabel,
-  zoomMeetingIconLabel,
+  lectureIconLabel,
   designIconLabel,
   codeIconLabel,
   darkModeIconLabel,

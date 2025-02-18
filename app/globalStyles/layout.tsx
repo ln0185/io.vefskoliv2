@@ -36,7 +36,6 @@ export const SidebarContainer = styled.div`
 export const NavbarContainer = styled.div`
   width: 100%;
   grid-area: navbar;
-  background-color: red;
 `;
 export const Main = styled.div`
   max-width: 100%;
