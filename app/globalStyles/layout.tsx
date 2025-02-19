@@ -24,9 +24,9 @@ export const LayoutGrid = styled.div`
 
 export const SidebarContainer = styled.div`
   max-height: 100dvh;
-  width: 100%;
+  width: fit-content;
   grid-area: sidebar;
-  display: none;
+  display: block;
   background-color: pink;
 
   @media (min-width: ${breakpoint}) {
@@ -37,6 +37,7 @@ export const NavbarContainer = styled.div`
   width: 100%;
   grid-area: navbar;
 `;
+
 export const Main = styled.div`
   max-width: 100%;
   height: 100%;
