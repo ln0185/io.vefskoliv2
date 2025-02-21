@@ -1,10 +1,9 @@
-import { DesignIcon, Tag } from "./style";
+import { DesignIcon, CodeIcon, Tag } from "./style";
 import {
   FeedbackStatus,
   GradesGivenStatus,
   ReturnStatus,
 } from "types/guideTypes";
-import { GuideCardStatuses } from "components/guideCardStatuses/GuideCardStatuses";
 import {
   Info,
   GuideDescription,
@@ -19,6 +18,7 @@ export const GuideCardOverview = ({
   moduleTitle,
   order,
   link,
+  category,
   returnStatus,
   feedbackStatus,
   grade,
@@ -28,6 +28,7 @@ export const GuideCardOverview = ({
   moduleTitle: string;
   order?: number;
   link?: string;
+  category: string;
   returnStatus: ReturnStatus;
   feedbackStatus: FeedbackStatus;
   gradesGivenStatus: GradesGivenStatus;
@@ -39,33 +40,17 @@ export const GuideCardOverview = ({
   };
 
   const getTagStatus = () => {
-    if (returnStatus === ReturnStatus.NOT_RETURNED) {
-      return "Due";
-    }
-    if (returnStatus === ReturnStatus.AWAITING_FEEDBACK) {
-      return "Waiting";
-    }
-    if (returnStatus === ReturnStatus.PASSED) {
-      return "Pass ✔";
-    }
-    if (returnStatus === ReturnStatus.FAILED) {
-      return "Fail";
-    }
-    if (feedbackStatus === FeedbackStatus.AWAITING_PROJECTS) {
-      return "Waiting";
-    }
-    if (feedbackStatus === FeedbackStatus.NEED_TO_PROVIDE_FEEDBACK) {
+    if (returnStatus === ReturnStatus.NOT_RETURNED) return "Due";
+    if (returnStatus === ReturnStatus.AWAITING_FEEDBACK) return "Waiting";
+    if (returnStatus === ReturnStatus.PASSED) return "Pass ✔";
+    if (returnStatus === ReturnStatus.FAILED) return "Fail";
+    if (feedbackStatus === FeedbackStatus.AWAITING_PROJECTS) return "Waiting";
+    if (feedbackStatus === FeedbackStatus.NEED_TO_PROVIDE_FEEDBACK)
       return "Review";
-    }
-    if (feedbackStatus === FeedbackStatus.FEEDBACK_GIVEN) {
+    if (feedbackStatus === FeedbackStatus.FEEDBACK_GIVEN) return "Waiting";
+    if (gradesGivenStatus === GradesGivenStatus.AWAITING_FEEDBACK)
       return "Waiting";
-    }
-    if (gradesGivenStatus === GradesGivenStatus.AWAITING_FEEDBACK) {
-      return "Waiting";
-    }
-    if (gradesGivenStatus === GradesGivenStatus.NEED_TO_GRADE) {
-      return "Grade";
-    }
+    if (gradesGivenStatus === GradesGivenStatus.NEED_TO_GRADE) return "Grade";
     return "default";
   };
 
@@ -89,8 +74,7 @@ export const GuideCardOverview = ({
   const Content = () => {
     return (
       <Info>
-        <DesignIcon />
-
+        {category === "code" ? <CodeIcon /> : <DesignIcon />}
         <Tag status={getTagStatus()}>
           <span>{getTagText()}</span>
         </Tag>
@@ -102,18 +86,12 @@ export const GuideCardOverview = ({
           </GuideNr>
           <Name>{capitalizeFirstLetter(guideTitle)}</Name>
         </GuideDescription>
-        <GuideCardStatuses
-          returnStatus={returnStatus}
-          feedbackStatus={feedbackStatus}
-          gradesGivenStatus={gradesGivenStatus}
-          grade={grade}
-        />
       </Info>
     );
   };
 
   return link ? (
-    <StyledLink href={link} passHref style={{ textDecoration: "none" }}>
+    <StyledLink href={link} passHref>
       <Content />
     </StyledLink>
   ) : (
