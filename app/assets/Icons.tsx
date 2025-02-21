@@ -401,9 +401,9 @@ export const DesignIcon = () => (
 const codeIconLabel = "Code icon";
 export const CodeIcon = () => (
   <svg
-    width="34"
-    height="34"
-    viewBox="0 0 34 34"
+    width="30"
+    height="28"
+    viewBox="0 0 30 28"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     aria-label={codeIconLabel}
@@ -435,9 +435,9 @@ export const CodeIcon = () => (
 const darkModeIconLabel = "Dark mode icon";
 export const DarkModeIcon = () => (
   <svg
-    width="34"
-    height="34"
-    viewBox="0 0 34 34"
+    width="30"
+    height="28"
+    viewBox="0 0 30 28"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     aria-label={darkModeIconLabel}

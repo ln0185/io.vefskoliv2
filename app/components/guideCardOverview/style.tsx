@@ -1,6 +1,7 @@
 import { Wrapper } from "globalStyles/globalStyles";
 import Link from "next/link";
 import { DesignIcon as Icon } from "assets/Icons";
+import { CodeIcon as Icon2 } from "assets/Icons";
 import styled from "styled-components";
 
 export const GuideCardContainer = styled.div`
@@ -38,14 +39,15 @@ position:relative
   height: 100%;
   align-items: start;
   padding: 1.625rem 1.875rem;
+  box-sizing: content-box;
 `;
 
 export const GuideNr = styled.h2`
   font-size: 1.3rem;
   font-weight: 600;
   align-self: start;
-  padding-top: 1rem;
   color: #141522;
+  margin-top: 0.5rem;
 `;
 
 export const Name = styled.p`
@@ -56,12 +58,7 @@ export const Name = styled.p`
   color: #8e92bc;
 `;
 
-export const GuideDescription = styled(Wrapper)`
-  flex: 1;
-  justify-content: center;
-  text-align: center;
-  align-items: start;
-`;
+export const GuideDescription = styled(Wrapper)``;
 
 export const DesignIcon = styled(Icon)`
   position: absolute;
@@ -70,6 +67,14 @@ export const DesignIcon = styled(Icon)`
   width: 30px;
   height: 28px;
 `;
+export const CodeIcon = styled(Icon2)`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 30px;
+  height: 28px;
+`;
+
 export const Tag = styled.div<{ status: string }>`
   position: absolute;
   right: 1.875rem;
