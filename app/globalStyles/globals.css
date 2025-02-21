@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -8,7 +10,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Plus Jakarta Display", sans-serif;
   background-color: #f0f0fd;
 }
 
@@ -32,8 +34,49 @@ h1 {
 
 /* Color Palette Definitions */
 :root {
+  /* NEW VERSION OF THE  */
   /* Primary Colors */
+  --primary-default: #546FFF;
+  --primary-light-300: #98A9FF;
+  --primary-light-200: #CCD4FF;
+  --primary-light-100: #F5F4FF;
+  --primary-light-grey: #FAFAFA;
   --primary-white: #ffffff;
+
+  --secondary-dark: #141522;
+  --secondary-light-400: #54577A;
+  --secondary-light-300: #8E92BC;
+  --secondary-light-200: #BBBED7;
+  --secondary-light-100: #DDDEEB;
+
+  --fail-text: #FF4423;
+  --fail-bg: #FFECE9;
+
+  --pass-text: #17990D;
+  --pass-bg: #E2F3E1;
+
+  --due-text: var(--secondary-dark);
+  --due-bg: var(--primary-light-grey);
+
+  --grade-text: var(--primary-default);
+  --grade-bg: var(--primary-light-100);
+
+  --review-text: #B06CFF;
+  --review-bg: #F1E5FF;
+
+  --waiting-text: #FBA700;
+  --waiting-bg: #FFF7D9;
+
+
+  /* Font Weights */
+  --light: 300;
+  --regular: 400;
+  --medium: 500;
+  --semibold: 600;
+
+
+  /* WE ARE NOT USING THESE COLORS -magnea */
+  
   --primary-black-100: #000000; /* 100% */
   --primary-black-60: #666666; /* 60% */
   --primary-black-30: #b3b3b3; /* 30% */
