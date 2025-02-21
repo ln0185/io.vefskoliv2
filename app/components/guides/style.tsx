@@ -2,12 +2,12 @@
 
 import styled from "styled-components";
 
-const BREAKPOINT = "1191px";
+const BREAKPOINT = "1200px";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: start;
   gap: 1.5rem;
   padding: 1.5rem 1.5rem;
 `;

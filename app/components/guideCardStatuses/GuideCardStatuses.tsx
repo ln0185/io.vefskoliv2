@@ -4,9 +4,7 @@ import {
   GradesGivenStatus,
   ReturnStatus,
 } from "types/guideTypes";
-import { Grade, IconContainer, Status, StatusesWrapper } from "./style";
-
-import { Bell, GreenTick, PurpleStar, RedCross, Hourglass } from "assets/Icons";
+import { Grade, Status, StatusesWrapper } from "./style";
 
 export const GuideCardStatuses = ({
   returnStatus,
@@ -24,12 +22,6 @@ export const GuideCardStatuses = ({
   return (
     <StatusesWrapper>
       <Status>
-        <IconContainer>
-          <ReturnStatusIcon returnStatus={returnStatus} />
-        </IconContainer>
-        <SmallText>{returnStatus}</SmallText>
-      </Status>
-      <Status>
         <FeedbackAndGradeStatus
           returnStatus={returnStatus}
           grade={grade}
@@ -41,23 +33,7 @@ export const GuideCardStatuses = ({
   );
 };
 
-const ReturnStatusIcon = ({ returnStatus }: { returnStatus: ReturnStatus }) => {
-  switch (returnStatus) {
-    case ReturnStatus.PASSED:
-      return <GreenTick />;
-    case ReturnStatus.HALL_OF_FAME:
-      return <PurpleStar />;
-    case ReturnStatus.FAILED:
-      return <RedCross />;
-    case ReturnStatus.AWAITING_FEEDBACK:
-      return <Hourglass />;
-    default:
-      return null;
-  }
-};
-
 const FeedbackAndGradeStatus = ({
-  returnStatus,
   gradesGivenStatus,
   feedbackStatus,
   grade,
@@ -70,9 +46,6 @@ const FeedbackAndGradeStatus = ({
   if (feedbackStatus === FeedbackStatus.NEED_TO_PROVIDE_FEEDBACK) {
     return (
       <>
-        <IconContainer>
-          <Bell />
-        </IconContainer>
         <SmallText>{FeedbackStatus.NEED_TO_PROVIDE_FEEDBACK}</SmallText>
       </>
     );
@@ -81,9 +54,6 @@ const FeedbackAndGradeStatus = ({
   if (gradesGivenStatus === GradesGivenStatus.NEED_TO_GRADE) {
     return (
       <>
-        <IconContainer>
-          <Bell />
-        </IconContainer>
         <SmallText>{GradesGivenStatus.NEED_TO_GRADE}</SmallText>
       </>
     );
@@ -92,9 +62,6 @@ const FeedbackAndGradeStatus = ({
   if (grade) {
     return (
       <>
-        <IconContainer>
-          <Bell />
-        </IconContainer>
         <SmallText>GRADE</SmallText>
         <Grade>{grade}</Grade>
       </>
