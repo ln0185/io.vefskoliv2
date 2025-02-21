@@ -12,6 +12,8 @@ import { NotificationIconContainer } from "UIcomponents/toggle/style";
 import { NotificationIcon } from "assets/Icons";
 import { Suspense, lazy } from "react";
 
+<span>edda</span>;
+
 const GuideModal = lazy(() =>
   import("../guideModal.tsx/GuideModal").then((mod) => ({
     default: mod.GuideModal,

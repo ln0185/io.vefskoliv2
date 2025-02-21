@@ -1,55 +1,28 @@
-"use client";
-import { use, useState } from "react";
-import styled from "styled-components";
-import { FilterSection } from "components/filterSection/FilterSection";
-import { CardIcon, ListIcon } from "assets/Icons";
+"use server";
 
-const ViewSwitcher = styled.div`
-  display: flex;
-  gap: 10px;
-`;
+import { auth } from "../../../auth";
+import { Guides } from "components/guides/Guides";
+import { Session } from "next-auth";
+import { extendGuides, fetchModules } from "utils/guideUtils";
+import { Module } from "types/guideTypes";
+import { getGuides } from "serverActions/getGuides";
 
-const IconButton = styled.button<{ active: boolean }>`
-  background: ${(props) => (props.active ? "#e0e0e0" : "transparent")};
-  padding: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const Dashboard = async () => {
+  const session: Session | null = await auth();
+  if (!session?.user?.id) return null;
 
-  &:hover {
-    background: ${(props) => (props.active ? "#e0e0e0" : "#f0f0f0")};
-  }
-`;
+  const fetchedGuides = (await getGuides(session.user.id)) || [];
+  if (fetchedGuides.length < 1) throw new Error("No guides found");
 
-type ViewType = "list" | "card";
-
-export default function DashboardPage() {
-  const [currentView, setCurrentView] = useState<ViewType>("list");
-  return (
-    <div>
-      <FilterSection />
-      <ViewSwitcher>
-        <IconButton
-          active={currentView === "list"}
-          onClick={() => setCurrentView("list")}
-          aria-label="Show as list"
-        >
-          <ListIcon />
-        </IconButton>
-        <IconButton
-          active={currentView === "card"}
-          onClick={() => setCurrentView("card")}
-          aria-label="Show as cards"
-        >
-          <CardIcon />
-        </IconButton>
-      </ViewSwitcher>
-      {currentView === "list" ? (
-        <h1>ListViewComponent</h1>
-      ) : (
-        <h1>CardViewComponent</h1>
-      )}
-    </div>
+  const extendedGuides = await extendGuides(
+    JSON.parse(JSON.stringify(fetchedGuides))
   );
-}
+
+  if (extendedGuides.length < 1) throw new Error("No extended guides found");
+
+  const modules: Module[] = await fetchModules(extendedGuides);
+
+  return <Guides extendedGuides={extendedGuides} modules={modules} />;
+};
+
+export default Dashboard;
