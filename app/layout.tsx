@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import { Poppins, Plus_Jakarta_Sans, Raleway } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "globalStyles/globals.css";
 import StyledComponentsRegistry from "utils/registry";
-import AnimatedBackground from "globalStyles/animatedBackground";
-import {
-  LayoutGrid,
-  SidebarContainer,
-  NavbarContainer,
-  Main,
-} from "./globalStyles/layout";
+import { LayoutGrid, SidebarContainer, Main } from "./globalStyles/layout";
 import Sidebar from "./components/sidebar/sidebar";
 import { auth } from "../auth";
 import LoginPage from "pages/login/page";
-import { NavBar } from "components/navigation/NavBar";
 import { Header } from "components/header/Header";
 
 const plusJarkaSans = Plus_Jakarta_Sans({
