@@ -41,6 +41,6 @@ export const Main = styled.div`
   max-width: 100%;
   height: 100%;
   overflow: scroll;
-  background-color: white;
+  background-color: #fafafa;
   grid-area: main;
 `;

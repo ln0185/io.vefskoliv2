@@ -20,6 +20,11 @@ const GuideModal = lazy(() =>
   }))
 );
 
+const capitalizeFirstLetter = (text: string) => {
+  if (!text) return "";
+  return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+};
+
 const GuideCard = ({
   guide,
   order,
@@ -31,6 +36,7 @@ const GuideCard = ({
 
   const link =
     guide.returnStatus === ReturnStatus.NOT_RETURNED ? guide.link : undefined;
+
   return (
     <GuideProvider guide={guide}>
       <CardWrapper>
@@ -43,8 +49,8 @@ const GuideCard = ({
         >
           {link ? (
             <GuideCardOverview
-              moduleTitle={guide.module.title[0]}
-              guideTitle={guide.title}
+              moduleTitle={capitalizeFirstLetter(guide.module.title[0])}
+              guideTitle={capitalizeFirstLetter(guide.title)}
               link={link}
               order={order}
               returnStatus={returnStatus}
@@ -61,8 +67,8 @@ const GuideCard = ({
               <Modal
                 modalTrigger={
                   <GuideCardOverview
-                    moduleTitle={guide.module.title[0]}
-                    guideTitle={guide.title}
+                    moduleTitle={capitalizeFirstLetter(guide.module.title[0])}
+                    guideTitle={capitalizeFirstLetter(guide.title)}
                     order={order}
                     returnStatus={returnStatus}
                     feedbackStatus={feedbackStatus}
