@@ -22,28 +22,7 @@ const GuidesPage = async () => {
 
   const modules: Module[] = await fetchModules(extendedGuides);
 
-  const moduleProgress = modules.map((module) => {
-    const moduleGuides = extendedGuides.filter(
-      (guide) => guide.module.title === module.title
-    );
-
-    const passedGuides = moduleGuides.filter(
-      (guide) => guide.returnStatus === "Pass"
-    ).length;
-
-    const totalGuides = moduleGuides.length;
-    const progress = totalGuides > 0 ? (passedGuides / totalGuides) * 100 : 0;
-
-    return { moduleTitle: module.title, progress };
-  });
-
-  return (
-    <Guides
-      extendedGuides={extendedGuides}
-      modules={modules}
-      progressData={moduleProgress}
-    />
-  );
+  return <Guides extendedGuides={extendedGuides} modules={modules} />;
 };
 
 export default GuidesPage;
