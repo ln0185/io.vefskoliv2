@@ -27,7 +27,7 @@ export const SidebarContainer = styled.div`
   width: 100%;
   grid-area: sidebar;
   display: none;
-  background-color: pink;
+  background-color: #fffffff;
 
   @media (min-width: ${breakpoint}) {
     display: block;
