@@ -3,7 +3,7 @@ import { useState } from "react";
 import { InfoSubtitle, UserInfoCardWrapper } from "./style";
 import { ShareableUserInfo } from "types/types";
 import { UserInfoCard } from "components/userInfoCard/UserInfoCard";
-import { Dropdown, DropdownOption } from "UIcomponents/dropdown/Dropdown";
+import { Dropdown, DropdownOption } from "components/ModuleMenu/ModuleMenu";
 
 export const UserInfoCards = ({
   userInfo,

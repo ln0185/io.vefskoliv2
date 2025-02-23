@@ -8,8 +8,8 @@ import {
 import { GuideProvider } from "providers/GuideProvider";
 import { GuideCardOverview } from "components/guideCardOverview/GuideCardOverview";
 import { CardWrapper, InfoWrapper } from "./style";
-import { NotificationIconContainer } from "UIcomponents/toggle/style";
-import { NotificationIcon } from "assets/Icons";
+import { RedIconContainer } from "UIcomponents/toggle/style";
+import { RedIcon } from "assets/Icons";
 import { Suspense, lazy } from "react";
 
 const GuideModal = lazy(() =>
@@ -38,13 +38,7 @@ const GuideCard = ({
   return (
     <GuideProvider guide={guide}>
       <CardWrapper>
-        <InfoWrapper
-          $borderStyle={calculateBorderStyle(
-            returnStatus,
-            feedbackStatus,
-            gradesGivenStatus
-          )}
-        >
+        <InfoWrapper>
           {link ? (
             <GuideCardOverview
               moduleTitle={capitalizeFirstLetter(guide.module.title[0])}
@@ -92,36 +86,10 @@ const GuideCard = ({
 
 const Notification = () => {
   return (
-    <NotificationIconContainer>
-      <NotificationIcon />
-    </NotificationIconContainer>
+    <RedIconContainer>
+      <RedIcon />
+    </RedIconContainer>
   );
-};
-
-const calculateBorderStyle = (
-  returnStatus: ReturnStatus,
-  feedbackStatus: FeedbackStatus,
-  gradesGivenStatus: GradesGivenStatus
-) => {
-  if (returnStatus === ReturnStatus.NOT_RETURNED) {
-    return undefined;
-  }
-
-  if (
-    feedbackStatus === FeedbackStatus.NEED_TO_PROVIDE_FEEDBACK ||
-    gradesGivenStatus === GradesGivenStatus.NEED_TO_GRADE
-  ) {
-    return "border-color: var(--error-warning-100);";
-  }
-  if (returnStatus === ReturnStatus.PASSED) {
-    return "border-color: var(--error-success-100); background-color: var(--error-success-10)";
-  }
-  if (returnStatus === ReturnStatus.FAILED) {
-    return "border-color: var(--error-failure-100); background-color: var(--error-failure-10)";
-  }
-  if (returnStatus === ReturnStatus.HALL_OF_FAME) {
-    return "border-color: var(--theme-module3-100); background-color: var(--theme-module3-10); border-width: 3px;";
-  }
 };
 
 export default GuideCard;
