@@ -55,3 +55,27 @@ export const UserInfo = styled.div`
   display: flex;
   align-items: center;
 `;
+export const SearchInputContainer = styled.div`
+  position: relative;
+`;
+
+export const SearchInput = styled.input`
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 150px;
+`;
+export const NotificationDropdown = styled.div`
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 200px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  font-size: 14px;
+  z-index: 10;
+`;
