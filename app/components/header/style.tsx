@@ -3,11 +3,13 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
+  width: 100%;
+  height: 6.25rem;
+  background-color: #fafafa;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  border-bottom: 1px solid #ddd;
 `;
 
 export const LeftSection = styled.div`
@@ -15,13 +17,13 @@ export const LeftSection = styled.div`
   flex-direction: column;
 
   h1 {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
   }
 
   p {
-    font-size: 14px;
-    color: #808080;
+    font-size: 16px;
+    color: #8e92bc;
     margin-top: 4px;
   }
 `;
