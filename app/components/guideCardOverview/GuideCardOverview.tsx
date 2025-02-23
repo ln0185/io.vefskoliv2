@@ -1,3 +1,4 @@
+import React from "react";
 import { DesignIcon, CodeIcon, Tag } from "./style";
 import {
   FeedbackStatus,
@@ -21,7 +22,7 @@ export const GuideCardOverview = ({
   category,
   returnStatus,
   feedbackStatus,
-  grades,
+  grade,
   gradesGivenStatus,
 }: {
   guideTitle: string;
@@ -32,7 +33,7 @@ export const GuideCardOverview = ({
   returnStatus: ReturnStatus;
   feedbackStatus: FeedbackStatus;
   gradesGivenStatus: GradesGivenStatus;
-  grades?: number[];
+  grade?: number | number[]; // Update the type to accept both
 }) => {
   const capitalizeFirstLetter = (text: string) => {
     if (!text) return "";
@@ -45,12 +46,6 @@ export const GuideCardOverview = ({
       return "Review";
     if (returnStatus === ReturnStatus.PASSED) return "Pass ✔";
     if (gradesGivenStatus === GradesGivenStatus.NEED_TO_GRADE) return "Grade";
-
-    if (grades && grades.length === 2) {
-      const sumOfGrades = grades[0] + grades[1];
-      if (sumOfGrades >= 10) return `Pass: ${sumOfGrades}`;
-      else return `Fail: ${sumOfGrades}`;
-    }
     if (returnStatus === ReturnStatus.FAILED) return "Fail";
     if (returnStatus === ReturnStatus.AWAITING_FEEDBACK) return "Waiting";
     if (feedbackStatus === FeedbackStatus.AWAITING_PROJECTS) return "Waiting";
