@@ -14,8 +14,6 @@ const plusJarkaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-// const poppins = Poppins({ weight: "400", style: "normal", subsets: ["latin"] });
-
 // trigger rebuild
 export const metadata: Metadata = {
   title: "Vefskólinn LMS",

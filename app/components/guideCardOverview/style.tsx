@@ -99,8 +99,14 @@ export const Tag = styled.div<{ status: string }>`
         ? "var(--waiting-text)"
         : props.status === "Fail"
         ? "var(--fail-text)"
-        : props.status === "Pass ✔"
+        : props.status.startsWith("Fail:")
+        ? "var(--fail-text)"
+        : props.status.startsWith("Pass:")
         ? "var(--pass-text)"
+        : props.status === "Review"
+        ? "var(--grade-text)"
+        : props.status === "Grade"
+        ? "var(--grade-text)"
         : "var(--primary-default)"};
   }
   background-color: ${(props) =>
@@ -108,9 +114,15 @@ export const Tag = styled.div<{ status: string }>`
       ? " var(--primary-light-100)"
       : props.status === "Waiting"
       ? "var(--waiting-bg)"
+      : props.status.startsWith("Fail:")
+      ? "var(--fail-bg)"
       : props.status === "Fail"
       ? "var(--fail-bg)"
-      : props.status === "Pass ✔"
+      : props.status.startsWith("Pass:")
       ? "var(--pass-bg)"
+      : props.status === "Review"
+      ? "var(--grade-bg)"
+      : props.status === "Grade"
+      ? "var(--grade-bg)"
       : "var(--default-color)"};
 `;

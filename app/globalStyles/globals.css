@@ -32,7 +32,7 @@ h1 {
 :root {
   /* NEW VERSION OF THE  */
   /* Primary Colors */
-  --primary-default: #546fff;
+  --primary-default: #007aff;
   --primary-light-300: #98a9ff;
   --primary-light-200: #ccd4ff;
   --primary-light-100: #f5f4ff;
@@ -54,8 +54,8 @@ h1 {
   --due-text: var(--secondary-dark);
   --due-bg: var(--primary-light-grey);
 
-  --grade-text: var(--primary-default);
-  --grade-bg: var(--primary-light-100);
+  --grade-text: var(--primary-white);
+  --grade-bg: var(--primary-default);
 
   --review-text: #b06cff;
   --review-bg: #f1e5ff;
@@ -87,7 +87,7 @@ h1 {
   --error-success-100: #84cf6e; /* 100% */
   --error-success-60: #b5e2a8; /* 60% */
   --error-success-30: #dbf1d4; /* 30% */
-  --error-success-10: #f3fbf1; /* 10% */
+  --error-success-10: #ffffff; /* 10% */
 
   --error-failure-100: #f55f5b; /* 100% */
   --error-failure-60: #f99f9d; /* 60% */

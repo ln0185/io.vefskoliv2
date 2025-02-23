@@ -45,14 +45,9 @@ const fadeOutLarge = keyframes`
 `;
 
 export const Container = styled.div`
-  min-height: ${minHeightSmall};
   position: relative;
-  width: 200px;
-  height: auto;
-  min-width: 200px;
-  @media (min-width: ${breakPoint}) {
-    // min-height: ${minHeightLarge};
-  }
+  width: 100%;
+  padding: 5px;
 `;
 
 export const DropDownContainer = styled.div<{
@@ -60,14 +55,12 @@ export const DropDownContainer = styled.div<{
   $zIndex?: number;
 }>`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+
   z-index: ${(props) => props.$zIndex ?? 2};
   top: 0;
-  border-radius: ${radius};
-  border: 1px solid var(--theme-module3-100);
-  width: 100%;
   overflow: hidden;
   max-height: ${(props) => (props.$isOpen ? maxHeight : minHeightSmall)};
   animation: ${(props) => (props.$isOpen ? fadeInSmall : fadeOutSmall)}
@@ -80,22 +73,19 @@ export const DropDownContainer = styled.div<{
   }
 `;
 
-export const Accordian = styled.div<{ $title?: boolean }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px 1rem;
-  gap: 1rem;
-  height: fit-content;
-  color: ${(props) => (props.$title ? "white" : "black")};
-  background-color: ${(props) =>
-    props.$title ? "var(--theme-module3-100)" : "white"};
-  width: 100%;
-`;
+export const AccordianOptionContainer = styled.button`
+  padding: 10px 20px;
+  color: #8e92bc;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
 
-export const AccordianOptionContainer = styled(Accordian)`
   &:hover {
-    background-color: var(--theme-module3-100);
-    color: white;
+    color: var(--primary-default);
+  }
+
+  &:focus {
+    outline: none;
   }
 `;

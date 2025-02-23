@@ -1,7 +1,7 @@
 "use client";
 
 import { Container, GuideDropdownContainer } from "./style";
-import { Dropdown } from "UIcomponents/dropdown/Dropdown";
+import { Dropdown } from "UIcomponents/ModuleMenu/ModuleMenu";
 import { ExtendedGuideInfo, Module } from "types/guideTypes";
 import { useLocalState } from "react-session-hooks";
 import { GuidesClient } from "components/guidesClient/GuidesClient";

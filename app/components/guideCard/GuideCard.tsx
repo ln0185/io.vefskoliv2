@@ -8,8 +8,8 @@ import {
 import { GuideProvider } from "providers/GuideProvider";
 import { GuideCardOverview } from "components/guideCardOverview/GuideCardOverview";
 import { CardWrapper, InfoWrapper } from "./style";
-import { NotificationIconContainer } from "UIcomponents/toggle/style";
-import { NotificationIcon } from "assets/Icons";
+import { RedIconContainer } from "UIcomponents/toggle/style";
+import { RedIcon } from "assets/Icons";
 import { Suspense, lazy } from "react";
 
 const GuideModal = lazy(() =>
@@ -92,9 +92,9 @@ const GuideCard = ({
 
 const Notification = () => {
   return (
-    <NotificationIconContainer>
-      <NotificationIcon />
-    </NotificationIconContainer>
+    <RedIconContainer>
+      <RedIcon />
+    </RedIconContainer>
   );
 };
 
