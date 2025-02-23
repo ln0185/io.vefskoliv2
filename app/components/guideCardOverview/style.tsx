@@ -14,7 +14,7 @@ export const GuideCardContainer = styled.div`
   height: 100%;
 
   &:hover {
-    background-color: #dddeeb;
+    background-color: var(--secondary-light-100);
     border-radius: 20px;
   }
 `;
@@ -28,7 +28,7 @@ export const StyledLink = styled(Link)`
 
   // background for guide cards//
   &:hover {
-    background-color: #dddeeb;
+    background-color: var(--secondary-light-100);
     border-radius: 20px;
   }
 `;
@@ -46,7 +46,7 @@ export const GuideNr = styled.h2`
   font-size: 1.3rem;
   font-weight: 600;
   align-self: start;
-  color: #141522;
+  color: var(--secondary-dark);
   margin-top: 0.5rem;
 `;
 
@@ -55,7 +55,7 @@ export const Name = styled.p`
   width: 100%;
   font-weight: 400;
   text-align: start;
-  color: #8e92bc;
+  color: var(--secondary-light-300);
 `;
 
 export const GuideDescription = styled(Wrapper)``;
@@ -103,6 +103,8 @@ export const Tag = styled.div<{ status: string }>`
         ? "var(--fail-text)"
         : props.status.startsWith("Pass:")
         ? "var(--pass-text)"
+        : props.status === "Pass ✔"
+        ? "var(--pass-text)"
         : props.status === "Review"
         ? "var(--grade-text)"
         : props.status === "Grade"
@@ -119,6 +121,8 @@ export const Tag = styled.div<{ status: string }>`
       : props.status === "Fail"
       ? "var(--fail-bg)"
       : props.status.startsWith("Pass:")
+      ? "var(--pass-bg)"
+      : props.status === "Pass ✔"
       ? "var(--pass-bg)"
       : props.status === "Review"
       ? "var(--grade-bg)"

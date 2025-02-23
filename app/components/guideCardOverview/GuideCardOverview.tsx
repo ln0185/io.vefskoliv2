@@ -1,4 +1,3 @@
-import { GuideCardStatuses } from "components/guideCardStatuses/GuideCardStatuses";
 import { DesignIcon, CodeIcon, Tag } from "./style";
 import {
   FeedbackStatus,
@@ -44,6 +43,7 @@ export const GuideCardOverview = ({
     if (returnStatus === ReturnStatus.NOT_RETURNED) return "Due";
     if (feedbackStatus === FeedbackStatus.NEED_TO_PROVIDE_FEEDBACK)
       return "Review";
+    if (returnStatus === ReturnStatus.PASSED) return "Pass ✔";
     if (gradesGivenStatus === GradesGivenStatus.NEED_TO_GRADE) return "Grade";
 
     if (grades && grades.length === 2) {
@@ -51,10 +51,10 @@ export const GuideCardOverview = ({
       if (sumOfGrades >= 10) return `Pass: ${sumOfGrades}`;
       else return `Fail: ${sumOfGrades}`;
     }
-
+    if (returnStatus === ReturnStatus.FAILED) return "Fail";
     if (returnStatus === ReturnStatus.AWAITING_FEEDBACK) return "Waiting";
     if (feedbackStatus === FeedbackStatus.AWAITING_PROJECTS) return "Waiting";
-    if (feedbackStatus === FeedbackStatus.FEEDBACK_GIVEN) return "Review";
+    if (feedbackStatus === FeedbackStatus.FEEDBACK_GIVEN) return "Waiting";
     if (gradesGivenStatus === GradesGivenStatus.AWAITING_FEEDBACK)
       return "Waiting";
 
@@ -80,12 +80,6 @@ export const GuideCardOverview = ({
           </GuideNr>
           <Name>{capitalizeFirstLetter(guideTitle)}</Name>
         </GuideDescription>
-        <GuideCardStatuses
-          returnStatus={returnStatus}
-          feedbackStatus={feedbackStatus}
-          gradesGivenStatus={gradesGivenStatus}
-          grades={grades}
-        />
       </Info>
     );
   };

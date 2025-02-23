@@ -47,7 +47,7 @@ export const IconButton = styled.button`
   transition: background 0.2s;
 
   &:hover {
-    background: #fafafa;
+    background: var(--primary-light-grey);
   }
 `;
 
