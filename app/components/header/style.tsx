@@ -47,24 +47,31 @@ export const IconButton = styled.button`
   &:hover {
     background: #fafafa;
   }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
-export const UserInfo = styled.div`
-  display: flex;
-  align-items: center;
-`;
 export const SearchInputContainer = styled.div`
   position: relative;
 `;
 
 export const SearchInput = styled.input`
+  position: absolute;
+  top: 40px;
+  left: 0;
   padding: 8px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
   width: 150px;
+  background: white;
+  z-index: 10;
 `;
+
 export const NotificationDropdown = styled.div`
   position: absolute;
   top: 40px;

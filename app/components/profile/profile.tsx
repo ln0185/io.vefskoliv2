@@ -1,8 +1,8 @@
 "use client";
+
 import {
   ProfileImage,
   ProfileImageContainer,
-  ProfileName,
   ProfileWrapper,
   ImageWrapper,
   LogoutButton,
@@ -20,11 +20,10 @@ import { DefaultUserIcon } from "assets/Icons";
 import { LogoutIcon } from "assets/Icons";
 import { signOut } from "serverActions/signOut";
 import { updateUserInfo } from "serverActions/updateUserInfo";
-import { useSessionState } from "react-session-hooks";
-import { Wrapper } from "globalStyles/globalStyles";
+import { useState } from "react";
 import { Session } from "next-auth";
 import { AdapterUser } from "next-auth/adapters";
-import { useState } from "react";
+import { Wrapper } from "globalStyles/globalStyles";
 
 export const Profile = ({ session }: { session: Session | null }) => {
   const user = session?.user as AdapterUser;
@@ -32,9 +31,7 @@ export const Profile = ({ session }: { session: Session | null }) => {
   const ProfilePictureContainer = () => {
     return (
       <ImageWrapper>
-        <ProfilePicture url={user.avatarUrl} />
-
-        <ProfileName>{user.name}</ProfileName>
+        <ProfilePicture url={user?.avatarUrl} />
       </ImageWrapper>
     );
   };
@@ -72,7 +69,6 @@ const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
       <ProfileDetails>
         <ProfilePicture url={user.avatarUrl} />
         <ProfileInfo>
-          <ProfileName style={{ fontSize: "16px" }}>{user.name}</ProfileName>
           <AdditionalInfo>{user.role}</AdditionalInfo>
           <AdditionalInfo
             style={{ color: "var(--primary-black-100)", textTransform: "none" }}
@@ -95,26 +91,25 @@ const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
           type="text"
           id="background"
           value={background}
-          onChange={(e: { target: { value: string } }) => {
-            setUserInfo({ ...userInfo, background: e.target.value });
-          }}
+          onChange={(e: { target: { value: any } }) =>
+            setUserInfo({ ...userInfo, background: e.target.value })
+          }
           label="BACKGROUND"
         />
         <Input
           type="text"
           id="careerGoals"
           value={careerGoals}
-          onChange={(e: { target: { value: string } }) => {
-            setUserInfo({ ...userInfo, careerGoals: e.target.value });
-          }}
+          onChange={(e: { target: { value: any } }) =>
+            setUserInfo({ ...userInfo, careerGoals: e.target.value })
+          }
           label="NEAR FUTURE CAREER GOALS"
         />
         <Input
           type="text"
           id="interests"
-          placeholder={user.interests}
           value={interests}
-          onChange={(e: { target: { value: string } }) =>
+          onChange={(e: { target: { value: any } }) =>
             setUserInfo({ ...userInfo, interests: e.target.value })
           }
           label="MAIN INTERESTS"
@@ -123,7 +118,7 @@ const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
           type="text"
           id="favoriteArtists"
           value={favoriteArtists}
-          onChange={(e: { target: { value: string } }) =>
+          onChange={(e: { target: { value: any } }) =>
             setUserInfo({ ...userInfo, favoriteArtists: e.target.value })
           }
           label="FAVORITE BAND/ARTIST"

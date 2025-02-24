@@ -1,66 +1,57 @@
 "use client";
 
 import { useState } from "react";
+import { SearchIcon, FilterIcon } from "assets/Icons";
 import {
-  NavContainer,
-  ModulesList,
+  FilterContainer,
+  ModuleList,
   ModuleItem,
+  SearchContainer,
+  SearchInput,
+  SearchButton,
   SortButton,
-  SortDropdown,
 } from "./style";
-import { FaFilter } from "react-icons/fa";
 
-const modules: string[] = [
-  "Module 1",
-  "Module 2",
-  "Module 3",
-  "Module 4",
-  "Module 5",
-  "Module 6",
-  "Module 7",
-];
-
-const sortOptions: string[] = ["Deadline", "Groups", "Design"];
+const modules = [1, 2, 3, 4, 5, 6, 7];
 
 export const FilterSection: React.FC = () => {
-  const [activeModule, setActiveModule] = useState<string>("Module 1");
-  const [sortBy, setSortBy] = useState<string>("Sort By");
-  const [showDropdown, setShowDropdown] = useState<boolean>(false);
+  const [selectedModule, setSelectedModule] = useState<number | null>(1);
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <NavContainer>
-      <ModulesList>
+    <FilterContainer>
+      {}
+      <ModuleList>
+        <span>Module</span>
         {modules.map((module) => (
           <ModuleItem
             key={module}
-            active={activeModule === module}
-            onClick={() => setActiveModule(module)}
+            selected={selectedModule === module}
+            onClick={() => setSelectedModule(module)}
           >
             {module}
           </ModuleItem>
         ))}
-      </ModulesList>
-      <div style={{ position: "relative" }}>
-        <SortButton onClick={() => setShowDropdown(!showDropdown)}>
-          <FaFilter size={14} />
-          <span>{sortBy}</span>
-        </SortButton>
-        {showDropdown && (
-          <SortDropdown>
-            {sortOptions.map((option) => (
-              <div
-                key={option}
-                onClick={() => {
-                  setSortBy(option);
-                  setShowDropdown(false);
-                }}
-              >
-                {option}
-              </div>
-            ))}
-          </SortDropdown>
-        )}
-      </div>
-    </NavContainer>
+      </ModuleList>
+
+      {}
+      <SearchContainer>
+        <SearchInput
+          type="text"
+          placeholder="Search Guide"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <SearchButton>
+          <SearchIcon /> {}
+        </SearchButton>
+      </SearchContainer>
+
+      {/* Sort Button */}
+      <SortButton>
+        <FilterIcon />
+        <span>Sort By: Deadline</span>
+      </SortButton>
+    </FilterContainer>
   );
 };
