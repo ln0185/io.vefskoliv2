@@ -48,26 +48,47 @@ export type ExtendedGuideInfo = GuideWithLink & {
 };
 
 export enum ReturnStatus {
-  NOT_RETURNED = "Due",
-  AWAITING_FEEDBACK = "Waiting",
-  PASSED = "Pass ✔",
-  HALL_OF_FAME = "Hall of Fame",
-  FAILED = "Fail",
+  NOT_RETURNED = "Not Returned",
+  AWAITING_FEEDBACK = "AWAITING FEEDBACK",
+  PASSED = "PASSED",
+  HALL_OF_FAME = "HALL OF FAME",
+  FAILED = "FAILED",
 }
 
 export enum FeedbackStatus {
-  AWAITING_PROJECTS = "Waiting",
-  NEED_TO_PROVIDE_FEEDBACK = "Review",
-  FEEDBACK_GIVEN = "Waiting",
+  AWAITING_PROJECTS = "Awaiting projects to give feedback",
+  NEED_TO_PROVIDE_FEEDBACK = "GIVE FEEDBACK",
+  FEEDBACK_GIVEN = "Feedback given",
 }
 
 export enum GradesGivenStatus {
-  AWAITING_FEEDBACK = "Waiting",
-  NEED_TO_GRADE = "Grade",
+  AWAITING_FEEDBACK = "Awaiting feedback to grade",
+  NEED_TO_GRADE = "GIVE GRADE",
   GRADES_GIVEN = "Grades given",
 }
 
 export enum GradesReceivedStatus {
-  AWAITING_GRADES = "Waiting",
+  AWAITING_GRADES = "Awaiting grades",
   GRADES_RECEIVED = "Grades received",
+}
+export interface GuideType {
+  _id: string;
+  title: string;
+  category: string;
+  returnStatus: string;
+  feedbackStatus: string;
+  gradesGivenStatus: string;
+  grades?: number[];
+}
+
+export interface ProgressDataType {
+  moduleTitle: string;
+  progress: number;
+}
+
+export interface FilterType {
+  status?: string;
+  category?: string;
+  minGrade?: number;
+  maxGrade?: number;
 }

@@ -1,10 +1,9 @@
-import { DesignIcon, Tag } from "./style";
+import { DesignIcon, CodeIcon, Tag } from "./style";
 import {
   FeedbackStatus,
   GradesGivenStatus,
   ReturnStatus,
 } from "types/guideTypes";
-import { GuideCardStatuses } from "components/guideCardStatuses/GuideCardStatuses";
 import {
   Info,
   GuideDescription,
@@ -19,19 +18,21 @@ export const GuideCardOverview = ({
   moduleTitle,
   order,
   link,
+  category,
   returnStatus,
   feedbackStatus,
-  grade,
+  grades,
   gradesGivenStatus,
 }: {
   guideTitle: string;
   moduleTitle: string;
   order?: number;
   link?: string;
+  category: string;
   returnStatus: ReturnStatus;
   feedbackStatus: FeedbackStatus;
   gradesGivenStatus: GradesGivenStatus;
-  grade?: number;
+  grades?: number[];
 }) => {
   const capitalizeFirstLetter = (text: string) => {
     if (!text) return "";
@@ -39,58 +40,35 @@ export const GuideCardOverview = ({
   };
 
   const getTagStatus = () => {
-    if (returnStatus === ReturnStatus.NOT_RETURNED) {
-      return "Due";
-    }
-    if (returnStatus === ReturnStatus.AWAITING_FEEDBACK) {
-      return "Waiting";
-    }
-    if (returnStatus === ReturnStatus.PASSED) {
-      return "Pass ✔";
-    }
-    if (returnStatus === ReturnStatus.FAILED) {
-      return "Fail";
-    }
-    if (feedbackStatus === FeedbackStatus.AWAITING_PROJECTS) {
-      return "Waiting";
-    }
-    if (feedbackStatus === FeedbackStatus.NEED_TO_PROVIDE_FEEDBACK) {
+    if (returnStatus === ReturnStatus.NOT_RETURNED) return "Due";
+    if (feedbackStatus === FeedbackStatus.NEED_TO_PROVIDE_FEEDBACK)
       return "Review";
+    if (returnStatus === ReturnStatus.PASSED) return "Pass ✔";
+    if (gradesGivenStatus === GradesGivenStatus.NEED_TO_GRADE) return "Grade";
+
+    if (grades && grades.length === 2) {
+      const sumOfGrades = grades[0] + grades[1];
+      if (sumOfGrades >= 10) return `Pass: ${sumOfGrades}`;
+      else return `Fail: ${sumOfGrades}`;
     }
-    if (feedbackStatus === FeedbackStatus.FEEDBACK_GIVEN) {
+    if (returnStatus === ReturnStatus.FAILED) return "Fail";
+    if (returnStatus === ReturnStatus.AWAITING_FEEDBACK) return "Waiting";
+    if (feedbackStatus === FeedbackStatus.AWAITING_PROJECTS) return "Waiting";
+    if (feedbackStatus === FeedbackStatus.FEEDBACK_GIVEN) return "Waiting";
+    if (gradesGivenStatus === GradesGivenStatus.AWAITING_FEEDBACK)
       return "Waiting";
-    }
-    if (gradesGivenStatus === GradesGivenStatus.AWAITING_FEEDBACK) {
-      return "Waiting";
-    }
-    if (gradesGivenStatus === GradesGivenStatus.NEED_TO_GRADE) {
-      return "Grade";
-    }
+
     return "default";
   };
 
   const getTagText = () => {
-    switch (getTagStatus()) {
-      case "Due":
-        return "Due";
-      case "Waiting":
-        return "Waiting";
-      case "Pass ✔":
-        return "Pass ✔";
-      case "Fail":
-        return "Fail";
-      case "Grade":
-        return "Grade";
-      default:
-        return "Due";
-    }
+    return getTagStatus();
   };
 
   const Content = () => {
     return (
       <Info>
-        <DesignIcon />
-
+        {category === "code" ? <CodeIcon /> : <DesignIcon />}
         <Tag status={getTagStatus()}>
           <span>{getTagText()}</span>
         </Tag>
@@ -102,18 +80,12 @@ export const GuideCardOverview = ({
           </GuideNr>
           <Name>{capitalizeFirstLetter(guideTitle)}</Name>
         </GuideDescription>
-        <GuideCardStatuses
-          returnStatus={returnStatus}
-          feedbackStatus={feedbackStatus}
-          gradesGivenStatus={gradesGivenStatus}
-          grade={grade}
-        />
       </Info>
     );
   };
 
   return link ? (
-    <StyledLink href={link} passHref style={{ textDecoration: "none" }}>
+    <StyledLink href={link} passHref>
       <Content />
     </StyledLink>
   ) : (

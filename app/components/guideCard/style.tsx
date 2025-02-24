@@ -1,7 +1,5 @@
 "use client";
 import styled from "styled-components";
-import { Wrapper } from "UIcomponents/input/style";
-import { Button } from "globalStyles/buttons/default/style";
 
 const BREAKPOINT = "680px";
 const BREAKPOINT_DESKTOP = "1024px";
@@ -15,7 +13,7 @@ export const CardWrapper = styled.div`
   border-radius: 20px;
 `;
 
-export const InfoWrapper = styled.div<{ $borderStyle: string | undefined }>`
+export const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -24,8 +22,6 @@ export const InfoWrapper = styled.div<{ $borderStyle: string | undefined }>`
   height: 160px;
 
   position: relative;
-
-  ${(props) => props.$borderStyle}
 `;
 
 export const WriteFeedbackContainer = styled.form`
