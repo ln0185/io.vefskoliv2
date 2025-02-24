@@ -9,7 +9,6 @@ import {
 import { ExtendedGuideInfo, Module } from "types/guideTypes";
 import { useLocalState } from "react-session-hooks";
 import { GuidesClient } from "components/guidesClient/GuidesClient";
-import { FilterButton } from "components/ModuleMenu/filterButton";
 
 const LOCAL_STORAGE_KEY = "selectedModule";
 
@@ -50,7 +49,7 @@ export const Guides = ({
           </ModuleOptionContainer>
         ))}
       </GuideDropdownContainer>
-      <FilterButton setFilter={setFilter} filter={filter} />
+
       <GuidesClient guides={filteredGuides} useGuideOrder={!!selectedModule} />
     </Container>
   );
@@ -77,10 +76,7 @@ const filterGuides = (
 
   return extendedGuides.filter((guide) => {
     const matchesModule = guide.module.title[0] === "" + selectedModule;
-    const matchesFilter =
-      (filter.tagStatus ? guide.status === filter.tagStatus : true) &&
-      (filter.guideCategory ? guide.category === filter.guideCategory : true);
 
-    return matchesModule && matchesFilter;
+    return matchesModule;
   });
 };
