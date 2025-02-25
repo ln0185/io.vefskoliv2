@@ -13,7 +13,8 @@ export const NavbarButton = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    background-color: var(--);
+    background-color: var(--primary-default);
+    color: var(--primary-white);
   }
 `;
 

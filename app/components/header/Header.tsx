@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useSession } from "next-auth/react";
-import { Bell } from "assets/Icons";
+import { useState, useRef, useEffect } from "react";
+import { SearchIcon, Bell } from "assets/Icons";
 import {
   HeaderContainer,
   LeftSection,
@@ -10,16 +9,23 @@ import {
   IconButton,
   NotificationDropdown,
 } from "./style";
-import { Profile } from "components/profile/profile";
+import { useSession } from "next-auth/react";
+import { Profile } from "components/profile/profile"; // Adjust the path as needed
 
 export const Header: React.FC = () => {
   const { data: session } = useSession();
-  const userName = session?.user?.name || "User";
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showSearch, setShowSearch] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const notificationRef = useRef<HTMLDivElement>(null);
 
-  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+  const userName = session?.user?.name || "User"; // Fallback to "User" if name is unavailable
 
-  const handleNotificationClick = () => {
-    setIsNotificationsOpen((prev) => !prev);
+  const handleSearch = (event: React.FormEvent) => {
+    event.preventDefault();
+    console.log("Searching for:", searchQuery);
+    setShowSearch(false);
   };
 
   return (
@@ -35,20 +41,23 @@ export const Header: React.FC = () => {
         {}
         <div style={{ position: "relative" }}>
           <IconButton
-            onClick={handleNotificationClick}
+            onClick={() => setShowNotifications(true)}
             aria-label="Notifications"
           >
             <Bell />
           </IconButton>
-          {isNotificationsOpen && (
+          {showNotifications && (
             <NotificationDropdown>
               <p>No new notifications</p>
+              {}
             </NotificationDropdown>
           )}
         </div>
 
         {}
-        <Profile session={session} />
+        <IconButton as="div">
+          <Profile session={session} />
+        </IconButton>
       </RightSection>
     </HeaderContainer>
   );

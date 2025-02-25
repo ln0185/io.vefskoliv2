@@ -27,7 +27,7 @@ export const SidebarContainer = styled.div`
   width: 100%;
   grid-area: sidebar;
   display: none;
-  background-color: pink;
+  background-color: #fffffff;
 
   @media (min-width: ${breakpoint}) {
     display: block;
@@ -41,6 +41,6 @@ export const Main = styled.div`
   max-width: 100%;
   height: 100%;
   overflow: scroll;
-  background-color: white;
+  background-color: #fafafa;
   grid-area: main;
 `;
