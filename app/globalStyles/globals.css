@@ -29,68 +29,56 @@ h1 {
 
 /* Color Palette Definitions */
 :root {
-  /* NEW VERSION OF THE  */
+  /* NEW VERSION OF THE COLORS */
+
   /* Primary Colors */
   --primary-default: #007aff;
-
-  --primary-light-300: #98a9ff;
-  --primary-light-200: #ccd4ff;
-  --primary-light-100: #f5f4ff;
-
   --primary-light-grey: #fafafa;
   --primary-white: #ffffff;
+  --primary-border: #dfe3e7;
 
-
-  --secondary-dark: #0C0E12;
-  --secondary-light-400: #373a41;
-
+  /* Secondary Colors */
+  --secondary-dark: #0c0e12;
   --secondary-light-300: #8e92bc;
-  --secondary-light-200: #bbbed7;
-  --secondary-light-100: #dddeeb;
+  --secondary-light-200: #dfe3e7;
+  --secondary-light-100: #e8f3ff;
 
-
-
+  /* Tags */
   --grade-text: var(--primary-white);
   --grade-bg: var(--primary-default);
 
   --review-text: var(--primary-white);
   --review-bg: var(--primary-default);
 
-
   --fail-text: #ff4423;
   --fail-bg: #ffece9;
   --fail-border: #ffccc3;
 
   --pass-text: #17990d;
-  --pass-bg: #E8F5E7;
+  --pass-bg: #e8f5e7;
   --pass-border: #c4e8c1;
 
   --due-text: #007aff;
-  --due-bg: #eef4ff;
+  --due-bg: #e8f3ff;
   --due-border: #c7d7fe;
 
   --waiting-text: #fba700;
   --waiting-bg: #fff7d9;
   --waiting-border: #feee95;
 }
-.dark-mode{
-  --primary-default: #007aff;
-  --primary-light-300: #8E92BC;
-  
-  --primary-light-200: #ccd4ff;
-  --primary-light-100: #f5f4ff;
 
+.dark-mode {
+  /* Primary Colors */
+  --primary-default: #007aff;
   --primary-light-grey: #0c0e12;
   --primary-white: #1b1c20;
+  --primary-border: #373a41;
 
-  
-  --secondary-dark: #ffffff; 
-  --secondary-light-400: #54577a;
-  --secondary-light-300: #8e92bc; 
-  --secondary-light-200: #bbbed7;
-  --secondary-light-100: #dddeeb;
-
-  
+  /* Secondary Colors */
+  --secondary-dark: #ffffff;
+  --secondary-light-300: #8e92bc;
+  --secondary-light-200: #dfe3e7;
+  --secondary-light-100: #e8f3ff;
 
   --fail-text: #fda29b;
   --fail-bg: #55160c;
@@ -100,15 +88,13 @@ h1 {
   --pass-bg: #052e1c;
   --fail-border: #095c37;
 
-  --due-text: #84CAFF;
-  --due-bg: #102A56;
+  --due-text: #84caff;
+  --due-bg: #102a56;
   --due-border: #546fff;
 
   --waiting-text: #fde272;
   --waiting-bg: #a15c07;
   --waiting-border: #854a0e;
-
-
 
   /* Font Weights */
   --light: 300;
