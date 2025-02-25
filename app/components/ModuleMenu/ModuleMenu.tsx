@@ -12,11 +12,18 @@ export type ModuleOption = {
 interface ModuleProps {
   options: ModuleOption[];
   currentOption?: ModuleOption;
+  filter: {
+    tagStatus: string;
+    guideCategory: string;
+  };
   style?: React.CSSProperties;
   zIndex?: number;
   setFilter: React.Dispatch<
     React.SetStateAction<{ tagStatus: string; guideCategory: string }>
   >;
+  setModule: (
+    value: number | ((prev: number | null) => number | null) | null
+  ) => void;
 }
 
 export const Module = ({
@@ -25,6 +32,8 @@ export const Module = ({
   currentOption,
   zIndex,
   setFilter,
+  setModule,
+  filter,
 }: ModuleProps) => {
   const [shownOption, setShownOption] = useState(
     currentOption?.optionName ?? options[0]?.optionName
@@ -49,11 +58,14 @@ export const Module = ({
             </ModuleOptionContainer>
           );
         })}
+
+        {/* 🔹 New Filter Button */}
+        <FilterButton
+          setFilter={setFilter}
+          setModule={setModule}
+          filter={filter}
+        />
       </ModuleContainer>
-      <FilterButton
-        setFilter={setFilter}
-        filter={{ tagStatus: "", guideCategory: "" }}
-      />
     </Container>
   );
 };

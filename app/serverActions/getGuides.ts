@@ -228,6 +228,7 @@ const getGuidesPipelines = (userId: ObjectId): PipelineStage[] => {
       category: 1,
       order: 1,
       module: 1,
+      grade: { $avg: "$gradesReceived.grade" },
 
       // this user's project returns
       returnsSubmitted: 1,

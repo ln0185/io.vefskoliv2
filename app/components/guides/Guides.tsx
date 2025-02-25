@@ -10,6 +10,7 @@ import { ExtendedGuideInfo, Module } from "types/guideTypes";
 import { useLocalState } from "react-session-hooks";
 import { GuidesClient } from "components/guidesClient/GuidesClient";
 import { FilterButton } from "components/ModuleMenu/filterButton";
+import { Module as ModuleMenu } from "components/ModuleMenu/ModuleMenu";
 
 const LOCAL_STORAGE_KEY = "selectedModule";
 
@@ -37,20 +38,13 @@ export const Guides = ({
 
   return (
     <Container>
-      <GuideDropdownContainer>
-        {options.map((option) => (
-          <ModuleOptionContainer
-            key={option.optionName}
-            onClick={option.onClick}
-            isActive={
-              selectedModule === Number(option.optionName.split(" ")[1])
-            }
-          >
-            <p>{option.optionName}</p>
-          </ModuleOptionContainer>
-        ))}
-      </GuideDropdownContainer>
-      <FilterButton setFilter={setFilter} filter={filter} />
+      <ModuleMenu
+        options={options}
+        setFilter={setFilter}
+        setModule={setSelectedModule}
+        filter={filter}
+      ></ModuleMenu>
+
       <GuidesClient guides={filteredGuides} useGuideOrder={!!selectedModule} />
     </Container>
   );
@@ -73,14 +67,58 @@ const filterGuides = (
   extendedGuides: ExtendedGuideInfo[],
   filter: { tagStatus: string; guideCategory: string }
 ) => {
-  if (selectedModule === null) return extendedGuides;
-
   return extendedGuides.filter((guide) => {
-    const matchesModule = guide.module.title[0] === "" + selectedModule;
-    const matchesFilter =
-      (filter.tagStatus ? guide.status === filter.tagStatus : true) &&
-      (filter.guideCategory ? guide.category === filter.guideCategory : true);
+    const isFilteringByCategory = filter.guideCategory !== "";
 
-    return matchesModule && matchesFilter;
+    if (typeof guide.category !== "string") {
+      console.warn(
+        `⚠️ Guide "${guide.title}" has an invalid category:`,
+        guide.category
+      );
+      return false;
+    }
+
+    const guideCategoryLower = guide.category.trim().toLowerCase();
+    const filterCategoryLower = filter.guideCategory.trim().toLowerCase();
+
+    console.log(
+      `🔍 Guide: ${guide.title}, Raw Category: "${guide.category}", Normalized: "${guideCategoryLower}"`
+    );
+    console.log("🔍 Extended Guides Data:", extendedGuides);
+    console.log("🔍 Selected Module:", selectedModule);
+    console.log("🔍 Current Filter:", filter);
+
+    const isCodeRelated = [
+      "html",
+      "css",
+      "javascript",
+      "react",
+      "typescript",
+      "coding",
+      "code",
+    ].some((keyword) => guideCategoryLower.includes(keyword));
+
+    const isDesignRelated = guideCategoryLower.includes("design");
+
+    console.log(
+      `✅ Guide: "${guide.title}", Category: "${guideCategoryLower}", isCodeRelated: ${isCodeRelated}, isDesignRelated: ${isDesignRelated}`
+    );
+
+    const matchesCategory =
+      filterCategoryLower === "code"
+        ? isCodeRelated
+        : filterCategoryLower === "design"
+        ? isDesignRelated
+        : filterCategoryLower
+        ? guideCategoryLower === filterCategoryLower
+        : true;
+
+    const matchesModule = isFilteringByCategory
+      ? true
+      : selectedModule !== null
+      ? guide.module.title[0] === "" + selectedModule
+      : true;
+
+    return matchesModule && matchesCategory;
   });
 };
