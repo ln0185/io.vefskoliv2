@@ -1,6 +1,6 @@
 import React from "react";
 import { ProgressBarContainer, Progress, IconContainer } from "./style";
-import { MarkIcon } from "./../../assets/Icons";
+import { MarkIcon } from "../../assets/Icons";
 
 interface ProgressBarProps {
   progress: number;
