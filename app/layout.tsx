@@ -7,6 +7,7 @@ import Sidebar from "./components/sidebar/sidebar";
 import { auth } from "../auth";
 import LoginPage from "pages/login/page";
 import { Header } from "components/header/Header";
+import { SessionProvider } from "next-auth/react";
 
 const plusJarkaSans = Plus_Jakarta_Sans({
   weight: ["300", "400", "500", "600"],
@@ -32,17 +33,19 @@ export default async function RootLayout({
     <html lang="en">
       <body className={plusJarkaSans.className}>
         <StyledComponentsRegistry>
-          {session?.user ? (
-            <LayoutGrid>
-              <SidebarContainer>
-                <Sidebar />
-              </SidebarContainer>
-              <Header></Header>
-              <Main>{children}</Main>
-            </LayoutGrid>
-          ) : (
-            <LoginPage />
-          )}
+          <SessionProvider session={session}>
+            {session?.user ? (
+              <LayoutGrid>
+                <SidebarContainer>
+                  <Sidebar />
+                </SidebarContainer>
+                <Header />
+                <Main>{children}</Main>
+              </LayoutGrid>
+            ) : (
+              <LoginPage />
+            )}
+          </SessionProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

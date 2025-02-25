@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { SearchIcon, Bell, DefaultUserIcon } from "assets/Icons";
+import { SearchIcon, Bell } from "assets/Icons";
 import {
   HeaderContainer,
   LeftSection,
@@ -12,13 +12,18 @@ import {
   SearchInput,
   NotificationDropdown,
 } from "./style";
+import { useSession } from "next-auth/react";
+import { Profile } from "components/profile/profile"; // Adjust the path as needed
 
 export const Header: React.FC = () => {
+  const { data: session } = useSession();
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
   const notificationRef = useRef<HTMLDivElement>(null);
+
+  const userName = session?.user?.name || "User"; // Fallback to "User" if name is unavailable
 
   const handleSearch = (event: React.FormEvent) => {
     event.preventDefault();
@@ -49,7 +54,7 @@ export const Header: React.FC = () => {
     <HeaderContainer>
       {/* Left Section */}
       <LeftSection>
-        <h1>Hi, Hulda</h1>
+        <h1>Hi, {userName}</h1>
         <p>Let’s finish your task today!</p>
       </LeftSection>
 
@@ -80,14 +85,15 @@ export const Header: React.FC = () => {
           {showNotifications && (
             <NotificationDropdown>
               <p>No new notifications</p>
-              {/* You can map through actual notifications here */}
+              {}
             </NotificationDropdown>
           )}
         </div>
 
-        <UserInfo>
-          <DefaultUserIcon width={36} height={36} />
-        </UserInfo>
+        {}
+        <IconButton as="div">
+          <Profile session={session} />
+        </IconButton>
       </RightSection>
     </HeaderContainer>
   );
