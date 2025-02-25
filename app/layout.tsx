@@ -7,6 +7,7 @@ import Sidebar from "./components/sidebar/sidebar";
 import { auth } from "../auth";
 import LoginPage from "pages/login/page";
 import { Header } from "components/header/Header";
+import motion from "framer-motion";
 
 const plusJarkaSans = Plus_Jakarta_Sans({
   weight: ["300", "400", "500", "600"],
@@ -33,12 +34,14 @@ export default async function RootLayout({
       <body className={plusJarkaSans.className}>
         <StyledComponentsRegistry>
           {session?.user ? (
-            <LayoutGrid>
-              <SidebarContainer>
+            <LayoutGrid layout animate={{ opacity: 1, y: 0 }}>
+              <SidebarContainer layout animate={{ opacity: 1, y: 0 }}>
                 <Sidebar />
               </SidebarContainer>
               <Header></Header>
-              <Main>{children}</Main>
+              <Main layout animate={{ opacity: 1, y: 0 }}>
+                {children}
+              </Main>
             </LayoutGrid>
           ) : (
             <LoginPage />

@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 * {
-  padding: 0;
   margin: 0;
 }
 
@@ -36,6 +35,7 @@ h1 {
   --primary-light-200: #ccd4ff;
   --primary-light-100: #f5f4ff;
   --primary-light-grey: #fafafa;
+  --primary-light-blue: #E8F3FF;
   --primary-white: #ffffff;
 
   --secondary-dark: #141522;

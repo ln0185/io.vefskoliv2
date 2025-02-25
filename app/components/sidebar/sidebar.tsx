@@ -1,6 +1,11 @@
 "use client";
-
-import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
+import React, {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import { IconType } from "react-icons";
 import {
   FiBarChart,
@@ -22,53 +27,81 @@ import {
   CalendarIcon,
   LectureIcon,
   DarkModeIcon,
+  LightModeIcon,
   SidebarIcon,
   VefskolinnLogo,
 } from "assets/Icons";
 import Link from "next/link";
-import { div } from "framer-motion/client";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "components/modeSwitch/ModeSwitch";
 
-type Link = { page: string; title: string; icon: ReactNode };
+type IconProps = {
+  stroke?: string;
+};
+
+type Link = {
+  page: string;
+  title: string;
+  icon: React.ComponentType<IconProps>;
+};
 export type NavBarProps = { links: Link[] };
 
 const links: Link[] = [
-  { page: "/dashboard", title: "Home", icon: <HomeIcon /> },
-  { page: "/resources", title: "Resources", icon: <ResourcesIcon /> },
-  { page: "/halloffame", title: "Hall of Fame", icon: <HallOfFameIcon /> },
-  { page: "/people", title: "People", icon: <PeopleIcon /> },
-  { page: "/calendar", title: "Calendar", icon: <CalendarIcon /> },
-  { page: "/lecture", title: "Lecture", icon: <LectureIcon /> },
+  { page: "/", title: "Home", icon: HomeIcon },
+  { page: "/resources", title: "Resources", icon: ResourcesIcon },
+  { page: "/halloffame", title: "Hall of Fame", icon: HallOfFameIcon },
+  { page: "/people", title: "People", icon: PeopleIcon },
+  { page: "/calendar", title: "Calendar", icon: CalendarIcon },
+  { page: "/lecture", title: "Lecture", icon: LectureIcon },
 ];
 
 export default function Sidebar() {
   const [open, setOpen] = useState(true);
   const pathname = usePathname();
 
-  return (
-    <motion.nav
-      layout
-      className="sticky top-0 h-screen shrink-0 border-r border-slate-300 bg-white p-2 flex flex-col items-center"
-      style={{
-        width: open ? "330px" : "fit-content",
-      }}
-    >
-      <TitleSection open={open} setOpen={setOpen} />
-      <LogoSection open={open} />
+  const isLinkSelected = (pathname: string, linkPath: string): boolean => {
+    if (linkPath === "/") {
+      return pathname === "/" || pathname === "";
+    }
+    return pathname.startsWith(linkPath);
+  };
 
-      <div className={`space-y-1 ${open ? "w-[230px]" : "w-full"}`}>
-        {links.map((link) => (
-          <Option
-            key={link.page}
-            Icon={link.icon}
-            title={link.title}
-            selected={pathname.includes(link.page)}
-            open={open}
-            href={link.page}
-          />
-        ))}
-      </div>
-    </motion.nav>
+  return (
+    <div className="relative h-screen flex items-start justify-start p-4">
+      <motion.nav
+        layout
+        className="rounded-xl shadow-md border border-slate-300 bg-white flex flex-col justify-between px-2"
+        style={{
+          width: open ? "300px" : "fit-content",
+          height: "calc(100vh - 30px)",
+        }}
+      >
+        <div className="flex flex-col gap-8 items-center pt-4">
+          <TitleSection open={open} setOpen={setOpen} />
+          <LogoSection open={open} />
+
+          <div
+            className={`flex flex-col gap-3 ${open ? "w-[230px]" : "w-full"}`}
+          >
+            {links.map((link) => (
+              <Option
+                key={link.page}
+                Icon={link.icon}
+                title={link.title}
+                selected={isLinkSelected(pathname, link.page)}
+                open={open}
+                href={link.page}
+              />
+            ))}
+          </div>
+        </div>
+        {open && (
+          <div className="flex justify-end items-end p-6">
+            <ThemeToggle />
+          </div>
+        )}
+      </motion.nav>
+    </div>
   );
 }
 
@@ -79,7 +112,7 @@ const Option = ({
   open,
   href,
 }: {
-  Icon: ReactNode;
+  Icon: React.ComponentType<IconProps>;
   title: string;
   selected: boolean;
   open: boolean;
@@ -88,18 +121,21 @@ const Option = ({
   return (
     <Link
       href={href}
-      // layout
       className={`relative flex h-10 w-full items-center rounded-md transition-colors ${
         selected
-          ? "bg-indigo-100 text-indigo-800"
-          : "text-slate-500 hover:bg-slate-100"
+          ? "bg-[#E8F3FF] text-[#007AFF]"
+          : "text-[#8E92BC] hover:bg-[#FAFAFA]"
       }`}
     >
       <motion.div
         layout
         className="grid h-full w-10 place-content-center text-lg"
       >
-        {Icon}
+        <Icon
+          stroke={
+            selected ? "var(--primary-default)" : "var(--secondary-light-300)"
+          }
+        />
       </motion.div>
       {open && (
         <motion.span
@@ -144,52 +180,16 @@ const TitleSection = ({
   return (
     <div
       className={`flex item-center w-full ${
-        open ? "justify-between" : "justify-center"
+        open ? "justify-end pr-4" : "justify-center"
       }`}
     >
-      {open && (
-        <motion.div
-          layout
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.125 }}
-        >
-          <button>
-            <DarkModeIcon />
-          </button>
-        </motion.div>
-      )}
-      <motion.button layout onClick={() => setOpen((pv) => !pv)}>
+      <motion.button
+        layout
+        onClick={() => setOpen((pv) => !pv)}
+        className="cursor-pointer"
+      >
         <SidebarIcon />
       </motion.button>
     </div>
-  );
-};
-
-const Logo = () => {
-  // Temp logo from https://logoipsum.com/
-  return (
-    <motion.div
-      layout
-      className="grid size-10 shrink-0 place-content-center rounded-md bg-indigo-600"
-    >
-      <svg
-        width="24"
-        height="auto"
-        viewBox="0 0 50 39"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="fill-slate-50"
-      >
-        <path
-          d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
-          stopColor="#000000"
-        ></path>
-        <path
-          d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
-          stopColor="#000000"
-        ></path>
-      </svg>
-    </motion.div>
   );
 };

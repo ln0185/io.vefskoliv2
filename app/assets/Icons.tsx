@@ -128,7 +128,6 @@ export const ExitIcon = ({ color }: { color?: string }) => (
   </svg>
 );
 
-const logOutIconLabel = "Log out icon";
 export const LogoutIcon = () => (
   <svg
     width="17"
@@ -136,7 +135,7 @@ export const LogoutIcon = () => (
     viewBox="0 0 17 18"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={logOutIconLabel}
+    aria-label="Log out icon"
   >
     <path
       fillRule="evenodd"
@@ -147,47 +146,46 @@ export const LogoutIcon = () => (
   </svg>
 );
 
-const calendarIconLabel = "Calendar icon";
-export const CalendarIcon = () => (
+export const CalendarIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={calendarIconLabel}
+    aria-label="Calendar icon"
   >
     <path
       d="M18 2V4M6 2V4"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M11.9955 13H12.0045M11.9955 17H12.0045M15.991 13H16M8 13H8.00897M8 17H8.00897"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M3.5 8H20.5"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M2.5 12.2432C2.5 7.88594 2.5 5.70728 3.75212 4.35364C5.00424 3 7.01949 3 11.05 3H12.95C16.9805 3 18.9958 3 20.2479 4.35364C21.5 5.70728 21.5 7.88594 21.5 12.2432V12.7568C21.5 17.1141 21.5 19.2927 20.2479 20.6464C18.9958 22 16.9805 22 12.95 22H11.05C7.01949 22 5.00424 22 3.75212 20.6464C2.5 19.2927 2.5 17.1141 2.5 12.7568V12.2432Z"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M3 8H21"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -195,100 +193,97 @@ export const CalendarIcon = () => (
   </svg>
 );
 
-const hallOfFameIconLabel = "Hall of fame icon";
-export const HallOfFameIcon = () => (
+export const HallOfFameIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={hallOfFameIconLabel}
+    aria-label="Hall of fame icon"
   >
     <path
       d="M12 17C10.3264 17 8.86971 18.265 8.11766 20.1312C7.75846 21.0225 8.27389 22 8.95877 22H15.0412C15.7261 22 16.2415 21.0225 15.8823 20.1312C15.1303 18.265 13.6736 17 12 17Z"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
     />
     <path
       d="M18.5 5H19.7022C20.9031 5 21.5035 5 21.8168 5.37736C22.13 5.75472 21.9998 6.32113 21.7393 7.45395L21.3485 9.15307C20.7609 11.7086 18.6109 13.6088 16 14"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M5.5 5H4.29779C3.09692 5 2.49649 5 2.18324 5.37736C1.86999 5.75472 2.00024 6.32113 2.26075 7.45395L2.65148 9.15307C3.23914 11.7086 5.38912 13.6088 8 14"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M12 17C15.0208 17 17.565 12.3379 18.3297 5.99089C18.5412 4.23558 18.647 3.35793 18.0868 2.67896C17.5267 2 16.6223 2 14.8134 2H9.18658C7.37775 2 6.47333 2 5.91317 2.67896C5.35301 3.35793 5.45875 4.23558 5.67025 5.99089C6.435 12.3379 8.97923 17 12 17Z"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
     />
   </svg>
 );
 
-const homeIconLabel = "Home icon";
-export const HomeIcon = () => (
+export const HomeIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={homeIconLabel}
+    aria-label="Home icon"
   >
     <path
       d="M9 22L9.00192 17.9976C9.00236 17.067 9.00258 16.6017 9.15462 16.2347C9.35774 15.7443 9.74746 15.3547 10.2379 15.1519C10.6051 15 11.0704 15 12.001 15C12.9319 15 13.3974 15 13.7647 15.152C14.2553 15.355 14.645 15.7447 14.848 16.2353C15 16.6026 15 17.0681 15 17.999V22"
-      stroke="#141522"
+      stroke={stroke}
       strokeWidth="1.5"
     />
     <path
       d="M7.08848 4.76243L6.08847 5.54298C4.57181 6.72681 3.81348 7.31873 3.40674 8.15333C3 8.98792 3 9.95205 3 11.8803V13.9715C3 17.7562 3 19.6485 4.17157 20.8243C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8243C21 19.6485 21 17.7562 21 13.9715V11.8803C21 9.95205 21 8.98792 20.5933 8.15333C20.1865 7.31873 19.4282 6.72681 17.9115 5.54298L16.9115 4.76243C14.5521 2.92081 13.3724 2 12 2C10.6276 2 9.44787 2.92081 7.08848 4.76243Z"
-      stroke="#141522"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinejoin="round"
     />
   </svg>
 );
 
-const peopleIconLabel = "People icon";
-export const PeopleIcon = () => (
+export const PeopleIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={peopleIconLabel}
+    aria-label="People icon"
   >
     <path
       d="M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
     />
     <path
       d="M15 11C17.2091 11 19 9.20914 19 7C19 4.79086 17.2091 3 15 3"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M11 14H7C4.23858 14 2 16.2386 2 19C2 20.1046 2.89543 21 4 21H14C15.1046 21 16 20.1046 16 19C16 16.2386 13.7614 14 11 14Z"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinejoin="round"
     />
     <path
       d="M17 14C19.7614 14 22 16.2386 22 19C22 20.1046 21.1046 21 20 21H18.5"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -296,33 +291,32 @@ export const PeopleIcon = () => (
   </svg>
 );
 
-const resourcesIconLabel = "Resources icon";
-export const ResourcesIcon = () => (
+export const ResourcesIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={resourcesIconLabel}
+    aria-label="Resources icon"
   >
     <path
       d="M8.64298 3.14559L6.93816 3.93362C4.31272 5.14719 3 5.75397 3 6.75C3 7.74603 4.31272 8.35281 6.93817 9.56638L8.64298 10.3544C10.2952 11.1181 11.1214 11.5 12 11.5C12.8786 11.5 13.7048 11.1181 15.357 10.3544L17.0618 9.56638C19.6873 8.35281 21 7.74603 21 6.75C21 5.75397 19.6873 5.14719 17.0618 3.93362L15.357 3.14559C13.7048 2.38186 12.8786 2 12 2C11.1214 2 10.2952 2.38186 8.64298 3.14559Z"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M20.788 11.0977C20.9293 11.2964 21 11.5036 21 11.7314C21 12.7132 19.6873 13.3114 17.0618 14.5077L15.357 15.2845C13.7048 16.0373 12.8786 16.4138 12 16.4138C11.1214 16.4138 10.2952 16.0373 8.64298 15.2845L6.93817 14.5077C4.31272 13.3114 3 12.7132 3 11.7314C3 11.5036 3.07067 11.2964 3.212 11.0977"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M20.3767 16.2656C20.7922 16.5966 21 16.9265 21 17.3171C21 18.299 19.6873 18.8971 17.0618 20.0934L15.357 20.8702C13.7048 21.6231 12.8786 21.9995 12 21.9995C11.1214 21.9995 10.2952 21.6231 8.64298 20.8702L6.93817 20.0934C4.31272 18.8971 3 18.299 3 17.3171C3 16.9265 3.20778 16.5966 3.62334 16.2656"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -330,26 +324,25 @@ export const ResourcesIcon = () => (
   </svg>
 );
 
-const lectureIconLabel = "Zoom meeting icon";
-export const LectureIcon = () => (
+export const LectureIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={lectureIconLabel}
+    aria-label="Lecture icon"
   >
     <path
       d="M2 10V8C2 7.05719 2 6.58579 2.29289 6.29289C2.58579 6 3.05719 6 4 6H7C10.7712 6 12.6569 6 13.8284 7.17157C15 8.34315 15 10.2288 15 14V16C15 16.9428 15 17.4142 14.7071 17.7071C14.4142 18 13.9428 18 13 18H10C6.22876 18 4.34315 18 3.17157 16.8284C2 15.6569 2 13.7712 2 10Z"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M17.8995 9.07049L18.5997 8.39526C20.0495 6.99707 20.7744 6.29798 21.3872 6.55106C22 6.80414 22 7.80262 22 9.79956V14.2004C22 16.1974 22 17.1959 21.3872 17.4489C20.7744 17.702 20.0495 17.0029 18.5997 15.6047L17.8995 14.9295C17.0122 14.0738 17 14.0453 17 12.8231V11.1769C17 9.95473 17.0122 9.92624 17.8995 9.07049Z"
-      stroke="#8E92BC"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -432,31 +425,43 @@ export const CodeIcon = () => (
   </svg>
 );
 
-const darkModeIconLabel = "Dark mode icon";
-export const DarkModeIcon = () => (
+export const DarkModeIcon = ({
+  color = "black",
+  size = "24",
+}: {
+  color?: string;
+  size?: string;
+}) => (
   <svg
-    width="30"
-    height="28"
-    viewBox="0 0 30 28"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={darkModeIconLabel}
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    color={color}
+    fill="none"
+    aria-label="Dark mode icon"
   >
     <path
-      d="M30.4583 19.9437C28.7587 20.8511 26.8176 21.3657 24.7564 21.3657C18.0612 21.3657 12.6337 15.9381 12.6337 9.24289C12.6337 7.18165 13.1481 5.24056 14.0556 3.54102C8.02916 4.9534 3.54166 10.3624 3.54166 16.8196C3.54166 24.3517 9.64763 30.4577 17.1798 30.4577C23.6369 30.4577 29.0459 25.9702 30.4583 19.9437Z"
-      stroke="black"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      d="M21.5 14.0784C20.3003 14.7189 18.9301 15.0821 17.4751 15.0821C12.7491 15.0821 8.91792 11.2509 8.91792 6.52485C8.91792 5.06986 9.28105 3.69968 9.92163 2.5C5.66765 3.49698 2.5 7.31513 2.5 11.8731C2.5 17.1899 6.8101 21.5 12.1269 21.5C16.6849 21.5 20.503 18.3324 21.5 14.0784Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     />
   </svg>
 );
 
 const lightModeIconLabel = "Light mode icon";
-export const LightModeIcon = () => (
+export const LightModeIcon = ({
+  color = "black",
+  size = "24",
+}: {
+  color?: string;
+  size?: string;
+}) => (
   <svg
-    width="34"
-    height="34"
+    width={size}
+    height={size}
     viewBox="0 0 34 34"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -464,42 +469,41 @@ export const LightModeIcon = () => (
   >
     <path
       d="M24.0833 16.9993C24.0833 20.9113 20.912 24.0827 17 24.0827C13.088 24.0827 9.91666 20.9113 9.91666 16.9993C9.91666 13.0873 13.088 9.91602 17 9.91602C20.912 9.91602 24.0833 13.0873 24.0833 16.9993Z"
-      stroke="black"
+      stroke={color}
       strokeWidth="1.5"
     />
     <path
       d="M17 2.83398V4.95898M17 29.0423V31.1673M27.017 27.0183L25.5143 25.5157M8.4848 8.48544L6.98219 6.98283M31.1667 17.0007H29.0417M4.95834 17.0007H2.83334M27.0177 6.98299L25.515 8.48559M8.48549 25.5158L6.98289 27.0185"
-      stroke="black"
+      stroke={color}
       strokeWidth="1.5"
       strokeLinecap="round"
     />
   </svg>
 );
 
-const sidebarIconLabel = "Sidebar icon";
-export const SidebarIcon = () => (
+export const SidebarIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="34"
     height="34"
     viewBox="0 0 34 34"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={sidebarIconLabel}
+    aria-label="Sidebar icon"
   >
     <path
       d="M2.83334 17C2.83334 11.7737 2.83334 9.16059 3.98626 7.30826C4.41279 6.62295 4.94263 6.02688 5.5518 5.54701C7.19832 4.25 9.5211 4.25 14.1667 4.25H19.8333C24.4789 4.25 26.8016 4.25 28.4482 5.54701C29.0574 6.02688 29.5872 6.62295 30.0138 7.30826C31.1667 9.16059 31.1667 11.7737 31.1667 17C31.1667 22.2262 31.1667 24.8394 30.0138 26.6917C29.5872 27.3771 29.0574 27.9731 28.4482 28.453C26.8016 29.75 24.4789 29.75 19.8333 29.75H14.1667C9.5211 29.75 7.19832 29.75 5.5518 28.453C4.94263 27.9731 4.41279 27.3771 3.98626 26.6917C2.83334 24.8394 2.83334 22.2262 2.83334 17Z"
-      stroke="black"
+      stroke={stroke}
       strokeWidth="1.5"
     />
     <path
       d="M13.4583 4.25V29.75"
-      stroke="black"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinejoin="round"
     />
     <path
       d="M7.08334 9.91602H8.50001M7.08334 14.166H8.50001"
-      stroke="black"
+      stroke={stroke}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -872,16 +876,11 @@ export const exportedForTesting = {
   redCrossLabel,
   bellIconLabel,
   exitIconLabel,
-  logOutIconLabel,
   defaultUserIconLabel,
 
-  resourcesIconLabel,
-  lectureIconLabel,
   designIconLabel,
   codeIconLabel,
-  darkModeIconLabel,
   lightModeIconLabel,
-  sidebarIconLabel,
   notificationIconLabel,
   durationIconLabel,
   filterIconLabel,
