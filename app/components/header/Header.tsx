@@ -1,24 +1,28 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { SearchIcon, Bell, DefaultUserIcon } from "assets/Icons";
+import { SearchIcon, Bell } from "assets/Icons";
 import {
   HeaderContainer,
   LeftSection,
   RightSection,
-  UserInfo,
   IconButton,
   SearchInputContainer,
   SearchInput,
   NotificationDropdown,
 } from "./style";
+import { useSession } from "next-auth/react";
+import { Profile } from "components/profile/profile";
 
 export const Header: React.FC = () => {
+  const { data: session, status } = useSession();
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
   const notificationRef = useRef<HTMLDivElement>(null);
+
+  const userName = session?.user?.name || "User";
 
   const handleSearch = (event: React.FormEvent) => {
     event.preventDefault();
@@ -45,15 +49,17 @@ export const Header: React.FC = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  if (status === "loading") {
+    return <HeaderContainer>Loading...</HeaderContainer>;
+  }
+
   return (
     <HeaderContainer>
-      {/* Left Section */}
       <LeftSection>
-        <h1>Hi, Hulda</h1>
+        <h1>Hi, {userName}</h1>
         <p>Let’s finish your task today!</p>
       </LeftSection>
 
-      {/* Right Section */}
       <RightSection>
         <SearchInputContainer ref={searchRef}>
           {showSearch ? (
@@ -80,14 +86,13 @@ export const Header: React.FC = () => {
           {showNotifications && (
             <NotificationDropdown>
               <p>No new notifications</p>
-              {/* You can map through actual notifications here */}
             </NotificationDropdown>
           )}
         </div>
 
-        <UserInfo>
-          <DefaultUserIcon width={36} height={36} />
-        </UserInfo>
+        <IconButton as="div">
+          <Profile session={session} />
+        </IconButton>
       </RightSection>
     </HeaderContainer>
   );
