@@ -1,23 +1,5 @@
 "use client";
-import React, {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useEffect,
-  useState,
-} from "react";
-import { IconType } from "react-icons";
-import {
-  FiBarChart,
-  FiChevronDown,
-  FiChevronsRight,
-  FiDollarSign,
-  FiHome,
-  FiMonitor,
-  FiShoppingCart,
-  FiTag,
-  FiUsers,
-} from "react-icons/fi";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import { motion } from "framer-motion";
 import {
   HomeIcon,
@@ -26,14 +8,27 @@ import {
   PeopleIcon,
   CalendarIcon,
   LectureIcon,
-  DarkModeIcon,
-  LightModeIcon,
   SidebarIcon,
   VefskolinnLogo,
 } from "assets/Icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ThemeToggle from "components/modeSwitch/ModeSwitch";
+import { DarkModeToggle } from "components/darkmode/darkmode";
+import {
+  Nav,
+  ContentContainer,
+  DarkModeContainer,
+  LinksContainer,
+  LogoContainer,
+  LogoPlaceholder,
+  LogoWrapper,
+  SidebarButton,
+  SidebarContainer,
+  NavLink,
+  LinkText,
+  IconWrapper,
+  TitleContainer,
+} from "./style";
 
 type IconProps = {
   stroke?: string;
@@ -44,6 +39,7 @@ type Link = {
   title: string;
   icon: React.ComponentType<IconProps>;
 };
+
 export type NavBarProps = { links: Link[] };
 
 const links: Link[] = [
@@ -67,22 +63,13 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="relative h-screen flex items-start justify-start p-4">
-      <motion.nav
-        layout
-        className="rounded-xl shadow-md border border-slate-300 bg-white flex flex-col justify-between px-2"
-        style={{
-          width: open ? "300px" : "fit-content",
-          height: "calc(100vh - 30px)",
-        }}
-      >
-        <div className="flex flex-col gap-8 items-center pt-4">
-          <TitleSection open={open} setOpen={setOpen} />
+    <SidebarContainer>
+      <Nav layout $isOpen={open}>
+        <ContentContainer>
+          <SidebarToggle open={open} setOpen={setOpen} />
           <LogoSection open={open} />
 
-          <div
-            className={`flex flex-col gap-3 ${open ? "w-[230px]" : "w-full"}`}
-          >
+          <LinksContainer $isOpen={open}>
             {links.map((link) => (
               <Option
                 key={link.page}
@@ -93,15 +80,16 @@ export default function Sidebar() {
                 href={link.page}
               />
             ))}
-          </div>
-        </div>
+          </LinksContainer>
+        </ContentContainer>
+
         {open && (
-          <div className="flex justify-end items-end p-6">
-            <ThemeToggle />
-          </div>
+          <DarkModeContainer>
+            <DarkModeToggle />
+          </DarkModeContainer>
         )}
-      </motion.nav>
-    </div>
+      </Nav>
+    </SidebarContainer>
   );
 }
 
@@ -119,58 +107,52 @@ const Option = ({
   href: string;
 }) => {
   return (
-    <Link
-      href={href}
-      className={`relative flex h-10 w-full items-center rounded-md transition-colors ${
-        selected
-          ? "bg-[#E8F3FF] text-[#007AFF]"
-          : "text-[#8E92BC] hover:bg-[#FAFAFA]"
-      }`}
-    >
-      <motion.div
-        layout
-        className="grid h-full w-10 place-content-center text-lg"
-      >
+    <NavLink href={href} $isSelected={selected}>
+      <IconWrapper layout>
         <Icon
           stroke={
             selected ? "var(--primary-default)" : "var(--secondary-light-300)"
           }
         />
-      </motion.div>
+      </IconWrapper>
       {open && (
-        <motion.span
+        <LinkText
           layout
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.125 }}
-          className="text-xs font-medium"
         >
           {title}
-        </motion.span>
+        </LinkText>
       )}
-    </Link>
+    </NavLink>
   );
 };
 
 const LogoSection = ({ open }: { open: boolean }) => {
   return (
-    <div className="flex items-center justify-center">
-      {open && (
-        <motion.div
+    <LogoContainer>
+      {open ? (
+        <LogoWrapper
           layout
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.125 }}
         >
-          <VefskolinnLogo width="100" height="100" />
-        </motion.div>
+          <VefskolinnLogo
+            width="100"
+            height="100"
+            color="var(--primary-default)"
+          />
+        </LogoWrapper>
+      ) : (
+        <LogoPlaceholder />
       )}
-      {!open && <div className="h-[100px]"></div>}
-    </div>
+    </LogoContainer>
   );
 };
 
-const TitleSection = ({
+const SidebarToggle = ({
   open,
   setOpen,
 }: {
@@ -178,18 +160,10 @@ const TitleSection = ({
   setOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
-    <div
-      className={`flex item-center w-full ${
-        open ? "justify-end pr-4" : "justify-center"
-      }`}
-    >
-      <motion.button
-        layout
-        onClick={() => setOpen((pv) => !pv)}
-        className="cursor-pointer"
-      >
+    <TitleContainer $isOpen={open}>
+      <SidebarButton layout onClick={() => setOpen((pv) => !pv)}>
         <SidebarIcon />
-      </motion.button>
-    </div>
+      </SidebarButton>
+    </TitleContainer>
   );
 };

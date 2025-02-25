@@ -37,6 +37,13 @@ export const Main = styled(motion.div)`
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: #fafafa;
+  background-color: var(--primary-light-grey);
   grid-area: main;
 `;
+
+// export const Header = styled(motion.div)`
+//   width: 100%;
+//   height: 60px;
+//   background-color: var(--primary-light-grey);
+//   grid-area: header;
+// `;
