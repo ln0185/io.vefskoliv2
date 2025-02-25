@@ -23,6 +23,7 @@ export const GuideCardOverview = ({
   returnStatus,
   feedbackStatus,
   grade,
+
   gradesGivenStatus,
 }: {
   guideTitle: string;
@@ -33,7 +34,7 @@ export const GuideCardOverview = ({
   returnStatus: ReturnStatus;
   feedbackStatus: FeedbackStatus;
   gradesGivenStatus: GradesGivenStatus;
-  grade?: number | number[]; // Update the type to accept both
+  grade?: number;
 }) => {
   const capitalizeFirstLetter = (text: string) => {
     if (!text) return "";
@@ -44,8 +45,12 @@ export const GuideCardOverview = ({
     if (returnStatus === ReturnStatus.NOT_RETURNED) return "Due";
     if (feedbackStatus === FeedbackStatus.NEED_TO_PROVIDE_FEEDBACK)
       return "Review";
-    if (returnStatus === ReturnStatus.PASSED) return "Pass ✔";
     if (gradesGivenStatus === GradesGivenStatus.NEED_TO_GRADE) return "Grade";
+    if (returnStatus === ReturnStatus.PASSED) {
+      if (grade === undefined) return "Waiting";
+      if (grade >= 5) return `Pass: ${grade}`;
+      return `Fail: ${grade}`;
+    }
     if (returnStatus === ReturnStatus.FAILED) return "Fail";
     if (returnStatus === ReturnStatus.AWAITING_FEEDBACK) return "Waiting";
     if (feedbackStatus === FeedbackStatus.AWAITING_PROJECTS) return "Waiting";

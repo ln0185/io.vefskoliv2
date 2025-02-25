@@ -10,11 +10,12 @@ export const GuideCardContainer = styled.div`
   display: flex;
   justify-content: start;
   align-items: start;
+
   width: 100%;
   height: 100%;
 
   &:hover {
-    background-color: var(--secondary-light-100);
+    background-color: #dfe3e7;
     border-radius: 20px;
   }
 `;
@@ -103,8 +104,6 @@ export const Tag = styled.div<{ status: string }>`
         ? "var(--fail-text)"
         : props.status.startsWith("Pass:")
         ? "var(--pass-text)"
-        : props.status === "Pass ✔"
-        ? "var(--pass-text)"
         : props.status === "Review"
         ? "var(--grade-text)"
         : props.status === "Grade"
@@ -121,8 +120,6 @@ export const Tag = styled.div<{ status: string }>`
       : props.status === "Fail"
       ? "var(--fail-bg)"
       : props.status.startsWith("Pass:")
-      ? "var(--pass-bg)"
-      : props.status === "Pass ✔"
       ? "var(--pass-bg)"
       : props.status === "Review"
       ? "var(--grade-bg)"

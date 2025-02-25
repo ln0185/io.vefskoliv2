@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Container, ModuleContainer, ModuleOptionContainer } from "./style";
-import { FilterButton } from "./filterButton";
 
 export type ModuleOption = {
   optionName: string;
@@ -50,10 +49,6 @@ export const Module = ({
           );
         })}
       </ModuleContainer>
-      <FilterButton
-        setFilter={setFilter}
-        filter={{ tagStatus: "", guideCategory: "" }}
-      />
     </Container>
   );
 };
