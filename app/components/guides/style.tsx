@@ -20,7 +20,7 @@ export const ModuleContainer = styled.div`
 
 export const ModuleOptionContainer = styled.button<{ $isActive: boolean }>`
   padding: 10px 20px;
-  color: #8e92bc;
+  color: var(--secondary-light-300);
   font-size: 16px;
   font-weight: 700;
   border: none;
@@ -72,17 +72,20 @@ export const AverageRow = styled.div`
   height: auto;
   align-self: center;
   padding: 14px 27px;
-  border: solid;
-  border-color: #dfe3e7;
+  border: solid 1px;
+  border-color: var(--secondary-light-300);
   border-radius: 36px;
 `;
 
-export const AverageLabel = styled.strong`
+export const AverageLabel = styled.strong<{ color?: string }>`
   font-size: 16px;
+  color: ${({ color }) => color || "var(--secondary-light-300)"};
+  font-weight: 600;
 `;
 
 export const AverageValue = styled.span<{ isGreen: boolean }>`
-  color: ${({ isGreen }) => (isGreen ? "green" : "red")};
+  color: ${({ isGreen }) =>
+    isGreen ? "var(--fail-text)" : "var(--pass-text)"};
   font-weight: bold;
 `;
 

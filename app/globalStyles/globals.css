@@ -65,6 +65,9 @@ h1 {
   --waiting-text: #fba700;
   --waiting-bg: #fff7d9;
   --waiting-border: #feee95;
+
+  /* Hover */
+  --card-hover: var(--secondary-light-200);
 }
 
 .dark-mode {
@@ -86,8 +89,8 @@ h1 {
   --fail-border: #912018;
 
   --pass-text: #73e2a3;
+  --pass-border: #095c37;
   --pass-bg: #052e1c;
-  --fail-border: #095c37;
 
   --due-text: #84caff;
   --due-bg: #102a56;
@@ -96,6 +99,9 @@ h1 {
   --waiting-text: #fde272;
   --waiting-bg: #a15c07;
   --waiting-border: #854a0e;
+
+  /* Hover */
+  --card-hover: var(--primary-border);
 
   /* Font Weights */
   --light: 300;
