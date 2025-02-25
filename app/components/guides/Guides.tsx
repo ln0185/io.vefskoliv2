@@ -9,11 +9,8 @@ import {
 import { ExtendedGuideInfo, Module } from "types/guideTypes";
 import { useLocalState } from "react-session-hooks";
 import { GuidesClient } from "components/guidesClient/GuidesClient";
-<<<<<<< HEAD
 import { FilterButton } from "components/ModuleMenu/filterButton";
 import { Module as ModuleMenu } from "components/ModuleMenu/ModuleMenu";
-=======
->>>>>>> 538927aaa15b28020ce0c9b214139feb116a620a
 
 const LOCAL_STORAGE_KEY = "selectedModule";
 
@@ -41,28 +38,12 @@ export const Guides = ({
 
   return (
     <Container>
-<<<<<<< HEAD
       <ModuleMenu
         options={options}
         setFilter={setFilter}
         setModule={setSelectedModule}
         filter={filter}
       ></ModuleMenu>
-=======
-      <GuideDropdownContainer>
-        {options.map((option) => (
-          <ModuleOptionContainer
-            key={option.optionName}
-            onClick={option.onClick}
-            isActive={
-              selectedModule === Number(option.optionName.split(" ")[1])
-            }
-          >
-            <p>{option.optionName}</p>
-          </ModuleOptionContainer>
-        ))}
-      </GuideDropdownContainer>
->>>>>>> 538927aaa15b28020ce0c9b214139feb116a620a
 
       <GuidesClient guides={filteredGuides} useGuideOrder={!!selectedModule} />
     </Container>
@@ -87,7 +68,6 @@ const filterGuides = (
   filter: { tagStatus: string; guideCategory: string }
 ) => {
   return extendedGuides.filter((guide) => {
-<<<<<<< HEAD
     const isFilteringByCategory = filter.guideCategory !== "";
 
     if (typeof guide.category !== "string") {
@@ -140,10 +120,5 @@ const filterGuides = (
       : true;
 
     return matchesModule && matchesCategory;
-=======
-    const matchesModule = guide.module.title[0] === "" + selectedModule;
-
-    return matchesModule;
->>>>>>> 538927aaa15b28020ce0c9b214139feb116a620a
   });
 };
