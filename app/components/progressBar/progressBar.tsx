@@ -1,25 +1,20 @@
 import React from "react";
-import styled from "styled-components";
+import { ProgressBarContainer, Progress, IconContainer } from "./style";
+import { MarkIcon } from "./../../assets/Icons";
 
-const ProgressContainer = styled.div`
-  width: 100%;
-  height: 10px;
-  background-color: #e0e0e0;
-  border-radius: 5px;
-  overflow: hidden;
-`;
+interface ProgressBarProps {
+  progress: number;
+}
 
-const ProgressFill = styled.div<{ progress: number }>`
-  height: 100%;
-  width: ${(props) => props.progress}%;
-  background-color: #4caf50;
-  transition: width 0.3s ease-in-out;
-`;
-
-export const ProgressBar = ({ progress }: { progress: number }) => {
+const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
   return (
-    <ProgressContainer>
-      <ProgressFill progress={progress} />
-    </ProgressContainer>
+    <ProgressBarContainer>
+      <Progress progress={progress} />
+      <IconContainer style={{ left: `${progress}%` }}>
+        <MarkIcon />
+      </IconContainer>
+    </ProgressBarContainer>
   );
 };
+
+export default ProgressBar;

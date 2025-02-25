@@ -1,15 +1,16 @@
 "use client";
 import styled from "styled-components";
 
-const breakPoint = "768px";
-
 export const Container = styled.div`
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
   width: 100%;
   padding: 5px;
+  padding-left: 25px;
 `;
 
-export const GuideDropdownContainer = styled.div`
+export const ModuleContainer = styled.div`
   display: flex;
   gap: 10px;
   width: 100%;
@@ -17,7 +18,7 @@ export const GuideDropdownContainer = styled.div`
   margin-bottom: 20px;
 `;
 
-export const ModuleOptionContainer = styled.button<{ isActive: boolean }>`
+export const ModuleOptionContainer = styled.button<{ $isActive: boolean }>`
   padding: 10px 20px;
   color: #8e92bc;
   font-size: 16px;
@@ -35,9 +36,9 @@ export const ModuleOptionContainer = styled.button<{ isActive: boolean }>`
     outline: none;
   }
 
-  ${({ isActive }) =>
-    isActive
-      ? `
+  ${({ $isActive }) =>
+    $isActive
+      ? ` 
         color: var(--primary-default);
         font-weight: bold;
         &::after {
@@ -51,4 +52,51 @@ export const ModuleOptionContainer = styled.button<{ isActive: boolean }>`
         }
       `
       : ""}
+`;
+
+export const GradeAverageContainer = styled.div`
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: end;
+  padding-right: 30px;
+`;
+
+export const AverageRow = styled.div`
+  margin-bottom: 10px;
+  width: auto;
+  margin-right: 13%;
+  margin-bottom: 37px;
+  height: auto;
+  align-self: center;
+  padding: 14px 27px;
+  border: solid;
+  border-color: #dfe3e7;
+  border-radius: 36px;
+`;
+
+export const AverageLabel = styled.strong`
+  font-size: 16px;
+`;
+
+export const AverageValue = styled.span<{ isGreen: boolean }>`
+  color: ${({ isGreen }) => (isGreen ? "green" : "red")};
+  font-weight: bold;
+`;
+
+export const ProgressBarWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  width: 17.5rem;
+  margin-bottom: 44px;
+`;
+
+export const ProgressText = styled.span`
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-default);
 `;
