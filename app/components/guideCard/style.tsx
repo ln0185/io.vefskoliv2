@@ -9,7 +9,7 @@ export const CardWrapper = styled.div`
   flex-direction: column;
   align-items: start;
   gap: 4px;
-  background-color: #ffffff;
+  background-color: var(--primary-white);
   border-radius: 20px;
 `;
 
