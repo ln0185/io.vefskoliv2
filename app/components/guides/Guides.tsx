@@ -5,7 +5,7 @@ import { Container, ModuleContainer, ModuleOptionContainer } from "./style";
 import { ExtendedGuideInfo, Module } from "types/guideTypes";
 import { useLocalState } from "react-session-hooks";
 import { GuidesClient } from "components/guidesClient/GuidesClient";
-import ProgressBar from "./../ProgressBar/ProgressBar";
+import ProgressBar from "../ProgressBar/ProgressBar";
 import {
   GradeAverageContainer,
   AverageRow,
