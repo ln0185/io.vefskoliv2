@@ -15,7 +15,7 @@ export const GuideCardContainer = styled.div`
   height: 100%;
 
   &:hover {
-    background-color: #dfe3e7;
+    background-color: var(--card-hover);
     border-radius: 20px;
   }
 `;
@@ -29,7 +29,7 @@ export const StyledLink = styled(Link)`
 
   // background for guide cards//
   &:hover {
-    background-color: var(--secondary-light-100);
+    background-color: var(--card-hover);
     border-radius: 20px;
   }
 `;
@@ -76,7 +76,7 @@ export const CodeIcon = styled(Icon2)`
   height: 28px;
 `;
 
-export const Tag = styled.div<{ status: string }>`
+export const Tag = styled.div<{ status: string; border?: string }>`
   position: absolute;
   right: 1.875rem;
   top: 1.625rem;
@@ -89,6 +89,7 @@ export const Tag = styled.div<{ status: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
+  border: ${(props) => props.border || "1px solid transparent"};
 
   span {
     font-size: 14px;
@@ -110,9 +111,10 @@ export const Tag = styled.div<{ status: string }>`
         ? "var(--grade-text)"
         : "var(--primary-default)"};
   }
+
   background-color: ${(props) =>
     props.status === "Due"
-      ? " var(--primary-light-100)"
+      ? "var(--due-bg)"
       : props.status === "Waiting"
       ? "var(--waiting-bg)"
       : props.status.startsWith("Fail:")
@@ -126,4 +128,21 @@ export const Tag = styled.div<{ status: string }>`
       : props.status === "Grade"
       ? "var(--grade-bg)"
       : "var(--default-color)"};
+
+  border-color: ${(props) =>
+    props.status === "Due"
+      ? "var(--due-border)"
+      : props.status === "Waiting"
+      ? "var(--waiting-border)"
+      : props.status === "Fail"
+      ? "var(--fail-border)"
+      : props.status.startsWith("Fail:")
+      ? "var(--fail-border)"
+      : props.status.startsWith("Pass:")
+      ? "var(--pass-border)"
+      : props.status === "Review"
+      ? "var(--grade-border)"
+      : props.status === "Grade"
+      ? "var(--grade-border)"
+      : "var(--primary-default)"};
 `;

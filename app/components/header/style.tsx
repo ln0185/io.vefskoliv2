@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const HeaderContainer = styled.div`
   width: 100%;
   height: 6.25rem;
-  background-color: #fafafa;
+  background-color: var(--primary-light-grey);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,12 +19,13 @@ export const LeftSection = styled.div`
   h1 {
     font-size: 24px;
     font-weight: bold;
+    color: var(--secondary-dark);
   }
 
   p {
     font-size: 16px;
-    color: #8e92bc;
     margin-top: 4px;
+    color: var(--secondary-light-300);
   }
 `;
 
