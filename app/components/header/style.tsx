@@ -1,8 +1,9 @@
 "use client";
 
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled(motion.div)`
   width: 100%;
   height: 6.25rem;
   background-color: var(--primary-light-grey);

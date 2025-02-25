@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 * {
-  padding: 0;
   margin: 0;
 }
 
@@ -34,6 +33,7 @@ h1 {
   /* Primary Colors */
   --primary-default: #007aff;
   --primary-light-grey: #fafafa;
+  --primary-light-blue: #E8F3FF;
   --primary-white: #ffffff;
   --primary-border: #dfe3e7;
 
@@ -74,6 +74,7 @@ h1 {
   /* Primary Colors */
   --primary-default: #007aff;
   --primary-light-grey: #0c0e12;
+  --primary-light-blue: #232A32;
   --primary-white: #1b1c20;
   --primary-border: #373a41;
 

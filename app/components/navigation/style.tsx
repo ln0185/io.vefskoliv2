@@ -7,7 +7,7 @@ const breakpoint = "1191px";
 export const NavbarButton = styled(Link)`
   width: 100%;
   text-align: center;
-  color: var(--theme-module3-100);
+  color: black;
   font-size: 18px;
   padding: 10px;
   text-decoration: none;
@@ -19,11 +19,12 @@ export const NavbarButton = styled(Link)`
 `;
 
 export const DesktopNavbarButton = styled(NavbarButton)`
-  display: none;
-  width: 200px;
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
   @media (min-width: ${breakpoint}) {
     display: flex;
-    border: solid 1px var(--theme-module3-100);
     font-size: 15px;
     border-radius: 8px;
     cursor: pointer;

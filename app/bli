@@ -1,0 +1,30 @@
+export default async function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const session = await auth();
+  const [open, setOpen] = useState(true); // Sidebar state
+
+  return (
+    <html lang="en">
+      <body className={plusJarkaSans.className}>
+        <StyledComponentsRegistry>
+          {session?.user ? (
+            <LayoutGrid layout animate={{ marginLeft: open ? 300 : 80 }} open={open}>
+              <SidebarContainer layout>
+                <Sidebar open={open} setOpen={setOpen} /> {/* Pass state */}
+              </SidebarContainer>
+              <Header layout animate={{ marginLeft: open ? 300 : 80 }} open={open} />
+              <Main layout animate={{ marginLeft: open ? 300 : 80 }} open={open}>
+                {children}
+              </Main>
+            </LayoutGrid>
+          ) : (
+            <LoginPage />
+          )}
+        </StyledComponentsRegistry>
+      </body>
+    </html>
+  );
+}
