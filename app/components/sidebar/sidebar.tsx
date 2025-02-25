@@ -2,6 +2,7 @@ import { auth } from "auth";
 import { Profile } from "../profile/profile";
 import { NavbarContainer } from "globalStyles/layout";
 import { NavBar } from "components/navigation/NavBar";
+import { DarkModeToggle} from "components/darkmode/darkmode";
 
 async function Sidebar() {
   const session = await auth();
@@ -11,6 +12,7 @@ async function Sidebar() {
       <NavbarContainer>
         <NavBar />
       </NavbarContainer>
+      <DarkModeToggle></DarkModeToggle>
     </>
   );
 }
