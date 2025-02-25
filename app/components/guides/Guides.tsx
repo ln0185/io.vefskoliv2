@@ -20,11 +20,9 @@ const LOCAL_STORAGE_KEY = "selectedModule";
 export const Guides = ({
   extendedGuides,
   modules,
-  userId,
 }: {
   extendedGuides: ExtendedGuideInfo[];
   modules: Module[];
-  userId: string;
 }) => {
   const [selectedModule, setSelectedModule, loading] =
     useLocalState<number>(LOCAL_STORAGE_KEY);
