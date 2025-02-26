@@ -843,7 +843,6 @@ export const DefaultUserIcon = ({
   </svg>
 );
 
-const searchIconLabel = "Search icon";
 export const SearchIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -852,7 +851,7 @@ export const SearchIcon = () => (
     height="24"
     color="#000000"
     fill="none"
-    aria-label={searchIconLabel}
+    aria-label="Search icon"
   >
     <path
       d="M17.5 17.5L22 22"
@@ -907,5 +906,4 @@ export const exportedForTesting = {
   filterIconLabel,
   listIconLabel,
   cardIconLabel,
-  searchIconLabel,
 };

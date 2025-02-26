@@ -40,7 +40,7 @@ export const StyledLink = styled(Link)`
 `;
 
 export const Info = styled(Wrapper)`
-position:relative
+  position: relative;
   justify-content: space-between;
   height: 100%;
   align-items: start;
