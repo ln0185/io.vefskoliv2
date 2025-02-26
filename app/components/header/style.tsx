@@ -11,18 +11,25 @@ export const HeaderContainer = styled(motion.div)`
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  @media (max-width: 768px) {
+    padding: 10px 15px;
+    height: 4.5rem;
+  }
 `;
 
 export const LeftSection = styled.div`
   display: flex;
   flex-direction: column;
-
   h1 {
     font-size: 24px;
     font-weight: bold;
     color: var(--secondary-dark);
   }
-
   p {
     font-size: 16px;
     margin-top: 4px;
@@ -47,7 +54,6 @@ export const IconButton = styled.button`
   background: none;
   cursor: pointer;
   transition: background 0.2s;
-
   &:hover {
     background: var(--primary-light-grey);
   }
@@ -57,6 +63,7 @@ export const UserInfo = styled.div`
   display: flex;
   align-items: center;
 `;
+
 export const SearchInputContainer = styled.div`
   position: relative;
 `;
@@ -69,6 +76,7 @@ export const SearchInput = styled.input`
   outline: none;
   width: 150px;
 `;
+
 export const NotificationDropdown = styled.div`
   position: absolute;
   top: 40px;
