@@ -18,8 +18,7 @@ interface OpenProps {
 
 export const Nav = styled(motion.nav)<OpenProps>`
   border-radius: 0.75rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--primary-border);
   background-color: var(--primary-white);
   display: flex;
   flex-direction: column;
@@ -120,4 +119,44 @@ export const DarkModeContainer = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   padding: 1.5rem;
+`;
+
+export const MultiToDoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+`;
+
+export const ToDoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+`;
+
+export const Title = styled.span`
+  font-size: 16px;
+  color: #8e92bc;
+`;
+
+export const ToDoButton = styled.button`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #8e92bc;
+  border-radius: 12px;
+  padding: 12px;
+  background: transparent;
+  cursor: pointer;
+`;
+
+export const ModuleText = styled.span`
+  font-size: 12px;
+  color: #8e92bc;
+`;
+
+export const GuideText = styled.span`
+  font-size: 16px;
+  color: #8e92bc;
+  text-align: left;
 `;
