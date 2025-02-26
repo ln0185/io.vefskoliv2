@@ -52,6 +52,9 @@ export const IconButton = styled.button`
     background: var(--primary-light-grey);
   }
 `;
+export const NotificationDropdown = styled.button`
+  cursor: pointer;
+`;
 
 export const UserInfo = styled.div`
   display: flex;
@@ -68,16 +71,4 @@ export const SearchInput = styled.input`
   border-radius: 4px;
   outline: none;
   width: 150px;
-`;
-export const NotificationDropdown = styled.div`
-  position: absolute;
-  top: 40px;
-  right: 0;
-  width: 200px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  font-size: 14px;
-  z-index: 10;
 `;
