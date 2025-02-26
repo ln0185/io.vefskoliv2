@@ -33,8 +33,8 @@ export const RedIconContainer = styled.div`
   position: absolute;
   height: 8px;
   width: 10px;
-  top: 82px;
-  left: 125px;
+  top: 85px;
+  left: 130px;
   z-index: 1;
 `;
 

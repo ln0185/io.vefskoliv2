@@ -56,24 +56,26 @@ export const ModuleOptionContainer = styled.button<{ $isActive: boolean }>`
 
 export const GradeAverageContainer = styled.div`
   margin-top: 30px;
+  margin-bottom: 30px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: end;
-  padding-right: 30px;
+  padding-right: 80px;
 `;
 
 export const AverageRow = styled.div`
   margin-bottom: 10px;
-  width: auto;
+  width: 16.5rem;
   margin-right: 13%;
-  margin-bottom: 37px;
+  gin-bottom: 37px;
   height: auto;
+  background-color: var(--primary-white);
   align-self: center;
   padding: 14px 27px;
   border: solid 1px;
-  border-color: var(--secondary-light-300);
+  border-color: var(--secondary-light-200);
   border-radius: 36px;
 `;
 
@@ -84,8 +86,7 @@ export const AverageLabel = styled.strong<{ color?: string }>`
 `;
 
 export const AverageValue = styled.span<{ $isPassed: boolean }>`
-  color: ${({ $isPassed }) =>
-    $isPassed ? "var(--pass-text)" : "var(--fail-text)"};
+  color: ${({ $isPassed }) => ($isPassed ? "#73e2a3" : "var(--fail-text)")};
   font-weight: bold;
 `;
 

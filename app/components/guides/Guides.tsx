@@ -59,11 +59,17 @@ export const Guides = ({
         <AverageRow>
           <AverageLabel>Coding </AverageLabel>
           <AverageValue $isPassed={codeAverage >= 5}>
-            {codeAverage >= 0 ? codeAverage.toFixed(2) : "No Grades"}
+            {codeAverage >= 0 ? codeAverage.toFixed(1) : "No Grades"}
           </AverageValue>
-          |<AverageLabel>Design </AverageLabel>
+          <span
+            style={{ margin: "0 10px", color: "var(--secondary-light-200)" }}
+          >
+            |
+          </span>
+
+          <AverageLabel>Design </AverageLabel>
           <AverageValue $isPassed={designAverage >= 5}>
-            {designAverage >= 0 ? designAverage.toFixed(2) : "No Grades"}
+            {designAverage >= 0 ? designAverage.toFixed(1) : "No Grades"}
           </AverageValue>
         </AverageRow>
         <ProgressBarWrapper>

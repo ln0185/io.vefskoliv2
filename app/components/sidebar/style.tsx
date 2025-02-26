@@ -137,13 +137,13 @@ export const ToDoContainer = styled.div`
 
 export const Title = styled.span`
   font-size: 16px;
-  color: #8e92bc;
+  color: var(--secondary-light-300);
 `;
 
 export const ToDoButton = styled.button`
   display: flex;
   flex-direction: column;
-  border: 1px solid #8e92bc;
+  border: 1px solid var(--secondary-light-300);
   border-radius: 12px;
   padding: 12px;
   background: transparent;
@@ -152,11 +152,11 @@ export const ToDoButton = styled.button`
 
 export const ModuleText = styled.span`
   font-size: 12px;
-  color: #8e92bc;
+  color: var(--secondary-light-300);
 `;
 
 export const GuideText = styled.span`
   font-size: 16px;
-  color: #8e92bc;
+  color: var(--secondary-light-300);
   text-align: left;
 `;
