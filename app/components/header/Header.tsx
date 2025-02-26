@@ -11,18 +11,19 @@ import {
   SearchInput,
   NotificationDropdown,
 } from "./style";
-import { useSession } from "next-auth/react";
-import { Profile } from "components/profile/profile";
 
-export const Header: React.FC = () => {
-  const { data: session, status } = useSession();
+import { Profile } from "components/profile/profile";
+import { Session } from "next-auth";
+import { AdapterUser } from "next-auth/adapters";
+type Props = {
+  session: Session;
+};
+export const Header = ({ session }: Props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
   const notificationRef = useRef<HTMLDivElement>(null);
-
-  const userName = session?.user?.name || "User";
 
   const handleSearch = (event: React.FormEvent) => {
     event.preventDefault();
@@ -48,15 +49,11 @@ export const Header: React.FC = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
-  if (status === "loading") {
-    return <HeaderContainer>Loading...</HeaderContainer>;
-  }
-
+  const user = session?.user as AdapterUser;
   return (
     <HeaderContainer>
       <LeftSection>
-        <h1>Hi, {userName}</h1>
+        <h1>Hi, {user.name}</h1>
         <p>Let’s finish your task today!</p>
       </LeftSection>
 
