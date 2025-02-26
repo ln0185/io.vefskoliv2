@@ -12,7 +12,7 @@ import {
   VefskolinnLogo,
 } from "assets/Icons";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { DarkModeToggle } from "components/darkmode/darkmode";
 import {
   Nav,
@@ -28,6 +28,12 @@ import {
   LinkText,
   IconWrapper,
   TitleContainer,
+  ToDoContainer,
+  Title,
+  ToDoButton,
+  ModuleText,
+  GuideText,
+  MultiToDoContainer,
 } from "./style";
 
 type IconProps = {
@@ -81,6 +87,24 @@ export default function Sidebar() {
               />
             ))}
           </LinksContainer>
+          <MultiToDoContainer>
+            <ToDo
+              title={"Today"}
+              moduleNumber={4}
+              guideNumber={3}
+              description={"React props"}
+              open={open}
+              href="/guides/653a11abf57a20f9a5d911e6"
+            />
+            <ToDo
+              title={"Tomorrow"}
+              moduleNumber={4}
+              guideNumber={4}
+              description={"React state"}
+              open={open}
+              href="/guides/653a73397a41e11fa6e5423f"
+            />
+          </MultiToDoContainer>
         </ContentContainer>
 
         {open && (
@@ -165,5 +189,40 @@ const SidebarToggle = ({
         <SidebarIcon />
       </SidebarButton>
     </TitleContainer>
+  );
+};
+
+type ToDoProps = {
+  title?: string;
+  moduleNumber?: number;
+  guideNumber?: number;
+  description?: string;
+  open: boolean;
+  href: string;
+};
+
+const ToDo = ({
+  title,
+  moduleNumber,
+  guideNumber,
+  description,
+  open,
+  href,
+}: ToDoProps) => {
+  const router = useRouter();
+  return (
+    <>
+      {open && (
+        <ToDoContainer>
+          <Title>{title}</Title>
+          <ToDoButton onClick={() => router.push(href)}>
+            <ModuleText>Module {moduleNumber}</ModuleText>
+            <GuideText>
+              Guide {guideNumber} - {description}
+            </GuideText>
+          </ToDoButton>
+        </ToDoContainer>
+      )}
+    </>
   );
 };
