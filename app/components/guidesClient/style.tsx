@@ -5,6 +5,6 @@ export const GuideContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
-  gap: 0.75rem;
+  gap: 1.2rem;
   width: 100%;
 `;

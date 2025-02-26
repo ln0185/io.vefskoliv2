@@ -12,16 +12,15 @@ export const GuideCardContainer = styled.div`
   align-items: start;
   border-radius: 20px;
   cursor: pointer;
-
-  border: solid 1px var(--secondary-light-200);
+  background-color: var(--primary-white);
+  border: solid 1px var(--card-border);
   width: 100%;
   height: 100%;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
-    background-color 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out,
+    background-color 0.2s ease-in-out;
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   }
 `;
 
@@ -31,11 +30,17 @@ export const StyledLink = styled(Link)`
   display: flex;
   width: 100%;
   height: 100%;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: var(--primary-white);
+  border: solid 1px var(--card-border);
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out,
+    background-color 0.2s ease-in-out;
 
-  // background for guide cards//
   &:hover {
-    background-color: var(--card-hover);
-    border-radius: 20px;
+    transform: scale(1.05);
   }
 `;
 
@@ -101,7 +106,7 @@ export const Tag = styled.div<{ status: string; border?: string }>`
     font-weight: 500;
     color: ${(props) =>
       props.status === "Due"
-        ? "var(--primary-default)"
+        ? "var(--due-text)"
         : props.status === "Waiting"
         ? "var(--waiting-text)"
         : props.status === "Fail"
@@ -146,8 +151,8 @@ export const Tag = styled.div<{ status: string; border?: string }>`
       : props.status.startsWith("Pass:")
       ? "var(--pass-border)"
       : props.status === "Review"
-      ? "var(--grade-border)"
+      ? "transparent"
       : props.status === "Grade"
-      ? "var(--grade-border)"
+      ? "transparent"
       : "var(--primary-default)"};
 `;

@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-content: center;
   width: 100%;
   padding: 5px;
-  padding-left: 25px;
+  padding-left: 10px;
 `;
 
 export const ModuleContainer = styled.div`
@@ -83,9 +83,9 @@ export const AverageLabel = styled.strong<{ color?: string }>`
   font-weight: 600;
 `;
 
-export const AverageValue = styled.span<{ isGreen: boolean }>`
-  color: ${({ isGreen }) =>
-    isGreen ? "var(--fail-text)" : "var(--pass-text)"};
+export const AverageValue = styled.span<{ isPassed: boolean }>`
+  color: ${({ isPassed }) =>
+    isPassed ? "var(--pass-text)" : "var(--fail-text)"};
   font-weight: bold;
 `;
 

@@ -64,11 +64,11 @@ export const Guides = ({
       <GradeAverageContainer>
         <AverageRow>
           <AverageLabel>Coding </AverageLabel>
-          <AverageValue isGreen={codeAverage >= 5}>
+          <AverageValue isPassed={codeAverage >= 5}>
             {codeAverage >= 0 ? codeAverage.toFixed(2) : "No Grades"}
           </AverageValue>
           |<AverageLabel>Design </AverageLabel>
-          <AverageValue isGreen={designAverage >= 5}>
+          <AverageValue isPassed={designAverage >= 5}>
             {designAverage >= 0 ? designAverage.toFixed(2) : "No Grades"}
           </AverageValue>
         </AverageRow>
