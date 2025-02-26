@@ -73,6 +73,7 @@ export const GuideDescription = styled(Wrapper)``;
 
 export const DesignIcon = styled(Icon)`
   position: absolute;
+  color: var(--secondary-dark);
   top: 0px;
   left: 0px;
   width: 30px;
@@ -80,6 +81,7 @@ export const DesignIcon = styled(Icon)`
 `;
 export const CodeIcon = styled(Icon2)`
   position: absolute;
+  color: var(--secondary-dark);
   top: 0px;
   left: 0px;
   width: 30px;

@@ -362,29 +362,29 @@ export const DesignIcon = () => (
   >
     <path
       d="M20.625 18.75C22.9032 18.75 24.75 17.0711 24.75 15C24.75 12.9289 22.9032 11.25 20.625 11.25C18.3468 11.25 16.5 12.9289 16.5 15C16.5 17.0711 18.3468 18.75 20.625 18.75Z"
-      stroke="black"
+      stroke="var(--secondary-dark)"
       strokeLinejoin="round"
     />
     <path
       d="M12.375 26.25C14.6532 26.25 16.5 24.5711 16.5 22.5V18.75H12.375C10.0968 18.75 8.25 20.4289 8.25 22.5C8.25 24.5711 10.0968 26.25 12.375 26.25Z"
-      stroke="black"
+      stroke="var(--secondary-dark)"
       strokeLinejoin="round"
     />
     <path
       d="M16.5 11.25V18.75H12.375C10.0968 18.75 8.25 17.0711 8.25 15C8.25 12.9289 10.0968 11.25 12.375 11.25H16.5Z"
-      stroke="black"
+      stroke="var(--secondary-dark)"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M16.5 3.75V11.25H12.375C10.0968 11.25 8.25 9.57106 8.25 7.5C8.25 5.42894 10.0968 3.75 12.375 3.75H16.5Z"
-      stroke="black"
+      stroke="var(--secondary-dark)"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M16.5 3.75V11.25H20.625C22.9032 11.25 24.75 9.57106 24.75 7.5C24.75 5.42894 22.9032 3.75 20.625 3.75H16.5Z"
-      stroke="black"
+      stroke="var(--secondary-dark)"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
@@ -403,21 +403,21 @@ export const CodeIcon = () => (
   >
     <path
       d="M24.0833 11.334L26.6897 13.9549C27.7855 15.0568 28.3333 15.6078 28.3333 16.2923C28.3333 16.9769 27.7855 17.5278 26.6897 18.6297L24.0833 21.2507"
-      stroke="black"
+      stroke="var(--secondary-dark)"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M9.91669 11.334L7.31029 13.9549C6.21455 15.0568 5.66669 15.6078 5.66669 16.2923C5.66669 16.9769 6.21455 17.5278 7.31029 18.6297L9.91669 21.2507"
-      stroke="black"
+      stroke="var(--secondary-dark)"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M19.8334 7.08398L14.1667 25.5007"
-      stroke="black"
+      stroke="var(--secondary-dark)"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
