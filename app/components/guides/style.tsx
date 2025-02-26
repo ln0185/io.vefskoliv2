@@ -83,9 +83,9 @@ export const AverageLabel = styled.strong<{ color?: string }>`
   font-weight: 600;
 `;
 
-export const AverageValue = styled.span<{ isPassed: boolean }>`
-  color: ${({ isPassed }) =>
-    isPassed ? "var(--pass-text)" : "var(--fail-text)"};
+export const AverageValue = styled.span<{ $isPassed: boolean }>`
+  color: ${({ $isPassed }) =>
+    $isPassed ? "var(--pass-text)" : "var(--fail-text)"};
   font-weight: bold;
 `;
 

@@ -35,6 +35,17 @@ export const Module = ({
   setModule,
   filter,
 }: ModuleProps) => {
+  console.log("✅ Module component is rendering");
+
+  console.log("🔍 Props passed to Module:", {
+    options,
+    currentOption,
+    filter,
+    zIndex,
+    setFilter,
+    setModule,
+  });
+
   const [shownOption, setShownOption] = useState(
     currentOption?.optionName ?? options[0]?.optionName
   );
