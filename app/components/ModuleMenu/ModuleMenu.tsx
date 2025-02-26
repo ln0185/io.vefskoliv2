@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Container, ModuleContainer, ModuleOptionContainer } from "./style";
+import {
+  Container,
+  ModuleContainer,
+  ModuleOptionContainer,
+  Bar,
+} from "./style";
 import { FilterButton } from "./filterButton";
 
 export type ModuleOption = {
@@ -35,17 +40,6 @@ export const Module = ({
   setModule,
   filter,
 }: ModuleProps) => {
-  console.log("✅ Module component is rendering");
-
-  console.log("🔍 Props passed to Module:", {
-    options,
-    currentOption,
-    filter,
-    zIndex,
-    setFilter,
-    setModule,
-  });
-
   const [shownOption, setShownOption] = useState(
     currentOption?.optionName ?? options[0]?.optionName
   );
@@ -60,10 +54,13 @@ export const Module = ({
       <ModuleContainer $zIndex={zIndex}>
         {options.map((option, index) => {
           const { optionName, onClick } = option;
+          const isActive = optionName === shownOption;
+
           return (
             <ModuleOptionContainer
               key={index}
               onClick={() => handleOnClick(optionName, onClick)}
+              $isActive={isActive}
             >
               <p>{optionName}</p>
             </ModuleOptionContainer>
@@ -75,6 +72,8 @@ export const Module = ({
           setModule={setModule}
           filter={filter}
         />
+
+        <Bar />
       </ModuleContainer>
     </Container>
   );

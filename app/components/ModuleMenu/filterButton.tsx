@@ -6,7 +6,7 @@ import {
   FilterItem,
   FilterButtonStyled,
 } from "./style";
-import { FilterIcon } from "app/assets/Icons";
+import { FilterIcon } from "./../../assets/Icons";
 
 interface FilterButtonProps {
   setFilter: React.Dispatch<

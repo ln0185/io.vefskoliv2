@@ -2,26 +2,27 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: relative;
+  display: flex;
   width: 100%;
   padding: 10px;
 `;
 
-export const ModuleContainer = styled.div<{
-  $zIndex?: number;
-}>`
-  display: flex;
+export const ModuleContainer = styled.div<{ $zIndex?: number }>`
   gap: 10px;
   width: 100%;
   z-index: ${(props) => props.$zIndex ?? 2};
 `;
 
-export const ModuleOptionContainer = styled.button`
+export const ModuleOptionContainer = styled.button<{ $isActive: boolean }>`
   padding: 10px 20px;
-  color: #8e92bc;
+  color: var(--secondary-light-300);
   font-size: 16px;
   font-weight: 700;
   border: none;
   cursor: pointer;
+  background: none;
+  padding-bottom: 15px;
+  position: relative;
 
   &:hover {
     color: var(--primary-default);
@@ -31,10 +32,24 @@ export const ModuleOptionContainer = styled.button`
     outline: none;
   }
 
-  &.active {
-    background-color: #f0f0f0;
-  }
+  ${({ $isActive }) =>
+    $isActive
+      ? ` 
+        color: var(--primary-default);
+        font-weight: bold;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: var(--primary-default);
+        }
+      `
+      : ""}
 `;
+
 export const StyledButton = styled.button`
   padding: 10px;
   background-color: #007bff;
@@ -48,6 +63,7 @@ export const StyledButton = styled.button`
     background-color: #0056b3;
   }
 `;
+
 export const FilterContainer = styled.div`
   position: relative;
   display: inline-block;
@@ -58,8 +74,8 @@ export const FilterDropdown = styled.div`
   right: 0;
   margin-top: 8px;
   width: 150px;
-  background: white;
-  border: 1px solid #ccc;
+  background: var(--primary-white);
+  border: 1px solid var(--secondary-light-200);
   border-radius: 8px;
 
   z-index: 50;
@@ -73,36 +89,40 @@ export const FilterItem = styled.button`
   border: none;
   background: transparent;
   font-size: 14px;
-  color: #333;
+  color: var(--secondary-light-300);
   cursor: pointer;
   transition: background 0.2s ease-in-out;
 
   &:hover {
-    background: #f5f5f5;
+    background: var(--secondary-light-200);
   }
 `;
 
 export const FilterButtonStyled = styled.button`
   display: flex;
   align-items: center;
+  justify-content: end;
   gap: 8px;
-  background: #ffffff;
-  color: #8e92bc;
+  color: var(--secondary-light-300);
   padding: 8px 16px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--secondary-light-200);
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background 0.2s ease-in-out;
 
-  &:hover {
-    background: #f5f5f5;
+
+
   }
 
-  svg {
-    width: 24px;
-    height: 24px;
-  }
+`;
+
+export const Bar = styled.div`
+  position: absolute;
+  bottom: 10px;
+  left: 10;
+  width: 95%;
+  height: 1px;
+  z-index: -1;
+  background-color: var(--secondary-light-200);
 `;

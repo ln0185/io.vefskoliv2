@@ -31,10 +31,10 @@ export const NotificationIconContainer = styled.div`
 
 export const RedIconContainer = styled.div`
   position: absolute;
-  height: 10px;
+  height: 8px;
   width: 10px;
   top: 82px;
-  left: 115px;
+  left: 125px;
   z-index: 1;
 `;
 
