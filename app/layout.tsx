@@ -38,7 +38,7 @@ export default async function RootLayout({
                 <SidebarContainer>
                   <Sidebar />
                 </SidebarContainer>
-                <Header />
+                <Header session={session} />
                 <Main>{children}</Main>
               </LayoutGrid>
             ) : (
