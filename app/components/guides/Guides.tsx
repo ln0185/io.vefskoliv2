@@ -14,6 +14,7 @@ import {
   ProgressBarWrapper,
   ProgressText,
 } from "./style";
+import { Module as ModuleMenu } from "components/ModuleMenu/ModuleMenu";
 
 const LOCAL_STORAGE_KEY = "selectedModule";
 
@@ -47,29 +48,28 @@ export const Guides = ({
 
   return (
     <Container>
-      <ModuleContainer>
-        {options.map((option) => (
-          <ModuleOptionContainer
-            key={option.optionName}
-            onClick={option.onClick}
-            $isActive={
-              selectedModule === Number(option.optionName.split(" ")[1])
-            }
-          >
-            <p>{option.optionName}</p>
-          </ModuleOptionContainer>
-        ))}
-      </ModuleContainer>
+      <ModuleMenu
+        options={options}
+        setFilter={setFilter}
+        setModule={setSelectedModule}
+        filter={filter}
+      />
 
       <GradeAverageContainer>
         <AverageRow>
           <AverageLabel>Coding </AverageLabel>
-          <AverageValue isGreen={codeAverage >= 5}>
-            {codeAverage >= 0 ? codeAverage.toFixed(2) : "No Grades"}
+          <AverageValue $isPassed={codeAverage >= 5}>
+            {codeAverage >= 0 ? codeAverage.toFixed(1) : "No Grades"}
           </AverageValue>
-          |<AverageLabel>Design </AverageLabel>
-          <AverageValue isGreen={designAverage >= 5}>
-            {designAverage >= 0 ? designAverage.toFixed(2) : "No Grades"}
+          <span
+            style={{ margin: "0 10px", color: "var(--secondary-light-200)" }}
+          >
+            |
+          </span>
+
+          <AverageLabel>Design </AverageLabel>
+          <AverageValue $isPassed={designAverage >= 5}>
+            {designAverage >= 0 ? designAverage.toFixed(1) : "No Grades"}
           </AverageValue>
         </AverageRow>
         <ProgressBarWrapper>
@@ -102,10 +102,45 @@ const filterGuides = (
   extendedGuides: ExtendedGuideInfo[],
   filter: { tagStatus: string; guideCategory: string }
 ) => {
-  if (selectedModule === null) return extendedGuides;
-  return extendedGuides.filter(
-    (guide) => guide.module.title[0] === "" + selectedModule
-  );
+  return extendedGuides.filter((guide) => {
+    const isFilteringByCategory = filter.guideCategory !== "";
+
+    if (typeof guide.category !== "string") {
+      return false;
+    }
+
+    const guideCategoryLower = guide.category.trim().toLowerCase();
+    const filterCategoryLower = filter.guideCategory.trim().toLowerCase();
+
+    const isCodeRelated = [
+      "html",
+      "css",
+      "javascript",
+      "react",
+      "typescript",
+      "coding",
+      "code",
+    ].some((keyword) => guideCategoryLower.includes(keyword));
+
+    const isDesignRelated = guideCategoryLower.includes("design");
+
+    const matchesCategory =
+      filterCategoryLower === "code"
+        ? isCodeRelated
+        : filterCategoryLower === "design"
+        ? isDesignRelated
+        : filterCategoryLower
+        ? guideCategoryLower === filterCategoryLower
+        : true;
+
+    const matchesModule = isFilteringByCategory
+      ? true
+      : selectedModule !== null
+      ? guide.module.title[0] === "" + selectedModule
+      : true;
+
+    return matchesModule && matchesCategory;
+  });
 };
 
 const getPassedGuidesCount = (guides: ExtendedGuideInfo[]) => {

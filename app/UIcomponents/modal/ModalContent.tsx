@@ -17,7 +17,7 @@ export const ModalContent = ({
     if (typeof document !== "undefined") {
       const body = document.querySelector("body");
       if (isModalOpen) {
-        body!.style.overflow = "hidden";
+        body!.style.overflow = "auto";
       } else {
         body!.style.overflow = "auto";
       }

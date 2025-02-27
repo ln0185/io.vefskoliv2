@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { SearchIcon, Bell } from "assets/Icons";
+import { NotificationIconContainer } from "UIcomponents/toggle/style";
+import { SearchIcon, NotificationIcon } from "assets/Icons";
 import {
   HeaderContainer,
   LeftSection,
@@ -49,7 +50,15 @@ export const Header = ({ session }: Props) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+  const Notification = () => {
+    return (
+      <NotificationIconContainer>
+        <NotificationIcon />
+      </NotificationIconContainer>
+    );
+  };
   const user = session?.user as AdapterUser;
+
   return (
     <HeaderContainer>
       <LeftSection>
@@ -75,18 +84,9 @@ export const Header = ({ session }: Props) => {
             </IconButton>
           )}
         </SearchInputContainer>
-
-        <div ref={notificationRef}>
-          <IconButton onClick={() => setShowNotifications((prev) => !prev)}>
-            <Bell color="#8E92BC" />
-          </IconButton>
-          {showNotifications && (
-            <NotificationDropdown>
-              <p>No new notifications</p>
-            </NotificationDropdown>
-          )}
-        </div>
-
+        <NotificationDropdown>
+          <NotificationIcon />
+        </NotificationDropdown>
         <IconButton as="div">
           <Profile session={session} />
         </IconButton>

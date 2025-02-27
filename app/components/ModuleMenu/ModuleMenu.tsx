@@ -1,7 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Container, ModuleContainer, ModuleOptionContainer } from "./style";
+import {
+  Container,
+  ModuleContainer,
+  ModuleOptionContainer,
+  Bar,
+} from "./style";
+import { FilterButton } from "./filterButton";
 
 export type ModuleOption = {
   optionName: string;
@@ -11,11 +17,18 @@ export type ModuleOption = {
 interface ModuleProps {
   options: ModuleOption[];
   currentOption?: ModuleOption;
+  filter: {
+    tagStatus: string;
+    guideCategory: string;
+  };
   style?: React.CSSProperties;
   zIndex?: number;
   setFilter: React.Dispatch<
     React.SetStateAction<{ tagStatus: string; guideCategory: string }>
   >;
+  setModule: (
+    value: number | ((prev: number | null) => number | null) | null
+  ) => void;
 }
 
 export const Module = ({
@@ -24,6 +37,8 @@ export const Module = ({
   currentOption,
   zIndex,
   setFilter,
+  setModule,
+  filter,
 }: ModuleProps) => {
   const [shownOption, setShownOption] = useState(
     currentOption?.optionName ?? options[0]?.optionName
@@ -39,15 +54,26 @@ export const Module = ({
       <ModuleContainer $zIndex={zIndex}>
         {options.map((option, index) => {
           const { optionName, onClick } = option;
+          const isActive = optionName === shownOption;
+
           return (
             <ModuleOptionContainer
               key={index}
               onClick={() => handleOnClick(optionName, onClick)}
+              $isActive={isActive}
             >
               <p>{optionName}</p>
             </ModuleOptionContainer>
           );
         })}
+
+        <FilterButton
+          setFilter={setFilter}
+          setModule={setModule}
+          filter={filter}
+        />
+
+        <Bar />
       </ModuleContainer>
     </Container>
   );
