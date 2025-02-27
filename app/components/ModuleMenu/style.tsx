@@ -3,13 +3,13 @@ import styled from "styled-components";
 export const Container = styled.div`
   position: relative;
   display: flex;
-  width: 100%;
+  width: 95%;
   padding: 10px;
 `;
 
 export const ModuleContainer = styled.div<{ $zIndex?: number }>`
   gap: 10px;
-  width: 100%;
+  width: 95%;
   z-index: ${(props) => props.$zIndex ?? 2};
 `;
 
@@ -65,19 +65,21 @@ export const StyledButton = styled.button`
 `;
 
 export const FilterContainer = styled.div`
-  position: relative;
+  position: absolute;
   display: inline-block;
+  right: 0;
+  top: calc(50% - 10px);
+  transform: translateY(-50%);
 `;
 
 export const FilterDropdown = styled.div`
   position: absolute;
-  right: 0;
+  left: 0;
   margin-top: 8px;
-  width: 150px;
+  width: 9.375rem;
   background: var(--primary-white);
   border: 1px solid var(--secondary-light-200);
   border-radius: 8px;
-
   z-index: 50;
 `;
 
@@ -121,7 +123,7 @@ export const Bar = styled.div`
   position: absolute;
   bottom: 10px;
   left: 10;
-  width: 95%;
+  width: 100%;
   height: 1px;
   z-index: -1;
   background-color: var(--secondary-light-200);
