@@ -16,7 +16,7 @@ import {
 import Modal from "UIcomponents/modal/modal";
 import { Input } from "UIcomponents/input/Input";
 import DefaultButton from "globalStyles/buttons/default";
-import { DefaultUserIcon } from "assets/Icons";
+import { DefaultUserIcon, ProfileIcon } from "assets/Icons";
 import { LogoutIcon } from "assets/Icons";
 import { signOut } from "serverActions/signOut";
 import { updateUserInfo } from "serverActions/updateUserInfo";
@@ -25,29 +25,43 @@ import { Wrapper } from "globalStyles/globalStyles";
 import { Session } from "next-auth";
 import { AdapterUser } from "next-auth/adapters";
 import { useState } from "react";
+
 export const Profile = ({ session }: { session: Session | null }) => {
   const user = session?.user as AdapterUser;
+
+  // If no user is available, show a simple placeholder
+  if (!user) {
+    return (
+      <Wrapper>
+        <ProfileImageContainer>
+          <ProfileIcon size="32" />
+        </ProfileImageContainer>
+      </Wrapper>
+    );
+  }
+
   const ProfilePictureContainer = () => {
     return (
       <ImageWrapper>
-        <ProfilePicture url={user.avatarUrl} />
-        <ProfileName>{user.name}</ProfileName>
+        {user.avatarUrl ? (
+          <ProfilePicture url={user.avatarUrl} />
+        ) : (
+          <ProfileIcon size="42" />
+        )}
       </ImageWrapper>
     );
   };
+
   return (
     <Wrapper>
-      {user ? (
-        <Modal
-          modalTrigger={<ProfilePictureContainer />}
-          modalContent={<EditProfileScreen user={user} />}
-        />
-      ) : (
-        <div>loading...</div>
-      )}
+      <Modal
+        modalTrigger={<ProfilePictureContainer />}
+        modalContent={<EditProfileScreen user={user} />}
+      />
     </Wrapper>
   );
 };
+
 const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
   const [userInfo, setUserInfo] = useState({
     background: user?.background || "",
@@ -59,12 +73,15 @@ const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
     await updateUserInfo(userInfo);
   };
   const { background, careerGoals, interests, favoriteArtists } = userInfo;
+
   return (
     <ProfileWrapper>
       <ProfileDetails>
         <ProfilePicture url={user.avatarUrl} />
         <ProfileInfo>
-          <ProfileName style={{ fontSize: "16px" }}>{user.name}</ProfileName>
+          <ProfileName style={{ fontSize: "16px", display: "block" }}>
+            {user.name}
+          </ProfileName>
           <AdditionalInfo>{user.role}</AdditionalInfo>
           <AdditionalInfo
             style={{ color: "var(--primary-black-100)", textTransform: "none" }}
@@ -130,6 +147,7 @@ const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
     </ProfileWrapper>
   );
 };
+
 const ProfilePicture = ({ url }: { url?: string | null | undefined }) => {
   return (
     <ProfileImageContainer>

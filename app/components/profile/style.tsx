@@ -17,19 +17,25 @@ export const ImageWrapper = styled.div`
 `;
 
 export const ProfileImageContainer = styled.div`
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
   overflow: hidden;
-  border: 1px solid (var--secondary-dark);
+  border: 1px solid var(--secondary-dark);
   cursor: pointer;
   transition: 0.3s ease-in-out;
   justify-content: center;
   display: flex;
   align-items: center;
   background-color: var(--primary-white);
+
   &:hover {
     filter: brightness(0.8);
+  }
+
+  @media (max-width: 768px) {
+    width: 36px;
+    height: 36px;
   }
 `;
 
@@ -43,12 +49,20 @@ export const ProfileImage = styled(Image)`
   width: 32px;
   height: 32px;
   object-fit: cover;
+
+  @media (max-width: 768px) {
+    width: 28px;
+    height: 28px;
+  }
 `;
 
 export const ProfileName = styled.h2`
   font-size: 24px;
   font-weight: 500;
-  display: none;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 // Modal styles

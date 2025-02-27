@@ -36,12 +36,7 @@ export const ContentContainer = styled.div`
   padding-top: 1rem;
 `;
 
-export const LinksContainer = styled.div<OpenProps>`
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  width: ${(props) => (props.$isOpen ? "230px" : "100%")};
-`;
+
 
 export const TitleContainer = styled.div<OpenProps>`
   display: flex;
@@ -78,41 +73,8 @@ interface SelectedProps {
   $isSelected: boolean;
 }
 
-export const NavLink = styled(Link)<SelectedProps>`
-  position: relative;
-  display: flex;
-  height: 2.5rem;
-  width: 100%;
-  align-items: center;
-  border-radius: 0.375rem;
-  transition: color 0.2s, background-color 0.2s;
-  background-color: ${(props) =>
-    props.$isSelected ? "var(--primary-light-blue)" : "transparent"};
-  color: ${(props) =>
-    props.$isSelected
-      ? "var(--primary-default)"
-      : "var(--secondary-light-300)"};
 
-  &:hover {
-    background-color: ${(props) =>
-      props.$isSelected
-        ? "var(--primary-light-blue)"
-        : "var(--primary-light-blue)"};
-  }
-`;
 
-export const IconWrapper = styled(motion.div)`
-  display: grid;
-  height: 100%;
-  width: 2.5rem;
-  place-content: center;
-  font-size: 1.125rem;
-`;
-
-export const LinkText = styled(motion.span)`
-  font-size: 1rem;
-  font-weight: 500;
-`;
 
 export const DarkModeContainer = styled.div`
   display: flex;
