@@ -111,6 +111,10 @@ const MobileHamburgerMenu: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <>
       <MenuContainer>
@@ -126,7 +130,8 @@ const MobileHamburgerMenu: React.FC = () => {
         <CloseButton onClick={toggleMenu} aria-label="Close menu">
           ✕
         </CloseButton>
-        <NavOptions />
+        {/* Pass closeMenu function to NavOptions */}
+        <NavOptions onNavItemClick={closeMenu} />
         <NavbarContainer>
           {/* Your navbar component goes here */}
         </NavbarContainer>

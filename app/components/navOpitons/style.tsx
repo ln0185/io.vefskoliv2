@@ -16,7 +16,7 @@ export const LinksContainer = styled.div<OpenProps>`
   gap: 0.75rem;
   width: ${(props) => (props.$isOpen ? "230px" : "100%")};
 `;
-
+// In app/components/navOpitons/style.tsx
 export const NavLink = styled(Link)<SelectedProps>`
   position: relative;
   display: flex;
@@ -24,7 +24,7 @@ export const NavLink = styled(Link)<SelectedProps>`
   width: 100%;
   align-items: center;
   border-radius: 0.375rem;
-  transition: color 0.2s, background-color 0.2s;
+  transition: color 0.15s ease, background-color 0.15s ease;
   background-color: ${(props) =>
     props.$isSelected ? "var(--primary-light-blue)" : "transparent"};
   color: ${(props) =>
@@ -33,12 +33,33 @@ export const NavLink = styled(Link)<SelectedProps>`
       : "var(--secondary-light-300)"};
 
   &:hover {
-    background-color: ${(props) =>
-      props.$isSelected
-        ? "var(--primary-light-blue)"
-        : "var(--primary-light-blue)"};
+    background-color: var(--primary-light-blue);
+    color: var(--primary-default);
   }
 `;
+
+// export const NavLink = styled(Link)<SelectedProps>`
+//   position: relative;
+//   display: flex;
+//   height: 2.5rem;
+//   width: 100%;
+//   align-items: center;
+//   border-radius: 0.375rem;
+//   transition: color 0.2s, background-color 0.2s;
+//   background-color: ${(props) =>
+//     props.$isSelected ? "var(--primary-light-blue)" : "transparent"};
+//   color: ${(props) =>
+//     props.$isSelected
+//       ? "var(--primary-default)"
+//       : "var(--secondary-light-300)"};
+
+//   &:hover {
+//     background-color: ${(props) =>
+//       props.$isSelected
+//         ? "var(--primary-light-blue)"
+//         : "var(--primary-light-blue)"};
+//   }
+// `;
 
 export const IconWrapper = styled(motion.div)`
   display: grid;

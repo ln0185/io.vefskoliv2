@@ -25,8 +25,21 @@ import { Wrapper } from "globalStyles/globalStyles";
 import { Session } from "next-auth";
 import { AdapterUser } from "next-auth/adapters";
 import { useState } from "react";
+
 export const Profile = ({ session }: { session: Session | null }) => {
   const user = session?.user as AdapterUser;
+
+  // If no user is available, show a simple placeholder
+  if (!user) {
+    return (
+      <Wrapper>
+        <ProfileImageContainer>
+          <ProfileIcon size="32" />
+        </ProfileImageContainer>
+      </Wrapper>
+    );
+  }
+
   const ProfilePictureContainer = () => {
     return (
       <ImageWrapper>
@@ -35,20 +48,16 @@ export const Profile = ({ session }: { session: Session | null }) => {
         ) : (
           <ProfileIcon size="42" />
         )}
-        <ProfileName>{user.name}</ProfileName>
       </ImageWrapper>
     );
   };
+
   return (
     <Wrapper>
-      {user ? (
-        <Modal
-          modalTrigger={<ProfilePictureContainer />}
-          modalContent={<EditProfileScreen user={user} />}
-        />
-      ) : (
-        <div>loading...</div>
-      )}
+      <Modal
+        modalTrigger={<ProfilePictureContainer />}
+        modalContent={<EditProfileScreen user={user} />}
+      />
     </Wrapper>
   );
 };
@@ -64,13 +73,15 @@ const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
     await updateUserInfo(userInfo);
   };
   const { background, careerGoals, interests, favoriteArtists } = userInfo;
-  console.log("user", user.avatarUrl);
+
   return (
     <ProfileWrapper>
       <ProfileDetails>
         <ProfilePicture url={user.avatarUrl} />
         <ProfileInfo>
-          <ProfileName style={{ fontSize: "16px" }}>{user.name}</ProfileName>
+          <ProfileName style={{ fontSize: "16px", display: "block" }}>
+            {user.name}
+          </ProfileName>
           <AdditionalInfo>{user.role}</AdditionalInfo>
           <AdditionalInfo
             style={{ color: "var(--primary-black-100)", textTransform: "none" }}
@@ -136,6 +147,7 @@ const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
     </ProfileWrapper>
   );
 };
+
 const ProfilePicture = ({ url }: { url?: string | null | undefined }) => {
   return (
     <ProfileImageContainer>

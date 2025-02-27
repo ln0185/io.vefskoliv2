@@ -1,3 +1,4 @@
+import React, { useCallback, useMemo } from "react";
 import {
   HomeIcon,
   ResourcesIcon,
@@ -7,19 +8,17 @@ import {
   LectureIcon,
 } from "assets/Icons";
 import { LinksContainer, NavLink, IconWrapper, LinkText } from "./style";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 type IconProps = {
   stroke?: string;
 };
+
 type Link = {
   page: string;
   title: string;
   icon: React.ComponentType<IconProps>;
 };
-
-export type NavBarProps = { links: Link[] };
 
 const links: Link[] = [
   { page: "/", title: "Home", icon: HomeIcon },
@@ -30,15 +29,25 @@ const links: Link[] = [
   { page: "/lecture", title: "Lecture", icon: LectureIcon },
 ];
 
-export default function NavOptions({ open = true }: { open?: boolean }) {
+export default function NavOptions({
+  open = true,
+  onNavItemClick,
+}: {
+  open?: boolean;
+  onNavItemClick?: () => void;
+}) {
   const pathname = usePathname();
 
-  const isLinkSelected = (pathname: string, linkPath: string): boolean => {
-    if (linkPath === "/") {
-      return pathname === "/" || pathname === "";
-    }
-    return pathname.startsWith(linkPath);
-  };
+  const isLinkSelected = useCallback(
+    (pathName: string, linkPath: string): boolean => {
+      if (linkPath === "/") {
+        return pathName === "/" || pathName === "";
+      }
+      return pathName.startsWith(linkPath);
+    },
+    []
+  );
+
   return (
     <LinksContainer $isOpen={open}>
       {links.map((link) => (
@@ -49,44 +58,62 @@ export default function NavOptions({ open = true }: { open?: boolean }) {
           selected={isLinkSelected(pathname, link.page)}
           open={open}
           href={link.page}
+          onClick={onNavItemClick}
         />
       ))}
     </LinksContainer>
   );
 }
 
-const Option = ({
-  Icon,
-  title,
-  selected,
-  open,
-  href,
-}: {
-  Icon: React.ComponentType<IconProps>;
-  title: string;
-  selected: boolean;
-  open: boolean;
-  href: string;
-}) => {
-  return (
-    <NavLink href={href} $isSelected={selected}>
-      <IconWrapper layout>
-        <Icon
-          stroke={
-            selected ? "var(--primary-default)" : "var(--secondary-light-300)"
-          }
-        />
-      </IconWrapper>
-      {open && (
-        <LinkText
-          layout
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.125 }}
-        >
-          {title}
-        </LinkText>
-      )}
-    </NavLink>
-  );
-};
+const Option = React.memo(
+  ({
+    Icon,
+    title,
+    selected,
+    open,
+    href,
+    onClick,
+  }: {
+    Icon: React.ComponentType<IconProps>;
+    title: string;
+    selected: boolean;
+    open: boolean;
+    href: string;
+    onClick?: () => void;
+  }) => {
+    const iconColor = selected
+      ? "var(--primary-default)"
+      : "var(--secondary-light-300)";
+
+    // Handle both navigation and closing menu
+    const handleClick = (e: React.MouseEvent) => {
+      if (onClick) {
+        onClick();
+      }
+    };
+
+    return (
+      <NavLink
+        href={href}
+        $isSelected={selected}
+        prefetch
+        onClick={handleClick}
+      >
+        <IconWrapper>
+          <Icon stroke={iconColor} />
+        </IconWrapper>
+        {open && (
+          <LinkText
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.2 }}
+          >
+            {title}
+          </LinkText>
+        )}
+      </NavLink>
+    );
+  }
+);
+
+Option.displayName = "Option";

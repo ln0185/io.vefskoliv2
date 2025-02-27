@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { NotificationIconContainer } from "UIcomponents/toggle/style";
 import { SearchIcon, NotificationIcon } from "assets/Icons";
 import {
   LeftSection,
@@ -21,8 +20,14 @@ type Props = {
   session?: Session;
 };
 
-export const RightSectionContent = () => {
-  const { data: session } = useSession();
+export const RightSectionContent = ({
+  serverSession,
+}: {
+  serverSession?: Session;
+}) => {
+  const { data: clientSession, status } = useSession();
+  const session = clientSession || serverSession; // Use whichever is available
+
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
@@ -54,7 +59,22 @@ export const RightSectionContent = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  if (!session) return null;
+  // If we're still loading the session, render placeholder elements to avoid layout shift
+  if (status === "loading" || !session) {
+    return (
+      <>
+        <IconButton disabled>
+          <SearchIcon size="20" />
+        </IconButton>
+        <NotificationDropdown disabled>
+          <NotificationIcon size="20" />
+        </NotificationDropdown>
+        <div
+          style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+        ></div>
+      </>
+    );
+  }
 
   return (
     <>
@@ -89,12 +109,12 @@ export const Header = ({ session }: Props) => {
   return (
     <>
       <LeftSection>
-        <h1>Hi, {user?.name}</h1>
+        <h1>Hi, {user?.name || "User"}</h1>
         <p>Let's finish your task today!</p>
       </LeftSection>
 
       <RightSection>
-        <RightSectionContent />
+        <RightSectionContent serverSession={session} />
       </RightSection>
     </>
   );
