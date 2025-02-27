@@ -110,7 +110,7 @@ export const Header = ({ session }: Props) => {
     <>
       <LeftSection>
         <h1>Hi, {user?.name || "User"}</h1>
-        <p>Let's finish your task today!</p>
+        <p>Let&apos;s finish your task today!</p>
       </LeftSection>
 
       <RightSection>
