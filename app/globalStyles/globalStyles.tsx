@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  color: var(--secondary-dark);
 `;
 
 export const FullScreenWrapper = styled(Wrapper)`
@@ -17,7 +18,7 @@ export const FullScreenWrapper = styled(Wrapper)`
 `;
 
 export const Border = styled(Wrapper)`
-  border: 1px solid var(--theme-module3-100);
+  border: 1px solid var(--secondary-dark);
   border-radius: 1.3rem;
 `;
 
@@ -43,6 +44,7 @@ export const ButtonWrapper = styled.div`
 export const FlexibleWrapper = styled(Wrapper)`
   @media (min-width: ${BREAKPOINT_DESKTOP}) {
     flex-direction: row;
+    color: var(--secondary-dark);
   }
 `;
 
@@ -50,20 +52,21 @@ const Toast = styled.div`
   padding: 16px;
   top: 100px;
   position: absolute;
+  color: var(--secondary-dark);
   border-radius: 20px;
   z-index: 1000;
 `;
 
 export const ErrorToast = styled(Toast)`
-  background-color: var(--error-failure-10);
-  border: 1px solid var(--error-failure-100);
-  color: var(--primary-black-100);
+  background-color: var(--secondary-dark);
+  border: 1px solid var(--secondary-dark);
+  color: var(--secondary-dark);
 `;
 
 export const SuccessToast = styled(Toast)`
-  background-color: var(--error-success-10);
-  border: 1px solid var(--error-success-100);
-  color: var(--primary-black-100);
+  background-color: var(--secondary-dark);
+  border: 1px solid var(--secondary-dark);
+  color: var(--secondary-dark);
 `;
 
 export const UnstyledLink = styled(Link)`
@@ -72,4 +75,5 @@ export const UnstyledLink = styled(Link)`
 
 export const UnstyledLinkNoWrap = styled(UnstyledLink)`
   white-space: nowrap;
+  color: var(--secondary-dark);
 `;

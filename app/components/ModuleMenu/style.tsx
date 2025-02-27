@@ -3,14 +3,38 @@ import styled from "styled-components";
 export const Container = styled.div`
   position: relative;
   display: flex;
-  width: 95%;
+  width: 100%;
   padding: 10px;
+  flex-wrap: wrap;
 `;
 
 export const ModuleContainer = styled.div<{ $zIndex?: number }>`
   gap: 10px;
-  width: 95%;
+  width: 100%;
+
   z-index: ${(props) => props.$zIndex ?? 2};
+
+  .desktop-view {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .mobile-view {
+    display: none;
+  }
+
+  @media (max-width: 850px) {
+    .desktop-view {
+      display: none;
+    }
+
+    .mobile-view {
+      display: block;
+      font-weight: 600;
+      color: var(--secondary-dark);
+    }
+  }
 `;
 
 export const ModuleOptionContainer = styled.button<{ $isActive: boolean }>`
@@ -49,8 +73,20 @@ export const ModuleOptionContainer = styled.button<{ $isActive: boolean }>`
       `
       : ""}
 `;
+export const DropdownContainer = styled.div`
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background: var(--primary-white);
+  border: 1px solid var(--secondary-light-200);
+  border-radius: 8px;
+  z-index: 50;
 
-export const StyledButton = styled.button`
+  ${ModuleOptionContainer} {
+    padding: 10px;
+  }
+`;
+/* export const StyledButton = styled.button`
   padding: 10px;
   background-color: #007bff;
   color: white;
@@ -62,7 +98,7 @@ export const StyledButton = styled.button`
   &:hover {
     background-color: #0056b3;
   }
-`;
+`; */
 
 export const FilterContainer = styled.div`
   position: absolute;
@@ -70,6 +106,10 @@ export const FilterContainer = styled.div`
   right: 0;
   top: calc(50% - 10px);
   transform: translateY(-50%);
+
+  @media (max-width: 768px) {
+    margin-top: 5px;
+  }
 `;
 
 export const FilterDropdown = styled.div`
@@ -114,7 +154,6 @@ export const FilterButtonStyled = styled.button`
   font-weight: 500;
 
 
-
   }
 
 `;
@@ -127,4 +166,8 @@ export const Bar = styled.div`
   height: 1px;
   z-index: -1;
   background-color: var(--secondary-light-200);
+
+  @media (max-width: 768px) {
+    bottom: 0px;
+  }
 `;
