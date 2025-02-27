@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Container, ModuleContainer, ModuleOptionContainer } from "./style";
+import { Container } from "./style";
 import { ExtendedGuideInfo, Module } from "types/guideTypes";
 import { useLocalState } from "react-session-hooks";
 import { GuidesClient } from "components/guidesClient/GuidesClient";

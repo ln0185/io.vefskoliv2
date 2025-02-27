@@ -12,8 +12,8 @@ export const ImageWrapper = styled.div`
   align-items: center;
   gap: 8px;
   width: fit-content;
-  margin: 0; /* Remove extra spacing for header alignment */
-  padding: 0; /* Remove extra padding for header alignment */
+  margin: 0;
+  padding: 0;
 `;
 
 export const ProfileImageContainer = styled.div`
@@ -21,12 +21,12 @@ export const ProfileImageContainer = styled.div`
   height: 32px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid var(--theme-module3-100);
+  border: 1px solid (var--secondary-dark);
   cursor: pointer;
   transition: 0.3s ease-in-out;
   justify-content: center;
   display: flex;
-  align-items: center; /* Center image vertically for header alignment */
+  align-items: center;
   background-color: var(--primary-white);
   &:hover {
     filter: brightness(0.8);
@@ -40,15 +40,15 @@ export const ProfileInfo = styled.div`
 `;
 
 export const ProfileImage = styled(Image)`
-  width: 32px; /* Match container size for header alignment */
-  height: 32px; /* Ensure consistent 32x32px size */
-  object-fit: cover; /* Fill container without distortion */
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
 `;
 
 export const ProfileName = styled.h2`
   font-size: 24px;
   font-weight: 500;
-  display: none; /* Hide in header; shown in modal via ProfileInfo */
+  display: none;
 `;
 
 // Modal styles
