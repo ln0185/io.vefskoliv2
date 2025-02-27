@@ -5,53 +5,16 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-content: center;
-  width: 100%;
+  width: 95%;
   padding: 5px;
   padding-left: 10px;
-`;
 
-export const ModuleContainer = styled.div`
-  display: flex;
-  gap: 10px;
-  width: 100%;
   flex-wrap: wrap;
-  margin-bottom: 20px;
-`;
 
-export const ModuleOptionContainer = styled.button<{ $isActive: boolean }>`
-  padding: 10px 20px;
-  color: var(--secondary-light-300);
-  font-size: 16px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  background: none;
-  position: relative;
-
-  &:hover {
-    color: var(--primary-default);
+  @media (max-width: 768px) {
+    padding-left: 30px;
+    flex-wrap: wrap;
   }
-
-  &:focus {
-    outline: none;
-  }
-
-  ${({ $isActive }) =>
-    $isActive
-      ? ` 
-        color: var(--primary-default);
-        font-weight: bold;
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 3px;
-          background-color: var(--primary-default);
-        }
-      `
-      : ""}
 `;
 
 export const GradeAverageContainer = styled.div`
@@ -62,14 +25,20 @@ export const GradeAverageContainer = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: end;
-  padding-right: 80px;
+  padding-right: 10px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    padding-left: 15px;
+    justify-content: center;
+  }
 `;
 
 export const AverageRow = styled.div`
   margin-bottom: 10px;
   width: 16.5rem;
   margin-right: 13%;
-  gin-bottom: 37px;
+  margin-bottom: 37px;
   height: auto;
   background-color: var(--primary-white);
   align-self: center;
@@ -77,6 +46,13 @@ export const AverageRow = styled.div`
   border: solid 1px;
   border-color: var(--secondary-light-200);
   border-radius: 36px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    margin-right: 0%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
 `;
 
 export const AverageLabel = styled.strong<{ color?: string }>`
@@ -97,6 +73,11 @@ export const ProgressBarWrapper = styled.div`
   gap: 8px;
   width: 17.5rem;
   margin-bottom: 44px;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
 `;
 
 export const ProgressText = styled.span`

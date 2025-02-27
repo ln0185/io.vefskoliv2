@@ -1,11 +1,10 @@
-"use client";
-
 import { useState } from "react";
 import {
   Container,
   ModuleContainer,
   ModuleOptionContainer,
   Bar,
+  DropdownContainer,
 } from "./style";
 import { FilterButton } from "./filterButton";
 
@@ -43,29 +42,60 @@ export const Module = ({
   const [shownOption, setShownOption] = useState(
     currentOption?.optionName ?? options[0]?.optionName
   );
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   const handleOnClick = (optionName: string, onClick: () => void) => {
     setShownOption(optionName);
     onClick();
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible);
+  };
+
   return (
     <Container style={style}>
       <ModuleContainer $zIndex={zIndex}>
-        {options.map((option, index) => {
-          const { optionName, onClick } = option;
-          const isActive = optionName === shownOption;
+        <div className="desktop-view">
+          {options.map((option, index) => {
+            const { optionName, onClick } = option;
+            const isActive = optionName === shownOption;
 
-          return (
-            <ModuleOptionContainer
-              key={index}
-              onClick={() => handleOnClick(optionName, onClick)}
-              $isActive={isActive}
-            >
-              <p>{optionName}</p>
-            </ModuleOptionContainer>
-          );
-        })}
+            return (
+              <ModuleOptionContainer
+                key={index}
+                onClick={() => handleOnClick(optionName, onClick)}
+                $isActive={isActive}
+              >
+                <p>{optionName}</p>
+              </ModuleOptionContainer>
+            );
+          })}
+        </div>
+
+        <div className="mobile-view">
+          <button onClick={toggleDropdown}>{shownOption} ▼</button>
+          {isDropdownVisible && (
+            <DropdownContainer>
+              {options.map((option, index) => {
+                const { optionName, onClick } = option;
+
+                return (
+                  <ModuleOptionContainer
+                    key={index}
+                    onClick={() => {
+                      handleOnClick(optionName, onClick);
+                      setIsDropdownVisible(false);
+                    }}
+                    $isActive={optionName === shownOption}
+                  >
+                    <p>{optionName}</p>
+                  </ModuleOptionContainer>
+                );
+              })}
+            </DropdownContainer>
+          )}
+        </div>
 
         <FilterButton
           setFilter={setFilter}
