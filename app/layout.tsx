@@ -2,12 +2,18 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "globalStyles/globals.css";
 import StyledComponentsRegistry from "utils/registry";
-import { LayoutGrid, SidebarContainer, Main } from "./globalStyles/layout";
+import {
+  LayoutGrid,
+  SidebarContainer,
+  Main,
+  HeaderContainer,
+} from "./globalStyles/layout";
 import Sidebar from "./components/sidebar/sidebar";
 import { auth } from "../auth";
 import LoginPage from "pages/login/page";
 import { Header } from "components/header/Header";
 import { SessionProvider } from "next-auth/react";
+import MobileHamburgerMenu from "components/mobileHamburgerMenu/HamburgerMenu";
 
 const plusJarkaSans = Plus_Jakarta_Sans({
   weight: ["300", "400", "500", "600"],
@@ -35,10 +41,13 @@ export default async function RootLayout({
           <SessionProvider session={session}>
             {session?.user ? (
               <LayoutGrid>
+                <MobileHamburgerMenu />
                 <SidebarContainer>
                   <Sidebar />
                 </SidebarContainer>
-                <Header session={session} />
+                <HeaderContainer>
+                  <Header session={session} />
+                </HeaderContainer>
                 <Main>{children}</Main>
               </LayoutGrid>
             ) : (

@@ -1,10 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { NotificationIconContainer } from "UIcomponents/toggle/style";
 import { SearchIcon, NotificationIcon } from "assets/Icons";
 import {
-  HeaderContainer,
   LeftSection,
   RightSection,
   IconButton,
@@ -15,11 +13,21 @@ import {
 
 import { Profile } from "components/profile/profile";
 import { Session } from "next-auth";
+import { useSession } from "next-auth/react";
 import { AdapterUser } from "next-auth/adapters";
+
 type Props = {
-  session: Session;
+  session?: Session;
 };
-export const Header = ({ session }: Props) => {
+
+export const RightSectionContent = ({
+  serverSession,
+}: {
+  serverSession?: Session;
+}) => {
+  const { data: clientSession, status } = useSession();
+  const session = clientSession || serverSession; // Use whichever is available
+
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
@@ -50,47 +58,64 @@ export const Header = ({ session }: Props) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-  const Notification = () => {
+
+  // If we're still loading the session, render placeholder elements to avoid layout shift
+  if (status === "loading" || !session) {
     return (
-      <NotificationIconContainer>
-        <NotificationIcon />
-      </NotificationIconContainer>
+      <>
+        <IconButton disabled>
+          <SearchIcon size="20" />
+        </IconButton>
+        <NotificationDropdown disabled>
+          <NotificationIcon size="20" />
+        </NotificationDropdown>
+        <div
+          style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+        ></div>
+      </>
     );
-  };
+  }
+
+  return (
+    <>
+      <SearchInputContainer ref={searchRef}>
+        {showSearch ? (
+          <form onSubmit={handleSearch}>
+            <SearchInput
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search..."
+              autoFocus
+            />
+          </form>
+        ) : (
+          <IconButton onClick={() => setShowSearch(true)}>
+            <SearchIcon size="20" />
+          </IconButton>
+        )}
+      </SearchInputContainer>
+      <NotificationDropdown>
+        <NotificationIcon size="20" />
+      </NotificationDropdown>
+      <Profile session={session} />
+    </>
+  );
+};
+
+export const Header = ({ session }: Props) => {
   const user = session?.user as AdapterUser;
 
   return (
-    <HeaderContainer>
+    <>
       <LeftSection>
-        <h1>Hi, {user.name}</h1>
-        <p>Let’s finish your task today!</p>
+        <h1>Hi, {user?.name || "User"}</h1>
+        <p>Let&apos;s finish your task today!</p>
       </LeftSection>
 
       <RightSection>
-        <SearchInputContainer ref={searchRef}>
-          {showSearch ? (
-            <form onSubmit={handleSearch}>
-              <SearchInput
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search..."
-                autoFocus
-              />
-            </form>
-          ) : (
-            <IconButton onClick={() => setShowSearch(true)}>
-              <SearchIcon />
-            </IconButton>
-          )}
-        </SearchInputContainer>
-        <NotificationDropdown>
-          <NotificationIcon />
-        </NotificationDropdown>
-        <IconButton as="div">
-          <Profile session={session} />
-        </IconButton>
+        <RightSectionContent serverSession={session} />
       </RightSection>
-    </HeaderContainer>
+    </>
   );
 };

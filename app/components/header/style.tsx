@@ -3,19 +3,32 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const HeaderContainer = styled(motion.div)`
-  width: 100%;
-  height: 6.25rem;
-  background-color: var(--primary-light-grey);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-`;
+// const breakpoint = "768px";
+
+// export const HeaderContainer = styled(motion.div)`
+//   width: 100%;
+//   height: 6.25rem;
+//   background-color: var(--primary-light-grey);
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 10px 20px;
+//   grid-area: header;
+
+//   /* @media (min-width: ${breakpoint}) {
+//     display: hidden;
+//   } */
+// `;
+
+const breakpoint = "768px";
 
 export const LeftSection = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 
   h1 {
     font-size: 24px;
@@ -40,13 +53,11 @@ export const IconButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid #ddd;
-  border-radius: 50%;
+  padding: 10px;
+  border: 1px solid var(--secondary-light-200);
+  border-radius: 100px;
   background: none;
   cursor: pointer;
-  transition: background 0.2s;
 
   &:hover {
     background: var(--primary-light-grey);
@@ -54,6 +65,9 @@ export const IconButton = styled.button`
 `;
 export const NotificationDropdown = styled.button`
   cursor: pointer;
+  border: 1px solid var(--secondary-light-200);
+  border-radius: 100px;
+  padding: 10px;
 `;
 
 export const UserInfo = styled.div`

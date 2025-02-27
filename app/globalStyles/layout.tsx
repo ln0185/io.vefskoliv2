@@ -7,7 +7,7 @@ const breakpoint = "768px";
 export const LayoutGrid = styled(motion.div)`
   display: grid;
   grid-template-rows: auto 1fr;
-  grid-template-areas: "main";
+  grid-template-areas: "hamburger" "main";
   width: 100%;
   height: 100dvh;
   grid-auto-rows: min-content;
@@ -41,9 +41,17 @@ export const Main = styled(motion.div)`
   grid-area: main;
 `;
 
-// export const Header = styled(motion.div)`
-//   width: 100%;
-//   height: 60px;
-//   background-color: var(--primary-light-grey);
-//   grid-area: header;
-// `;
+export const HeaderContainer = styled(motion.div)`
+  width: 100%;
+  height: 6.25rem;
+  background-color: var(--primary-light-grey);
+  display: none; /* Hide by default */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  grid-area: header;
+
+  @media (min-width: ${breakpoint}) {
+    display: flex; /* Show only on desktop */
+  }
+`;
