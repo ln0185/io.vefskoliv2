@@ -128,7 +128,6 @@ export const ExitIcon = ({ color }: { color?: string }) => (
   </svg>
 );
 
-const logOutIconLabel = "Log out icon";
 export const LogoutIcon = () => (
   <svg
     width="17"
@@ -136,7 +135,7 @@ export const LogoutIcon = () => (
     viewBox="0 0 17 18"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={logOutIconLabel}
+    aria-label="Log out icon"
   >
     <path
       fillRule="evenodd"
@@ -147,212 +146,206 @@ export const LogoutIcon = () => (
   </svg>
 );
 
-const calendarIconLabel = "Calendar icon";
-export const CalendarIcon = () => (
+export const CalendarIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={calendarIconLabel}
+    aria-label="Calendar icon"
   >
     <path
       d="M18 2V4M6 2V4"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M11.9955 13H12.0045M11.9955 17H12.0045M15.991 13H16M8 13H8.00897M8 17H8.00897"
-      stroke="#8E92BC"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M3.5 8H20.5"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M2.5 12.2432C2.5 7.88594 2.5 5.70728 3.75212 4.35364C5.00424 3 7.01949 3 11.05 3H12.95C16.9805 3 18.9958 3 20.2479 4.35364C21.5 5.70728 21.5 7.88594 21.5 12.2432V12.7568C21.5 17.1141 21.5 19.2927 20.2479 20.6464C18.9958 22 16.9805 22 12.95 22H11.05C7.01949 22 5.00424 22 3.75212 20.6464C2.5 19.2927 2.5 17.1141 2.5 12.7568V12.2432Z"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M3 8H21"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
 
-const hallOfFameIconLabel = "Hall of fame icon";
-export const HallOfFameIcon = () => (
+export const HallOfFameIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={hallOfFameIconLabel}
+    aria-label="Hall of fame icon"
   >
     <path
       d="M12 17C10.3264 17 8.86971 18.265 8.11766 20.1312C7.75846 21.0225 8.27389 22 8.95877 22H15.0412C15.7261 22 16.2415 21.0225 15.8823 20.1312C15.1303 18.265 13.6736 17 12 17Z"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
     <path
       d="M18.5 5H19.7022C20.9031 5 21.5035 5 21.8168 5.37736C22.13 5.75472 21.9998 6.32113 21.7393 7.45395L21.3485 9.15307C20.7609 11.7086 18.6109 13.6088 16 14"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M5.5 5H4.29779C3.09692 5 2.49649 5 2.18324 5.37736C1.86999 5.75472 2.00024 6.32113 2.26075 7.45395L2.65148 9.15307C3.23914 11.7086 5.38912 13.6088 8 14"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M12 17C15.0208 17 17.565 12.3379 18.3297 5.99089C18.5412 4.23558 18.647 3.35793 18.0868 2.67896C17.5267 2 16.6223 2 14.8134 2H9.18658C7.37775 2 6.47333 2 5.91317 2.67896C5.35301 3.35793 5.45875 4.23558 5.67025 5.99089C6.435 12.3379 8.97923 17 12 17Z"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
   </svg>
 );
 
-const homeIconLabel = "Home icon";
-export const HomeIcon = () => (
+export const HomeIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={homeIconLabel}
+    aria-label="Home icon"
   >
     <path
       d="M9 22L9.00192 17.9976C9.00236 17.067 9.00258 16.6017 9.15462 16.2347C9.35774 15.7443 9.74746 15.3547 10.2379 15.1519C10.6051 15 11.0704 15 12.001 15C12.9319 15 13.3974 15 13.7647 15.152C14.2553 15.355 14.645 15.7447 14.848 16.2353C15 16.6026 15 17.0681 15 17.999V22"
-      stroke="#141522"
-      stroke-width="1.5"
+      stroke={stroke}
+      strokeWidth="1.5"
     />
     <path
       d="M7.08848 4.76243L6.08847 5.54298C4.57181 6.72681 3.81348 7.31873 3.40674 8.15333C3 8.98792 3 9.95205 3 11.8803V13.9715C3 17.7562 3 19.6485 4.17157 20.8243C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8243C21 19.6485 21 17.7562 21 13.9715V11.8803C21 9.95205 21 8.98792 20.5933 8.15333C20.1865 7.31873 19.4282 6.72681 17.9115 5.54298L16.9115 4.76243C14.5521 2.92081 13.3724 2 12 2C10.6276 2 9.44787 2.92081 7.08848 4.76243Z"
-      stroke="#141522"
-      stroke-width="1.5"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinejoin="round"
     />
   </svg>
 );
 
-const peopleIconLabel = "People icon";
-export const PeopleIcon = () => (
+export const PeopleIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={peopleIconLabel}
+    aria-label="People icon"
   >
     <path
       d="M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z"
-      stroke="#8E92BC"
-      stroke-width="1.5"
+      stroke={stroke}
+      strokeWidth="1.5"
     />
     <path
       d="M15 11C17.2091 11 19 9.20914 19 7C19 4.79086 17.2091 3 15 3"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M11 14H7C4.23858 14 2 16.2386 2 19C2 20.1046 2.89543 21 4 21H14C15.1046 21 16 20.1046 16 19C16 16.2386 13.7614 14 11 14Z"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinejoin="round"
     />
     <path
       d="M17 14C19.7614 14 22 16.2386 22 19C22 20.1046 21.1046 21 20 21H18.5"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
 
-const resourcesIconLabel = "Resources icon";
-export const ResourcesIcon = () => (
+export const ResourcesIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={resourcesIconLabel}
+    aria-label="Resources icon"
   >
     <path
       d="M8.64298 3.14559L6.93816 3.93362C4.31272 5.14719 3 5.75397 3 6.75C3 7.74603 4.31272 8.35281 6.93817 9.56638L8.64298 10.3544C10.2952 11.1181 11.1214 11.5 12 11.5C12.8786 11.5 13.7048 11.1181 15.357 10.3544L17.0618 9.56638C19.6873 8.35281 21 7.74603 21 6.75C21 5.75397 19.6873 5.14719 17.0618 3.93362L15.357 3.14559C13.7048 2.38186 12.8786 2 12 2C11.1214 2 10.2952 2.38186 8.64298 3.14559Z"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M20.788 11.0977C20.9293 11.2964 21 11.5036 21 11.7314C21 12.7132 19.6873 13.3114 17.0618 14.5077L15.357 15.2845C13.7048 16.0373 12.8786 16.4138 12 16.4138C11.1214 16.4138 10.2952 16.0373 8.64298 15.2845L6.93817 14.5077C4.31272 13.3114 3 12.7132 3 11.7314C3 11.5036 3.07067 11.2964 3.212 11.0977"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M20.3767 16.2656C20.7922 16.5966 21 16.9265 21 17.3171C21 18.299 19.6873 18.8971 17.0618 20.0934L15.357 20.8702C13.7048 21.6231 12.8786 21.9995 12 21.9995C11.1214 21.9995 10.2952 21.6231 8.64298 20.8702L6.93817 20.0934C4.31272 18.8971 3 18.299 3 17.3171C3 16.9265 3.20778 16.5966 3.62334 16.2656"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
 
-const lectureIconLabel = "Zoom meeting icon";
-export const LectureIcon = () => (
+export const LectureIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={lectureIconLabel}
+    aria-label="Lecture icon"
   >
     <path
       d="M2 10V8C2 7.05719 2 6.58579 2.29289 6.29289C2.58579 6 3.05719 6 4 6H7C10.7712 6 12.6569 6 13.8284 7.17157C15 8.34315 15 10.2288 15 14V16C15 16.9428 15 17.4142 14.7071 17.7071C14.4142 18 13.9428 18 13 18H10C6.22876 18 4.34315 18 3.17157 16.8284C2 15.6569 2 13.7712 2 10Z"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M17.8995 9.07049L18.5997 8.39526C20.0495 6.99707 20.7744 6.29798 21.3872 6.55106C22 6.80414 22 7.80262 22 9.79956V14.2004C22 16.1974 22 17.1959 21.3872 17.4489C20.7744 17.702 20.0495 17.0029 18.5997 15.6047L17.8995 14.9295C17.0122 14.0738 17 14.0453 17 12.8231V11.1769C17 9.95473 17.0122 9.92624 17.8995 9.07049Z"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -369,31 +362,31 @@ export const DesignIcon = () => (
   >
     <path
       d="M20.625 18.75C22.9032 18.75 24.75 17.0711 24.75 15C24.75 12.9289 22.9032 11.25 20.625 11.25C18.3468 11.25 16.5 12.9289 16.5 15C16.5 17.0711 18.3468 18.75 20.625 18.75Z"
-      stroke="black"
-      stroke-linejoin="round"
+      stroke="var(--secondary-dark)"
+      strokeLinejoin="round"
     />
     <path
       d="M12.375 26.25C14.6532 26.25 16.5 24.5711 16.5 22.5V18.75H12.375C10.0968 18.75 8.25 20.4289 8.25 22.5C8.25 24.5711 10.0968 26.25 12.375 26.25Z"
-      stroke="black"
-      stroke-linejoin="round"
+      stroke="var(--secondary-dark)"
+      strokeLinejoin="round"
     />
     <path
       d="M16.5 11.25V18.75H12.375C10.0968 18.75 8.25 17.0711 8.25 15C8.25 12.9289 10.0968 11.25 12.375 11.25H16.5Z"
-      stroke="black"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke="var(--secondary-dark)"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M16.5 3.75V11.25H12.375C10.0968 11.25 8.25 9.57106 8.25 7.5C8.25 5.42894 10.0968 3.75 12.375 3.75H16.5Z"
-      stroke="black"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke="var(--secondary-dark)"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M16.5 3.75V11.25H20.625C22.9032 11.25 24.75 9.57106 24.75 7.5C24.75 5.42894 22.9032 3.75 20.625 3.75H16.5Z"
-      stroke="black"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke="var(--secondary-dark)"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -401,62 +394,74 @@ export const DesignIcon = () => (
 const codeIconLabel = "Code icon";
 export const CodeIcon = () => (
   <svg
-    width="34"
-    height="34"
-    viewBox="0 0 34 34"
+    width="30"
+    height="28"
+    viewBox="0 0 30 28"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     aria-label={codeIconLabel}
   >
     <path
       d="M24.0833 11.334L26.6897 13.9549C27.7855 15.0568 28.3333 15.6078 28.3333 16.2923C28.3333 16.9769 27.7855 17.5278 26.6897 18.6297L24.0833 21.2507"
-      stroke="black"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke="var(--secondary-dark)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M9.91669 11.334L7.31029 13.9549C6.21455 15.0568 5.66669 15.6078 5.66669 16.2923C5.66669 16.9769 6.21455 17.5278 7.31029 18.6297L9.91669 21.2507"
-      stroke="black"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke="var(--secondary-dark)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M19.8334 7.08398L14.1667 25.5007"
-      stroke="black"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke="var(--secondary-dark)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
 
-const darkModeIconLabel = "Dark mode icon";
-export const DarkModeIcon = () => (
+export const DarkModeIcon = ({
+  color = "black",
+  size = "24",
+}: {
+  color?: string;
+  size?: string;
+}) => (
   <svg
-    width="34"
-    height="34"
-    viewBox="0 0 34 34"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={darkModeIconLabel}
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    color={color}
+    fill="none"
+    aria-label="Dark mode icon"
   >
     <path
-      d="M30.4583 19.9437C28.7587 20.8511 26.8176 21.3657 24.7564 21.3657C18.0612 21.3657 12.6337 15.9381 12.6337 9.24289C12.6337 7.18165 13.1481 5.24056 14.0556 3.54102C8.02916 4.9534 3.54166 10.3624 3.54166 16.8196C3.54166 24.3517 9.64763 30.4577 17.1798 30.4577C23.6369 30.4577 29.0459 25.9702 30.4583 19.9437Z"
-      stroke="black"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      d="M21.5 14.0784C20.3003 14.7189 18.9301 15.0821 17.4751 15.0821C12.7491 15.0821 8.91792 11.2509 8.91792 6.52485C8.91792 5.06986 9.28105 3.69968 9.92163 2.5C5.66765 3.49698 2.5 7.31513 2.5 11.8731C2.5 17.1899 6.8101 21.5 12.1269 21.5C16.6849 21.5 20.503 18.3324 21.5 14.0784Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
 
 const lightModeIconLabel = "Light mode icon";
-export const LightModeIcon = () => (
+export const LightModeIcon = ({
+  color = "black",
+  size = "24",
+}: {
+  color?: string;
+  size?: string;
+}) => (
   <svg
-    width="34"
-    height="34"
+    width={size}
+    height={size}
     viewBox="0 0 34 34"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -464,45 +469,44 @@ export const LightModeIcon = () => (
   >
     <path
       d="M24.0833 16.9993C24.0833 20.9113 20.912 24.0827 17 24.0827C13.088 24.0827 9.91666 20.9113 9.91666 16.9993C9.91666 13.0873 13.088 9.91602 17 9.91602C20.912 9.91602 24.0833 13.0873 24.0833 16.9993Z"
-      stroke="black"
-      stroke-width="1.5"
+      stroke={color}
+      strokeWidth="1.5"
     />
     <path
       d="M17 2.83398V4.95898M17 29.0423V31.1673M27.017 27.0183L25.5143 25.5157M8.4848 8.48544L6.98219 6.98283M31.1667 17.0007H29.0417M4.95834 17.0007H2.83334M27.0177 6.98299L25.515 8.48559M8.48549 25.5158L6.98289 27.0185"
-      stroke="black"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      stroke={color}
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
   </svg>
 );
 
-const sidebarIconLabel = "Sidebar icon";
-export const SidebarIcon = () => (
+export const SidebarIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
   <svg
     width="34"
     height="34"
     viewBox="0 0 34 34"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={sidebarIconLabel}
+    aria-label="Sidebar icon"
   >
     <path
       d="M2.83334 17C2.83334 11.7737 2.83334 9.16059 3.98626 7.30826C4.41279 6.62295 4.94263 6.02688 5.5518 5.54701C7.19832 4.25 9.5211 4.25 14.1667 4.25H19.8333C24.4789 4.25 26.8016 4.25 28.4482 5.54701C29.0574 6.02688 29.5872 6.62295 30.0138 7.30826C31.1667 9.16059 31.1667 11.7737 31.1667 17C31.1667 22.2262 31.1667 24.8394 30.0138 26.6917C29.5872 27.3771 29.0574 27.9731 28.4482 28.453C26.8016 29.75 24.4789 29.75 19.8333 29.75H14.1667C9.5211 29.75 7.19832 29.75 5.5518 28.453C4.94263 27.9731 4.41279 27.3771 3.98626 26.6917C2.83334 24.8394 2.83334 22.2262 2.83334 17Z"
-      stroke="black"
-      stroke-width="1.5"
+      stroke={stroke}
+      strokeWidth="1.5"
     />
     <path
       d="M13.4583 4.25V29.75"
-      stroke="black"
-      stroke-width="1.5"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinejoin="round"
     />
     <path
       d="M7.08334 9.91602H8.50001M7.08334 14.166H8.50001"
-      stroke="black"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke={stroke}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -518,23 +522,36 @@ export const NotificationIcon = ({ color }: { color?: string }) => (
     aria-label={notificationIconLabel}
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M17.5008 27.7871V27.5681C17.533 26.9202 17.7406 26.2925 18.1024 25.7496C18.7045 25.0975 19.1167 24.2983 19.2957 23.436C19.2957 22.7695 19.2957 22.0935 19.3539 21.427C19.6547 18.2184 22.8273 16 25.9611 16H26.0387C29.1725 16 32.345 18.2184 32.6555 21.427C32.7137 22.0935 32.6555 22.7695 32.704 23.436C32.8854 24.3003 33.2972 25.1019 33.8974 25.7591C34.2618 26.2972 34.4698 26.9227 34.4989 27.5681V27.7776C34.5206 28.648 34.2208 29.4968 33.6548 30.1674C32.907 30.9515 31.8921 31.4393 30.8024 31.5384C27.607 31.8812 24.383 31.8812 21.1876 31.5384C20.0991 31.435 19.0858 30.9479 18.3352 30.1674C17.778 29.4963 17.4822 28.6526 17.5008 27.7871Z"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke="var(--secondary-light-300)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M23.5549 34.8516C24.0542 35.4782 24.7874 35.8838 25.5922 35.9785C26.3971 36.0732 27.2072 35.8493 27.8433 35.3562C28.0389 35.2103 28.2149 35.0408 28.3672 34.8516"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      stroke="var(--secondary-light-300)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <circle cx="32" cy="19" r="4" fill={color ?? "#D82823"} />
     <rect x="0.5" y="0.5" width="51" height="51" rx="25.5" stroke="#F5F5F7" />
+  </svg>
+);
+const RedNotification = "Red Icon";
+export const RedIcon = ({ color }: { color?: string }) => (
+  <svg
+    width="8"
+    height="9"
+    viewBox="0 0 8 9"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-label={RedNotification}
+  >
+    <circle cx="4" cy="4.5" r="4" fill={color ?? "#D82823"} />
   </svg>
 );
 
@@ -549,20 +566,20 @@ export const DurationIcon = () => (
     aria-label={durationIconLabel}
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M21.2498 12C21.2498 17.109 17.1088 21.25 11.9998 21.25C6.89082 21.25 2.74982 17.109 2.74982 12C2.74982 6.891 6.89082 2.75 11.9998 2.75C17.1088 2.75 21.2498 6.891 21.2498 12Z"
       stroke="#54577A"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M15.4314 14.9417L11.6614 12.6927V7.8457"
       stroke="#54577A"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -579,21 +596,21 @@ export const FilterIcon = () => (
   >
     <path
       d="M3 7H21"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      stroke="var(--secondary-light-300)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
     <path
       d="M6 12H18"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      stroke="var(--secondary-light-300)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
     <path
       d="M10 17H14"
-      stroke="#8E92BC"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      stroke="var(--secondary-light-300)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
   </svg>
 );
@@ -611,41 +628,41 @@ export const ListIcon = () => (
     <path
       d="M11.3333 7.08398H28.3333"
       stroke="black"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
     <path
       d="M5.66669 7.08398H5.67941"
       stroke="black"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M5.66669 17H5.67941"
       stroke="black"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M5.66669 26.916H5.67941"
       stroke="black"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M11.3333 17H28.3333"
       stroke="black"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
     <path
       d="M11.3333 26.916H28.3333"
       stroke="black"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
   </svg>
 );
@@ -663,22 +680,91 @@ export const CardIcon = () => (
     <path
       d="M3 8.83333C3 6.58686 3 5.46362 3.50565 4.63848C3.78858 4.17677 4.17677 3.78858 4.63848 3.50565C5.46362 3 6.58686 3 8.83333 3C11.0798 3 12.203 3 13.0282 3.50565C13.4899 3.78858 13.8781 4.17677 14.161 4.63848C14.6667 5.46362 14.6667 6.58686 14.6667 8.83333C14.6667 11.0798 14.6667 12.203 14.161 13.0282C13.8781 13.4899 13.4899 13.8781 13.0282 14.161C12.203 14.6667 11.0798 14.6667 8.83333 14.6667C6.58686 14.6667 5.46362 14.6667 4.63848 14.161C4.17677 13.8781 3.78858 13.4899 3.50565 13.0282C3 12.203 3 11.0798 3 8.83333Z"
       stroke="black"
-      stroke-width="1.5"
+      strokeWidth="1.5"
     />
     <path
       d="M18.6666 8.83333C18.6666 6.58686 18.6666 5.46362 19.1722 4.63848C19.4551 4.17677 19.8434 3.78858 20.3051 3.50565C21.1302 3 22.2535 3 24.5 3C26.7464 3 27.8697 3 28.6949 3.50565C29.1566 3.78858 29.5448 4.17677 29.8277 4.63848C30.3333 5.46362 30.3333 6.58686 30.3333 8.83333C30.3333 11.0798 30.3333 12.203 29.8277 13.0282C29.5448 13.4899 29.1566 13.8781 28.6949 14.161C27.8697 14.6667 26.7464 14.6667 24.5 14.6667C22.2535 14.6667 21.1302 14.6667 20.3051 14.161C19.8434 13.8781 19.4551 13.4899 19.1722 13.0282C18.6666 12.203 18.6666 11.0798 18.6666 8.83333Z"
       stroke="black"
-      stroke-width="1.5"
+      strokeWidth="1.5"
     />
     <path
       d="M3 24.4993C3 22.2529 3 21.1296 3.50565 20.3045C3.78858 19.8427 4.17677 19.4545 4.63848 19.1716C5.46362 18.666 6.58686 18.666 8.83333 18.666C11.0798 18.666 12.203 18.666 13.0282 19.1716C13.4899 19.4545 13.8781 19.8427 14.161 20.3045C14.6667 21.1296 14.6667 22.2529 14.6667 24.4993C14.6667 26.7458 14.6667 27.8691 14.161 28.6942C13.8781 29.156 13.4899 29.5442 13.0282 29.8271C12.203 30.3327 11.0798 30.3327 8.83333 30.3327C6.58686 30.3327 5.46362 30.3327 4.63848 29.8271C4.17677 29.5442 3.78858 29.156 3.50565 28.6942C3 27.8691 3 26.7458 3 24.4993Z"
       stroke="black"
-      stroke-width="1.5"
+      strokeWidth="1.5"
     />
     <path
       d="M18.6666 24.4993C18.6666 22.2529 18.6666 21.1296 19.1722 20.3045C19.4551 19.8427 19.8434 19.4545 20.3051 19.1716C21.1302 18.666 22.2535 18.666 24.5 18.666C26.7464 18.666 27.8697 18.666 28.6949 19.1716C29.1566 19.4545 29.5448 19.8427 29.8277 20.3045C30.3333 21.1296 30.3333 22.2529 30.3333 24.4993C30.3333 26.7458 30.3333 27.8691 29.8277 28.6942C29.5448 29.156 29.1566 29.5442 28.6949 29.8271C27.8697 30.3327 26.7464 30.3327 24.5 30.3327C22.2535 30.3327 21.1302 30.3327 20.3051 29.8271C19.8434 29.5442 19.4551 29.156 19.1722 28.6942C18.6666 27.8691 18.6666 26.7458 18.6666 24.4993Z"
       stroke="black"
-      stroke-width="1.5"
+      strokeWidth="1.5"
+    />
+  </svg>
+);
+
+const vefskolinnLogoLabel = "Vefskólinn logo";
+export const VefskolinnLogo = ({
+  width,
+  height,
+  color = "#000000",
+}: {
+  width?: string;
+  height?: string;
+  color?: string;
+}) => (
+  <svg
+    width={width}
+    height={height}
+    viewBox="0 0 1663 1394"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M642.565 7.62035C637.419 16.1963 636.276 24.2005 636.276 39.6372C635.704 136.26 642.565 244.888 714.031 336.365C761.485 397.54 879.261 513.03 919.854 585.64C971.882 678.26 994.751 736.576 1004.47 789.175C1008.47 809.186 1012.47 820.049 1024.48 820.049C1034.2 820.049 1043.35 812.045 1046.21 786.888C1053.07 724.57 1058.21 644.528 1036.49 574.205C1006.19 477.011 940.436 382.675 830.092 276.905C739.759 190.574 692.305 114.534 676.869 30.4896C675.154 20.1984 674.582 15.0528 668.293 7.62035C659.145 -4.38599 646.567 1.90305 642.565 7.62035Z"
+      fill={color}
+    />
+    <path
+      d="M1128.53 154.556C1125.67 149.41 1114.24 144.265 1105.09 154.556C1099.37 161.417 1099.37 165.99 1097.66 175.138C1084.51 248.32 1043.91 314.64 967.873 388.965C990.742 424.984 1009.61 461.003 1025.62 495.879C1041.05 478.727 1054.78 462.718 1065.07 449.569C1129.1 367.239 1134.82 269.474 1134.82 183.142C1134.25 169.421 1133.1 162.56 1128.53 154.556ZM775.2 662.824C755.761 725.714 760.335 797.752 766.624 853.782C769.482 876.079 777.487 883.512 786.063 883.512C796.354 883.512 800.356 874.364 803.786 856.069C812.362 809.187 833.516 756.588 879.827 673.687C889.546 656.535 903.839 637.096 920.419 615.942C901.552 587.356 875.253 556.482 846.666 524.465C813.506 570.775 790.065 616.514 775.2 662.824Z"
+      fill={color}
+    />
+    <path
+      d="M721.464 450.715C631.13 364.383 583.677 288.343 568.24 204.299C566.525 194.008 565.953 188.862 559.664 181.43C549.945 169.424 537.366 175.713 533.936 181.43C528.79 190.006 527.647 198.01 527.647 213.447C527.075 310.069 533.936 418.698 605.402 510.175C637.419 551.339 701.453 617.088 751.765 677.692C765.487 633.097 779.78 583.928 805.508 538.761C780.924 510.175 752.909 480.445 721.464 450.715ZM927.858 748.014C922.141 729.147 914.708 710.852 906.132 691.985C875.831 728.004 853.533 768.025 837.525 809.19C870.685 874.367 887.265 920.677 895.269 962.985C899.272 982.996 903.274 993.858 915.28 993.858C924.999 993.858 934.147 985.854 937.006 960.698C944.438 897.808 949.584 817.765 927.858 748.014Z"
+      fill={color}
+    />
+    <path
+      d="M194.927 1103.05H226.368L134.709 1390.82H93.143L0.418457 1103.05H31.3266L100.604 1320.48L107.531 1342.86C110.196 1351.38 112.327 1358.85 113.926 1365.24H114.459C118.189 1350.85 122.452 1336.46 127.249 1321.54L194.927 1103.05Z"
+      fill={color}
+    />
+    <path
+      d="M381.458 1329.54H408.635V1337C408.635 1357.78 402.774 1372.7 391.583 1380.69C380.392 1389.22 360.142 1393.48 331.365 1393.48C297.792 1393.48 275.943 1386.56 265.818 1373.23C255.16 1359.91 250.364 1331.14 250.364 1287.97C250.364 1248 255.693 1220.83 266.351 1206.97C277.009 1193.11 297.259 1186.19 328.168 1186.19C361.74 1186.19 383.589 1192.05 393.714 1204.31C403.839 1216.03 409.168 1241.61 409.168 1279.98V1295.96H278.075C278.075 1327.94 281.272 1348.19 287.134 1356.71C293.529 1365.24 307.385 1370.04 330.299 1370.04C351.615 1370.04 365.471 1367.91 371.865 1363.64C378.26 1359.38 381.458 1350.32 381.458 1337V1329.54ZM381.458 1272.52V1262.92C381.458 1241.08 378.26 1227.22 371.865 1220.29C365.471 1213.9 351.615 1210.7 330.299 1210.7C308.983 1210.7 295.128 1214.43 288.733 1222.42C282.338 1229.88 279.141 1246.94 279.141 1272.52H381.458Z"
+      fill={color}
+    />
+    <path
+      d="M465.116 1390.82V1213.37H437.405V1188.85H465.116V1159.01C465.116 1119.58 483.234 1099.86 520.004 1099.86C525.333 1099.86 531.728 1100.39 539.189 1101.46V1125.97C530.662 1124.9 524.267 1124.37 520.537 1124.37C501.353 1124.37 491.761 1135.03 491.761 1156.35V1188.85H539.189V1213.37H491.761V1390.29H465.116V1390.82Z"
+      fill={color}
+    />
+    <path
+      d="M709.175 1241.62H682.53C682.53 1227.76 679.865 1218.7 675.069 1215.5C669.74 1212.31 656.951 1210.71 635.635 1210.71C615.917 1210.71 603.661 1212.31 598.332 1216.04C593.003 1219.77 590.338 1228.29 590.338 1241.62C590.338 1262.4 599.398 1273.06 616.983 1274.12L638.299 1275.19L665.477 1276.79C698.517 1278.39 715.037 1297.57 715.037 1334.34C715.037 1356.72 709.708 1372.71 698.517 1380.7C687.859 1389.23 667.609 1393.49 638.832 1393.49C608.99 1393.49 588.74 1389.23 577.549 1381.24C566.358 1373.24 561.029 1358.32 561.029 1337.01V1325.81H588.74V1335.41C588.74 1348.73 591.937 1357.26 597.799 1362.05C603.661 1366.31 615.918 1368.45 633.503 1368.45C655.352 1368.45 669.74 1366.31 676.668 1361.52C683.596 1356.72 686.793 1347.13 686.793 1332.21C686.793 1310.89 678.267 1300.24 660.681 1300.24C620.181 1300.24 594.069 1296.5 581.279 1289.04C568.489 1281.58 562.095 1265.6 562.095 1241.62C562.095 1219.23 566.891 1203.78 577.016 1196.32C587.141 1188.86 606.858 1185.13 637.233 1185.13C685.194 1185.13 709.175 1201.12 709.175 1233.62V1241.62Z"
+      fill={color}
+    />
+    <path
+      d="M786.989 1103.05V1270.38H799.246L863.194 1189.38H896.767L818.963 1282.11L910.622 1390.82H874.918L798.18 1293.3H787.522V1390.82H760.877V1103.05H786.989Z"
+      fill={color}
+    />
+    <path
+      d="M1010.27 1186.19C1043.85 1186.19 1065.69 1192.59 1075.29 1205.37C1085.41 1218.16 1090.21 1246.41 1090.21 1289.57C1090.21 1332.74 1085.41 1360.98 1075.29 1373.77C1065.16 1386.56 1043.31 1392.96 1010.27 1392.96C976.701 1392.96 955.385 1386.56 945.26 1373.77C935.134 1360.98 930.338 1332.74 930.338 1289.57C930.338 1246.41 935.134 1218.16 945.26 1205.37C955.385 1192.59 977.234 1186.19 1010.27 1186.19ZM1010.27 1210.7C986.826 1210.7 972.437 1214.97 966.576 1223.49C960.714 1232.02 958.049 1254.4 958.049 1290.11C958.049 1325.81 960.714 1348.19 966.576 1356.72C972.437 1365.24 986.826 1369.51 1010.27 1369.51C1033.72 1369.51 1048.64 1365.24 1053.97 1356.72C1059.83 1348.19 1062.5 1325.81 1062.5 1290.11C1062.5 1254.4 1059.83 1232.02 1053.97 1223.49C1048.64 1214.97 1033.72 1210.7 1010.27 1210.7ZM1039.58 1105.72L1053.44 1126.51L997.484 1164.87L988.424 1149.42L1039.58 1105.72Z"
+      fill={color}
+    />
+    <path d="M1166.4 1103.05V1390.82H1139.76V1103.05H1166.4Z" fill={color} />
+    <path
+      d="M1247.4 1103.05V1136.09H1220.75V1103.05H1247.4ZM1247.4 1189.38V1390.82H1220.75V1189.38H1247.4Z"
+      fill={color}
+    />
+    <path
+      d="M1301.24 1189.38H1326.82L1326.29 1216.56L1326.82 1217.09C1334.81 1196.31 1355.06 1186.19 1387.04 1186.19C1413.15 1186.19 1430.73 1190.98 1439.79 1201.11C1448.85 1211.23 1453.65 1230.42 1453.65 1259.19V1390.29H1427V1261.86V1254.4C1427 1237.34 1423.81 1225.62 1417.94 1219.76C1412.08 1213.9 1400.36 1210.7 1383.84 1210.7C1346.54 1210.7 1327.88 1230.42 1327.88 1269.32V1390.29H1301.24V1189.38Z"
+      fill={color}
+    />
+    <path
+      d="M1509.61 1189.38H1535.19L1534.65 1216.56L1535.19 1217.09C1543.18 1196.31 1563.43 1186.19 1595.4 1186.19C1621.52 1186.19 1639.1 1190.98 1648.16 1201.11C1657.22 1211.23 1662.02 1230.42 1662.02 1259.19V1390.29H1635.37V1261.86V1254.4C1635.37 1237.34 1632.17 1225.62 1626.31 1219.76C1620.45 1213.9 1608.73 1210.7 1592.21 1210.7C1554.9 1210.7 1536.25 1230.42 1536.25 1269.32V1390.29H1509.61V1189.38Z"
+      fill={color}
     />
   </svg>
 );
@@ -715,9 +801,9 @@ export const Arrow = ({
       <path
         d="M12.7501 8.5C12.7501 8.5 21.25 14.7601 21.25 17C21.25 19.24 12.75 25.5 12.75 25.5"
         stroke="black"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -749,9 +835,9 @@ export const DefaultUserIcon = ({
       <path
         d="M12.7501 8.5C12.7501 8.5 21.25 14.7601 21.25 17C21.25 19.24 12.75 25.5 12.75 25.5"
         stroke="black"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   </svg>
@@ -771,19 +857,38 @@ export const SearchIcon = () => (
     <path
       d="M17.5 17.5L22 22"
       stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
       stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linejoin="round"
+      strokeWidth="1.5"
+      strokeLinejoin="round"
     />
   </svg>
 );
-
+const Mark = "Mark icon";
+export const MarkIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      id="Mark"
+      cx="8"
+      cy="8"
+      r="7"
+      fill="#007AFF"
+      stroke="white"
+      strokeWidth="2"
+    />
+  </svg>
+);
 export const exportedForTesting = {
   hourglassIconLabel,
   hatIconLabel,
@@ -792,16 +897,11 @@ export const exportedForTesting = {
   redCrossLabel,
   bellIconLabel,
   exitIconLabel,
-  logOutIconLabel,
   defaultUserIconLabel,
 
-  resourcesIconLabel,
-  lectureIconLabel,
   designIconLabel,
   codeIconLabel,
-  darkModeIconLabel,
   lightModeIconLabel,
-  sidebarIconLabel,
   notificationIconLabel,
   durationIconLabel,
   filterIconLabel,

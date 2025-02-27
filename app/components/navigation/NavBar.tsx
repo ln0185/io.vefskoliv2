@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 import { DesktopNavbar } from "./DesktopNav";
 import { MobileNavbar } from "./MobileNav";
 import {
@@ -9,6 +9,8 @@ import {
   CalendarIcon,
   LectureIcon,
 } from "assets/Icons";
+import { IconType } from "react-icons";
+import { motion } from "framer-motion";
 
 type Link = { page: string; title: string; icon: ReactNode };
 export type NavBarProps = { links: Link[] };

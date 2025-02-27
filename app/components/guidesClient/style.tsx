@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const GuideContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 0.75rem;
+  justify-content: start;
+  gap: 1.2rem;
   width: 100%;
 `;

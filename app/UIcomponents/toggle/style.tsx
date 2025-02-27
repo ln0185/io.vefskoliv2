@@ -5,13 +5,14 @@ const BREAKPOINT = "680px";
 export const Option = styled.div<{ selected: boolean }>`
   ${(props) =>
     props.selected
-      ? "color: var(--primary-white); background-color:var(--theme-module3-100)"
-      : "color:var(--theme-module3-100); "};
+      ? "color: var(--primary-white); background-color:var(--secondary-dark)"
+      : "color: var(--secondary-dark); background-color:var(--primary-white) "};
   padding: 4px 8px;
   min-width: 80px;
   position: relative;
   text-align: center;
   font-size: 12px;
+  border-radius: 8px;
 
   @media (min-width: ${BREAKPOINT}) {
     padding: 8px 12px;
@@ -29,11 +30,20 @@ export const NotificationIconContainer = styled.div`
   z-index: 1;
 `;
 
+export const RedIconContainer = styled.div`
+  position: absolute;
+  height: 8px;
+  width: 10px;
+  top: 85px;
+  left: 130px;
+  z-index: 1;
+`;
+
 export const ToggleContainer = styled.div`
   display: flex;
   flex-wrap: nowrap;
   width: fit-content;
   height: fit-content;
-  border: 1px solid var(--theme-module3-100);
+  border: 1px solid var(--secondary-dark);
   border-radius: 8px;
 `;

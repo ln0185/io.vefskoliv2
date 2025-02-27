@@ -25,20 +25,16 @@ import { Wrapper } from "globalStyles/globalStyles";
 import { Session } from "next-auth";
 import { AdapterUser } from "next-auth/adapters";
 import { useState } from "react";
-
 export const Profile = ({ session }: { session: Session | null }) => {
   const user = session?.user as AdapterUser;
-
   const ProfilePictureContainer = () => {
     return (
       <ImageWrapper>
         <ProfilePicture url={user.avatarUrl} />
-
         <ProfileName>{user.name}</ProfileName>
       </ImageWrapper>
     );
   };
-
   return (
     <Wrapper>
       {user ? (
@@ -52,7 +48,6 @@ export const Profile = ({ session }: { session: Session | null }) => {
     </Wrapper>
   );
 };
-
 const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
   const [userInfo, setUserInfo] = useState({
     background: user?.background || "",
@@ -60,13 +55,10 @@ const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
     interests: user?.interests || "",
     favoriteArtists: user?.favoriteArtists || "",
   });
-
   const onSave = async () => {
     await updateUserInfo(userInfo);
   };
-
   const { background, careerGoals, interests, favoriteArtists } = userInfo;
-
   return (
     <ProfileWrapper>
       <ProfileDetails>
@@ -138,7 +130,6 @@ const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
     </ProfileWrapper>
   );
 };
-
 const ProfilePicture = ({ url }: { url?: string | null | undefined }) => {
   return (
     <ProfileImageContainer>

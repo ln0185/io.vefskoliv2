@@ -1,13 +1,16 @@
 "use client";
 
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled(motion.div)`
+  width: 100%;
+  height: 6.25rem;
+  background-color: var(--primary-light-grey);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  border-bottom: 1px solid #ddd;
 `;
 
 export const LeftSection = styled.div`
@@ -15,14 +18,15 @@ export const LeftSection = styled.div`
   flex-direction: column;
 
   h1 {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
+    color: var(--secondary-dark);
   }
 
   p {
-    font-size: 14px;
-    color: #808080;
+    font-size: 16px;
     margin-top: 4px;
+    color: var(--secondary-light-300);
   }
 `;
 
@@ -45,11 +49,26 @@ export const IconButton = styled.button`
   transition: background 0.2s;
 
   &:hover {
-    background: #fafafa;
+    background: var(--primary-light-grey);
   }
+`;
+export const NotificationDropdown = styled.button`
+  cursor: pointer;
 `;
 
 export const UserInfo = styled.div`
   display: flex;
   align-items: center;
+`;
+export const SearchInputContainer = styled.div`
+  position: relative;
+`;
+
+export const SearchInput = styled.input`
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 150px;
 `;
