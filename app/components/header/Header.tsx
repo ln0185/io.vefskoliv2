@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import { NotificationIconContainer } from "UIcomponents/toggle/style";
 import { SearchIcon, NotificationIcon } from "assets/Icons";
 import {
-  HeaderContainer,
   LeftSection,
   RightSection,
   IconButton,
@@ -15,11 +14,15 @@ import {
 
 import { Profile } from "components/profile/profile";
 import { Session } from "next-auth";
+import { useSession } from "next-auth/react";
 import { AdapterUser } from "next-auth/adapters";
+
 type Props = {
-  session: Session;
+  session?: Session;
 };
-export const Header = ({ session }: Props) => {
+
+export const RightSectionContent = () => {
+  const { data: session } = useSession();
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
@@ -50,47 +53,49 @@ export const Header = ({ session }: Props) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-  const Notification = () => {
-    return (
-      <NotificationIconContainer>
-        <NotificationIcon />
-      </NotificationIconContainer>
-    );
-  };
+
+  if (!session) return null;
+
+  return (
+    <>
+      <SearchInputContainer ref={searchRef}>
+        {showSearch ? (
+          <form onSubmit={handleSearch}>
+            <SearchInput
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search..."
+              autoFocus
+            />
+          </form>
+        ) : (
+          <IconButton onClick={() => setShowSearch(true)}>
+            <SearchIcon size="20" />
+          </IconButton>
+        )}
+      </SearchInputContainer>
+      <NotificationDropdown>
+        <NotificationIcon size="20" />
+      </NotificationDropdown>
+      <Profile session={session} />
+    </>
+  );
+};
+
+export const Header = ({ session }: Props) => {
   const user = session?.user as AdapterUser;
 
   return (
-    <HeaderContainer>
+    <>
       <LeftSection>
-        <h1>Hi, {user.name}</h1>
-        <p>Let’s finish your task today!</p>
+        <h1>Hi, {user?.name}</h1>
+        <p>Let's finish your task today!</p>
       </LeftSection>
 
       <RightSection>
-        <SearchInputContainer ref={searchRef}>
-          {showSearch ? (
-            <form onSubmit={handleSearch}>
-              <SearchInput
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search..."
-                autoFocus
-              />
-            </form>
-          ) : (
-            <IconButton onClick={() => setShowSearch(true)}>
-              <SearchIcon />
-            </IconButton>
-          )}
-        </SearchInputContainer>
-        <NotificationDropdown>
-          <NotificationIcon />
-        </NotificationDropdown>
-        <IconButton as="div">
-          <Profile session={session} />
-        </IconButton>
+        <RightSectionContent />
       </RightSection>
-    </HeaderContainer>
+    </>
   );
 };

@@ -17,9 +17,9 @@ export const ImageWrapper = styled.div`
 `;
 
 export const ProfileImageContainer = styled.div`
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
   overflow: hidden;
   border: 1px solid var(--theme-module3-100);
   cursor: pointer;

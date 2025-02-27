@@ -1,4 +1,5 @@
 import exp from "constants";
+import { number } from "zod";
 
 const hourglassIconLabel = "Hourglass icon";
 export const Hourglass = () => (
@@ -94,7 +95,6 @@ export const RedCross = () => (
   </svg>
 );
 
-const bellIconLabel = "Bell icon";
 export const Bell = ({ color }: { color?: string }) => (
   <svg
     width="100%"
@@ -102,7 +102,7 @@ export const Bell = ({ color }: { color?: string }) => (
     viewBox="0 0 22 21"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={bellIconLabel}
+    aria-label="Bell icon"
   >
     <path
       d="M19.1881 16.4137V17.3629H1.91883V16.4137L3.83764 14.5152V8.81965C3.83764 5.87696 5.78523 3.2855 8.63467 2.45016V2.17487C8.63467 1.67136 8.83683 1.18847 9.19667 0.832427C9.55652 0.476388 10.0446 0.276367 10.5535 0.276367C11.0624 0.276367 11.5504 0.476388 11.9103 0.832427C12.2701 1.18847 12.4723 1.67136 12.4723 2.17487V2.45016C15.3217 3.2855 17.2693 5.87696 17.2693 8.81965V14.5152L19.1881 16.4137ZM12.4723 18.3122C12.4723 18.8157 12.2701 19.2986 11.9103 19.6546C11.5504 20.0107 11.0624 20.2107 10.5535 20.2107C10.0446 20.2107 9.55652 20.0107 9.19667 19.6546C8.83683 19.2986 8.63467 18.8157 8.63467 18.3122M17.9889 1.40598L16.6265 2.75392C17.438 3.54694 18.0822 4.49146 18.5219 5.53269C18.9617 6.57393 19.1881 7.69117 19.1881 8.81965H21.1069C21.1069 6.03834 19.994 3.36144 17.9889 1.40598ZM1.8225e-05 8.81965H1.91883C1.91883 6.54144 2.83986 4.35816 4.48044 2.75392L3.11809 1.40598C2.12787 2.37571 1.34229 3.53047 0.807015 4.80318C0.271736 6.07588 -0.00257565 7.44115 1.8225e-05 8.81965Z"
@@ -512,34 +512,74 @@ export const SidebarIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
 );
 
 const notificationIconLabel = "Notification icon";
-export const NotificationIcon = ({ color }: { color?: string }) => (
+export const NotificationIcon = ({
+  color,
+  size = "52",
+}: {
+  color?: string;
+  size?: string;
+}) => (
   <svg
-    width="52"
-    height="52"
-    viewBox="0 0 52 52"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label={notificationIconLabel}
+    aria-label="Notification icon"
   >
     <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M17.5008 27.7871V27.5681C17.533 26.9202 17.7406 26.2925 18.1024 25.7496C18.7045 25.0975 19.1167 24.2983 19.2957 23.436C19.2957 22.7695 19.2957 22.0935 19.3539 21.427C19.6547 18.2184 22.8273 16 25.9611 16H26.0387C29.1725 16 32.345 18.2184 32.6555 21.427C32.7137 22.0935 32.6555 22.7695 32.704 23.436C32.8854 24.3003 33.2972 25.1019 33.8974 25.7591C34.2618 26.2972 34.4698 26.9227 34.4989 27.5681V27.7776C34.5206 28.648 34.2208 29.4968 33.6548 30.1674C32.907 30.9515 31.8921 31.4393 30.8024 31.5384C27.607 31.8812 24.383 31.8812 21.1876 31.5384C20.0991 31.435 19.0858 30.9479 18.3352 30.1674C17.778 29.4963 17.4822 28.6526 17.5008 27.7871Z"
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M3.50083 13.7871V13.5681C3.53295 12.9202 3.7406 12.2925 4.10236 11.7496C4.7045 11.0975 5.1167 10.2983 5.29571 9.43598C5.29571 8.7695 5.29571 8.0935 5.35393 7.42703C5.65469 4.21842 8.82728 2 11.9611 2H12.0387C15.1725 2 18.345 4.21842 18.6555 7.42703C18.7137 8.0935 18.6555 8.7695 18.704 9.43598C18.8854 10.3003 19.2972 11.1019 19.8974 11.7591C20.2618 12.2972 20.4698 12.9227 20.4989 13.5681V13.7776C20.5206 14.648 20.2208 15.4968 19.6548 16.1674C18.907 16.9515 17.8921 17.4393 16.8024 17.5384C13.607 17.8812 10.383 17.8812 7.18762 17.5384C6.09914 17.435 5.08576 16.9479 4.33521 16.1674C3.778 15.4963 3.48224 14.6526 3.50083 13.7871Z"
       stroke="var(--secondary-light-300)"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M23.5549 34.8516C24.0542 35.4782 24.7874 35.8838 25.5922 35.9785C26.3971 36.0732 27.2072 35.8493 27.8433 35.3562C28.0389 35.2103 28.2149 35.0408 28.3672 34.8516"
+      d="M9.55493 20.8518C10.0542 21.4785 10.7874 21.884 11.5922 21.9788C12.3971 22.0735 13.2072 21.8495 13.8433 21.3564C14.0389 21.2106 14.2149 21.041 14.3672 20.8518"
       stroke="var(--secondary-light-300)"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <circle cx="32" cy="19" r="4" fill={color ?? "#D82823"} />
-    <rect x="0.5" y="0.5" width="51" height="51" rx="25.5" stroke="#F5F5F7" />
+    <circle cx="18" cy="5" r="4" fill={color ?? "#D82823"} />
   </svg>
+
+  // <svg
+  //   width={size}
+  //   height={size}
+  //   viewBox="0 0 52 52"
+  //   fill="none"
+  //   xmlns="http://www.w3.org/2000/svg"
+  //   aria-label={notificationIconLabel}
+  // >
+  //   <path
+  //     fillRule="evenodd"
+  //     clipRule="evenodd"
+  //     d="M17.5008 27.7871V27.5681C17.533 26.9202 17.7406 26.2925 18.1024 25.7496C18.7045 25.0975 19.1167 24.2983 19.2957 23.436C19.2957 22.7695 19.2957 22.0935 19.3539 21.427C19.6547 18.2184 22.8273 16 25.9611 16H26.0387C29.1725 16 32.345 18.2184 32.6555 21.427C32.7137 22.0935 32.6555 22.7695 32.704 23.436C32.8854 24.3003 33.2972 25.1019 33.8974 25.7591C34.2618 26.2972 34.4698 26.9227 34.4989 27.5681V27.7776C34.5206 28.648 34.2208 29.4968 33.6548 30.1674C32.907 30.9515 31.8921 31.4393 30.8024 31.5384C27.607 31.8812 24.383 31.8812 21.1876 31.5384C20.0991 31.435 19.0858 30.9479 18.3352 30.1674C17.778 29.4963 17.4822 28.6526 17.5008 27.7871Z"
+  //     stroke="var(--secondary-light-300)"
+  //     strokeWidth="1.5"
+  //     strokeLinecap="round"
+  //     strokeLinejoin="round"
+  //   />
+  //   <path
+  //     d="M23.5549 34.8516C24.0542 35.4782 24.7874 35.8838 25.5922 35.9785C26.3971 36.0732 27.2072 35.8493 27.8433 35.3562C28.0389 35.2103 28.2149 35.0408 28.3672 34.8516"
+  //     stroke="var(--secondary-light-300)"
+  //     strokeWidth="1.5"
+  //     strokeLinecap="round"
+  //     strokeLinejoin="round"
+  //   />
+  //   <circle cx="32" cy="19" r="4" fill={color ?? "#D82823"} />
+  //   <rect
+  //     x="0.5"
+  //     y="0.5"
+  //     width="51"
+  //     height="51"
+  //     rx="25.5"
+  //     stroke="var(--secondary-light-200)"
+  //   />
+  // </svg>
 );
 const RedNotification = "Red Icon";
 export const RedIcon = ({ color }: { color?: string }) => (
@@ -843,16 +883,15 @@ export const DefaultUserIcon = ({
   </svg>
 );
 
-const searchIconLabel = "Search icon";
-export const SearchIcon = () => (
+export const SearchIcon = ({ size = "24" }: { size: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    width="24"
-    height="24"
-    color="#000000"
+    width={size}
+    height={size}
+    color="var(--secondary-light-300)"
     fill="none"
-    aria-label={searchIconLabel}
+    aria-label="Search icon"
   >
     <path
       d="M17.5 17.5L22 22"
@@ -869,7 +908,7 @@ export const SearchIcon = () => (
     />
   </svg>
 );
-const Mark = "Mark icon";
+
 export const MarkIcon = () => (
   <svg
     width="16"
@@ -877,6 +916,7 @@ export const MarkIcon = () => (
     viewBox="0 0 16 16"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    aria-label="Mark icon"
   >
     <circle
       id="Mark"
@@ -889,13 +929,75 @@ export const MarkIcon = () => (
     />
   </svg>
 );
+
+export const HamburgerIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    color="var(--secondary-light-300)"
+    fill="none"
+    aria-label="Hamburguer icon"
+  >
+    <path
+      d="M4 5L20 5"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M4 12L20 12"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M4 19L20 19"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const ProfileIcon = ({ size }: { size: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    color="var(--secondary-light-300)"
+    fill="none"
+  >
+    <path
+      d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+      stroke="var(--secondary-light-200)"
+      strokeWidth="0.6"
+    />
+    <path
+      d="M14.75 9.5C14.75 11.0188 13.5188 12.25 12 12.25C10.4812 12.25 9.25 11.0188 9.25 9.5C9.25 7.98122 10.4812 6.75 12 6.75C13.5188 6.75 14.75 7.98122 14.75 9.5Z"
+      stroke="currentColor"
+      strokeWidth="0.6"
+    />
+    <path
+      d="M5.49994 19.0001L6.06034 18.0194C6.95055 16.4616 8.60727 15.5001 10.4016 15.5001H13.5983C15.3926 15.5001 17.0493 16.4616 17.9395 18.0194L18.4999 19.0001"
+      stroke="currentColor"
+      strokeWidth="0.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 export const exportedForTesting = {
   hourglassIconLabel,
   hatIconLabel,
   greenTickLabel,
   purpleStarLabel,
   redCrossLabel,
-  bellIconLabel,
   exitIconLabel,
   defaultUserIconLabel,
 
@@ -907,5 +1009,4 @@ export const exportedForTesting = {
   filterIconLabel,
   listIconLabel,
   cardIconLabel,
-  searchIconLabel,
 };

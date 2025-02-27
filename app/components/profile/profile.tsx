@@ -16,7 +16,7 @@ import {
 import Modal from "UIcomponents/modal/modal";
 import { Input } from "UIcomponents/input/Input";
 import DefaultButton from "globalStyles/buttons/default";
-import { DefaultUserIcon } from "assets/Icons";
+import { DefaultUserIcon, ProfileIcon } from "assets/Icons";
 import { LogoutIcon } from "assets/Icons";
 import { signOut } from "serverActions/signOut";
 import { updateUserInfo } from "serverActions/updateUserInfo";
@@ -30,7 +30,11 @@ export const Profile = ({ session }: { session: Session | null }) => {
   const ProfilePictureContainer = () => {
     return (
       <ImageWrapper>
-        <ProfilePicture url={user.avatarUrl} />
+        {user.avatarUrl ? (
+          <ProfilePicture url={user.avatarUrl} />
+        ) : (
+          <ProfileIcon size="42" />
+        )}
         <ProfileName>{user.name}</ProfileName>
       </ImageWrapper>
     );
@@ -48,6 +52,7 @@ export const Profile = ({ session }: { session: Session | null }) => {
     </Wrapper>
   );
 };
+
 const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
   const [userInfo, setUserInfo] = useState({
     background: user?.background || "",
@@ -59,6 +64,7 @@ const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
     await updateUserInfo(userInfo);
   };
   const { background, careerGoals, interests, favoriteArtists } = userInfo;
+  console.log("user", user.avatarUrl);
   return (
     <ProfileWrapper>
       <ProfileDetails>
