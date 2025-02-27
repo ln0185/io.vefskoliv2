@@ -6,6 +6,7 @@ import NavOptions from "components/navOpitons/NavOptions";
 import { useSession } from "next-auth/react";
 import { RightSection } from "components/header/style";
 import { RightSectionContent } from "components/header/Header";
+import { DarkModeToggle } from "components/darkmode/darkmode";
 
 // Styled components for the hamburger menu
 const MenuContainer = styled.div`
@@ -69,9 +70,12 @@ const CloseButton = styled.button`
   cursor: pointer;
 `;
 
-const NavbarContainer = styled.div`
-  width: 80%;
-  max-width: 400px;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
 `;
 
 const MobileHamburgerMenu: React.FC = () => {
@@ -130,11 +134,10 @@ const MobileHamburgerMenu: React.FC = () => {
         <CloseButton onClick={toggleMenu} aria-label="Close menu">
           ✕
         </CloseButton>
-        {/* Pass closeMenu function to NavOptions */}
-        <NavOptions onNavItemClick={closeMenu} />
-        <NavbarContainer>
-          {/* Your navbar component goes here */}
-        </NavbarContainer>
+        <Container>
+          <NavOptions onNavItemClick={closeMenu} />
+          <DarkModeToggle />
+        </Container>
       </FullScreenMenu>
     </>
   );

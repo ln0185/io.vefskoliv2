@@ -10,6 +10,7 @@ export const DarkModeToggle = () => {
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
+
     const savedMode = localStorage.getItem("darkMode");
 
     const isDark = savedMode !== null ? savedMode === "true" : prefersDark;
@@ -17,6 +18,7 @@ export const DarkModeToggle = () => {
     document.body.classList.toggle("dark-mode", isDark);
 
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
     const handleChange = (e: MediaQueryListEvent) => {
       setIsDarkMode(e.matches);
       document.body.classList.toggle("dark-mode", e.matches);
@@ -36,6 +38,14 @@ export const DarkModeToggle = () => {
     });
   };
 
+  // const toggleDarkMode = () => {
+  //   setIsDarkMode((prev) => !prev);
+  // };
+
+  // useEffect(() => {
+  //   document.body.classList.toggle("dark-mode", isDarkMode);
+  // }, [isDarkMode]);
+
   return (
     <ToggleContainer onClick={toggleDarkMode}>
       <Background
@@ -46,13 +56,21 @@ export const DarkModeToggle = () => {
       <IconWrapper>
         <DarkModeIcon
           size="20"
-          color={isDarkMode === true ? "white" : "#94a3b8"}
+          color={
+            isDarkMode === true
+              ? "var(--primary-white)"
+              : "var(--secondary-light-300"
+          }
         />
       </IconWrapper>
       <IconWrapper>
         <LightModeIcon
           size="20"
-          color={isDarkMode === false ? "white" : "#94a3b8"}
+          color={
+            isDarkMode === false
+              ? "var(--primary-white)"
+              : "var(--secondary-light-300"
+          }
         />
       </IconWrapper>
     </ToggleContainer>

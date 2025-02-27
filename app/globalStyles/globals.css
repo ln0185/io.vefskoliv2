@@ -35,6 +35,8 @@ h1 {
   --primary-light-grey: #fafafa;
   --primary-light-blue: #e8f3ff;
   --primary-white: #ffffff;
+
+
   /* General Borders */
   --primary-border: #dfe3e7;
 
@@ -111,6 +113,14 @@ h1 {
   --regular: 400;
   --medium: 500;
   --semibold: 600;
+
+
+
+
+
+
+
+
 
   /* WE ARE NOT USING THESE COLORS -magnea */
 
