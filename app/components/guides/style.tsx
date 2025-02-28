@@ -10,7 +10,6 @@ export const Container = styled.div`
   padding-left: 10px;
 
   @media (max-width: 768px) {
-    padding: 0px;
     margin: auto;
     width: 100vw;
     overflow-x: hidden;

@@ -47,8 +47,10 @@ export const StyledLink = styled(Link)`
     transform: scale(1.05);
   }
   @media (max-width: 768px) {
+    &:hover {
+      transform: none;
+    }
     transition: none;
-    transform: none;
   }
 `;
 
