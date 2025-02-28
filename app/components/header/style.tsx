@@ -47,6 +47,12 @@ export const RightSection = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
 `;
 
 export const IconButton = styled.button`

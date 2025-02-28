@@ -10,6 +10,7 @@ export const GuideCardContainer = styled.div`
   display: flex;
   justify-content: start;
   align-items: start;
+  margin: auto;
   border-radius: 20px;
   cursor: pointer;
   background-color: var(--primary-white);
@@ -21,6 +22,10 @@ export const GuideCardContainer = styled.div`
 
   &:hover {
     transform: scale(1.05);
+  }
+  @media (max-width: 768px) {
+    width: 95vw;
+    padding: auto;
   }
 `;
 
@@ -34,13 +39,16 @@ export const StyledLink = styled(Link)`
   cursor: pointer;
   background-color: var(--primary-white);
   border: solid 1px var(--card-border);
-  width: 100%;
-  height: 100%;
+
   transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out,
     background-color 0.2s ease-in-out;
 
   &:hover {
     transform: scale(1.05);
+  }
+  @media (max-width: 768px) {
+    transition: none;
+    transform: none;
   }
 `;
 
