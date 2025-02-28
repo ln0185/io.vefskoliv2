@@ -26,7 +26,7 @@ export const RightSectionContent = ({
   serverSession?: Session;
 }) => {
   const { data: clientSession, status } = useSession();
-  const session = clientSession || serverSession; // Use whichever is available
+  const session = clientSession || serverSession;
 
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
@@ -59,7 +59,6 @@ export const RightSectionContent = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // If we're still loading the session, render placeholder elements to avoid layout shift
   if (status === "loading" || !session) {
     return (
       <>

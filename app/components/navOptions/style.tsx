@@ -16,7 +16,7 @@ export const LinksContainer = styled.div<OpenProps>`
   gap: 0.75rem;
   width: ${(props) => (props.$isOpen ? "230px" : "100%")};
 `;
-// In app/components/navOpitons/style.tsx
+
 export const NavLink = styled(Link)<SelectedProps>`
   position: relative;
   display: flex;

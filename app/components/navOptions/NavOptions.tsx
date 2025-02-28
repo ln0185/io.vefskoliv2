@@ -85,7 +85,6 @@ const Option = React.memo(
       ? "var(--primary-default)"
       : "var(--secondary-light-300)";
 
-    // Handle both navigation and closing menu
     const handleClick = (e: React.MouseEvent) => {
       if (onClick) {
         onClick();

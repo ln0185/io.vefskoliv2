@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-  Container,
+  SubheaderContainer,
   ModuleContainer,
   ModuleOptionContainer,
   Bar,
@@ -54,7 +54,7 @@ export const Module = ({
   };
 
   return (
-    <Container style={style}>
+    <SubheaderContainer style={style}>
       <ModuleContainer $zIndex={zIndex}>
         <div className="desktop-view">
           {options.map((option, index) => {
@@ -105,6 +105,6 @@ export const Module = ({
 
         <Bar />
       </ModuleContainer>
-    </Container>
+    </SubheaderContainer>
   );
 };
