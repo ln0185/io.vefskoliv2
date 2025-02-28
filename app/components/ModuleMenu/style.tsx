@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const SubheaderContainer = styled.div`
   position: relative;
   display: flex;
   width: 100%;
   padding: 10px;
   flex-wrap: wrap;
+  @media (max-width: 768px) {
+    position: sticky;
+    margin-top: 10px;
+    padding-right: 15px;
+  }
 `;
 
 export const ModuleContainer = styled.div<{ $zIndex?: number }>`

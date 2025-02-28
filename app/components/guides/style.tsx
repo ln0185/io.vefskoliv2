@@ -9,11 +9,11 @@ export const Container = styled.div`
   padding: 5px;
   padding-left: 10px;
 
-  flex-wrap: wrap;
-
   @media (max-width: 768px) {
-    padding-left: 30px;
-    flex-wrap: wrap;
+    padding: 0px;
+    margin: auto;
+    width: 100vw;
+    overflow-x: hidden;
   }
 `;
 

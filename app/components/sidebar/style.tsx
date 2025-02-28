@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import Link from "next/link";
+
 import styled from "styled-components";
 
-// Styled Components
 export const SidebarContainer = styled(motion.div)`
   position: relative;
   height: 100vh;
@@ -35,8 +34,6 @@ export const ContentContainer = styled.div`
   align-items: center;
   padding-top: 1rem;
 `;
-
-
 
 export const TitleContainer = styled.div<OpenProps>`
   display: flex;
@@ -72,9 +69,6 @@ export const LogoPlaceholder = styled.div`
 interface SelectedProps {
   $isSelected: boolean;
 }
-
-
-
 
 export const DarkModeContainer = styled.div`
   display: flex;

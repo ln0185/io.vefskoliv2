@@ -2,16 +2,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { HamburgerIcon } from "assets/Icons";
-import NavOptions from "components/navOpitons/NavOptions";
+import NavOptions from "components/navOptions/NavOptions";
 import { useSession } from "next-auth/react";
-import { RightSection } from "components/header/style";
+import { LeftSection } from "components/header/style";
 import { RightSectionContent } from "components/header/Header";
 
-// Styled components for the hamburger menu
 const MenuContainer = styled.div`
-  display: none; /* Hidden by default on desktop */
+  display: none;
 
-  /* Show only on mobile */
   @media (max-width: 768px) {
     display: flex;
     justify-content: space-between;
@@ -24,9 +22,9 @@ const MenuContainer = styled.div`
   }
 `;
 
-const MobileRightSection = styled(RightSection)`
+const MobileLeftSection = styled(LeftSection)`
   @media (max-width: 768px) {
-    margin-right: auto; /* Push to the left side */
+    margin-left: auto;
   }
 `;
 
@@ -40,7 +38,7 @@ const HamburgerButton = styled.button`
   outline: none;
 `;
 
-const FullScreenMenu = styled.div<{ isOpen: boolean }>`
+const FullScreenMenu = styled.div<{ $isOpen: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -53,15 +51,16 @@ const FullScreenMenu = styled.div<{ isOpen: boolean }>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(100%)")};
+  transform: ${({ $isOpen }) =>
+    $isOpen ? "translateX(0)" : "translateX(-100%)"};
   transition: transform 0.3s ease-in-out;
-  overflow-y: auto; /* Allow scrolling within the menu if needed */
+  overflow-y: auto;
 `;
 
 const CloseButton = styled.button`
   position: absolute;
   top: 20px;
-  right: 20px;
+  left: 20px;
   background: transparent;
   border: none;
   color: var(--primary-default);
@@ -74,31 +73,37 @@ const NavbarContainer = styled.div`
   max-width: 400px;
 `;
 
+const MobileRightSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  @media (max-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+`;
+
 const MobileHamburgerMenu: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { data: session } = useSession();
 
-  // Handle body scrolling when menu is open
   useEffect(() => {
     if (isMenuOpen) {
-      // Disable scrolling on the body
       document.body.style.overflow = "hidden";
-      // Store the current scroll position
       document.body.style.position = "fixed";
       document.body.style.width = "100%";
       document.body.style.top = `-${window.scrollY}px`;
     } else {
-      // Re-enable scrolling when menu is closed
       const scrollY = document.body.style.top;
       document.body.style.overflow = "";
       document.body.style.position = "";
       document.body.style.width = "";
       document.body.style.top = "";
-      // Restore scroll position
       window.scrollTo(0, parseInt(scrollY || "0") * -1);
     }
 
-    // Cleanup function to ensure scrolling is re-enabled if component unmounts
     return () => {
       document.body.style.overflow = "";
       document.body.style.position = "";
@@ -118,23 +123,23 @@ const MobileHamburgerMenu: React.FC = () => {
   return (
     <>
       <MenuContainer>
-        <MobileRightSection>
-          <RightSectionContent />
-        </MobileRightSection>
+        <MobileLeftSection></MobileLeftSection>
         <HamburgerButton onClick={toggleMenu} aria-label="Toggle menu">
           <HamburgerIcon />
         </HamburgerButton>
       </MenuContainer>
 
-      <FullScreenMenu isOpen={isMenuOpen}>
+      <FullScreenMenu $isOpen={isMenuOpen}>
         <CloseButton onClick={toggleMenu} aria-label="Close menu">
           ✕
         </CloseButton>
-        {/* Pass closeMenu function to NavOptions */}
+
+        <MobileRightSection>
+          <RightSectionContent />
+        </MobileRightSection>
+
         <NavOptions onNavItemClick={closeMenu} />
-        <NavbarContainer>
-          {/* Your navbar component goes here */}
-        </NavbarContainer>
+        <NavbarContainer></NavbarContainer>
       </FullScreenMenu>
     </>
   );

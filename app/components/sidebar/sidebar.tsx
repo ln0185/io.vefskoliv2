@@ -1,8 +1,6 @@
 "use client";
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { motion } from "framer-motion";
 import { SidebarIcon, VefskolinnLogo } from "assets/Icons";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { DarkModeToggle } from "components/darkmode/darkmode";
 import {
@@ -22,7 +20,7 @@ import {
   GuideText,
   MultiToDoContainer,
 } from "./style";
-import NavOptions from "components/navOpitons/NavOptions";
+import NavOptions from "components/navOptions/NavOptions";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(true);
