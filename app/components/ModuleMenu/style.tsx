@@ -91,19 +91,15 @@ export const DropdownContainer = styled.div`
     padding: 10px;
   }
 `;
-/* export const StyledButton = styled.button`
+export const StyledButton = styled.button`
   padding: 10px;
-  background-color: #007bff;
+  background-color: var(--primary-default);
   color: white;
-  border: none;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`; */
+`;
 
 export const FilterContainer = styled.div`
   position: absolute;
@@ -111,9 +107,9 @@ export const FilterContainer = styled.div`
   right: 0;
   top: calc(50% - 10px);
   transform: translateY(-50%);
-
   @media (max-width: 768px) {
-    margin-top: 5px;
+    top: 55%;
+    transform: translateY(-50%);
   }
 `;
 
@@ -126,6 +122,11 @@ export const FilterDropdown = styled.div`
   border: 1px solid var(--secondary-light-200);
   border-radius: 8px;
   z-index: 50;
+  @media (max-width: 768px) {
+    left: unset;
+    right: 0;
+    width: 8rem;
+  }
 `;
 
 export const FilterItem = styled.button`
@@ -141,7 +142,12 @@ export const FilterItem = styled.button`
   transition: background 0.2s ease-in-out;
 
   &:hover {
-    background: var(--secondary-light-200);
+    background: var(--primary-light-blue);
+  }
+  @media (max-width: 768px) {
+    &:hover {
+      background: transparent;
+    }
   }
 `;
 
@@ -158,9 +164,13 @@ export const FilterButtonStyled = styled.button`
   font-size: 14px;
   font-weight: 500;
 
+  @media (max-width: 768px) {
+    padding: 5px;
 
+    span {
+      display: none;
+    }
   }
-
 `;
 
 export const Bar = styled.div`

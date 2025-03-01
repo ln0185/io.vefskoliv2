@@ -551,14 +551,14 @@ export const NotificationIcon = ({
 const RedNotification = "Red Icon";
 export const RedIcon = ({ color }: { color?: string }) => (
   <svg
-    width="8"
-    height="9"
-    viewBox="0 0 8 9"
+    width="10"
+    height="10"
+    viewBox="0 0 11 11"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     aria-label={RedNotification}
   >
-    <circle cx="4" cy="4.5" r="4" fill={color ?? "#D82823"} />
+    <circle cx="5.5" cy="5.5" r="5.5" fill={color ?? "#D82823"} />
   </svg>
 );
 
