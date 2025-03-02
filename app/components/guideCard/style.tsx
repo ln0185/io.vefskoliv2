@@ -37,7 +37,7 @@ export const WriteFeedbackContainer = styled.form`
 `;
 
 export const Border = styled.div`
-  border: 1px solid var(--theme-module3-100);
+  border: 1px solid var(--secondary-dark);
   padding: 16px;
   border-radius: 20px;
 `;

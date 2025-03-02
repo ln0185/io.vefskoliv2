@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { HamburgerIcon } from "assets/Icons";
 import NavOptions from "components/navOptions/NavOptions";
+import { DarkModeContainer } from "components/sidebar/style";
+import { DarkModeToggle } from "components/darkmode/darkmode";
 import { useSession } from "next-auth/react";
 import { RightSectionContent } from "components/header/Header";
 
@@ -11,7 +13,6 @@ const MenuContainer = styled.div`
 
   @media (max-width: 768px) {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     z-index: 999;
     width: 100%;
@@ -132,6 +133,9 @@ const MobileHamburgerMenu: React.FC = () => {
 
         <NavOptions onNavItemClick={closeMenu} />
         <NavbarContainer></NavbarContainer>
+        <DarkModeContainer>
+          <DarkModeToggle />
+        </DarkModeContainer>
       </FullScreenMenu>
     </>
   );

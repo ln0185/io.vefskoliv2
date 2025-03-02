@@ -5,7 +5,7 @@ import { authenticate } from "serverActions/authenticate";
 import { Form, Logo } from "components/loginForm/style";
 import { Input } from "UIcomponents/input/Input";
 import DefaultButton from "globalStyles/buttons/default";
-import LogoSvg from "../../../public/logo.svg";
+import { VefskolinnLogo } from "assets/Icons";
 import {
   ErrorToast,
   FullScreenWrapper,
@@ -41,7 +41,9 @@ export function LoginForm({
   return (
     <FullScreenWrapper>
       <Form ref={formRef}>
-        <Logo src={LogoSvg} alt="logo" />
+        <Logo>
+          <VefskolinnLogo />
+        </Logo>
         <Input id="email" type="email" name="email" label="Email" required />
         <Input
           id="password"

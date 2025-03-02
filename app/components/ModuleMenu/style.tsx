@@ -81,7 +81,8 @@ export const ModuleOptionContainer = styled.button<{ $isActive: boolean }>`
 export const DropdownContainer = styled.div`
   position: absolute;
   top: 100%;
-  width: 100%;
+  width: 95%;
+
   background: var(--primary-white);
   border: 1px solid var(--secondary-light-200);
   border-radius: 8px;
