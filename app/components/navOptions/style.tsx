@@ -13,6 +13,7 @@ interface SelectedProps {
 export const LinksContainer = styled.div<OpenProps>`
   display: flex;
   flex-direction: column;
+  margin-top: 0.5rem;
   gap: 0.75rem;
   width: ${(props) => (props.$isOpen ? "230px" : "100%")};
   @media (max-width: 768px) {
