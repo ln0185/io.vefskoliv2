@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { HamburgerIcon } from "assets/Icons";
 import NavOptions from "components/navOptions/NavOptions";
+import { DarkModeContainer } from "components/sidebar/style";
+import { DarkModeToggle } from "components/darkmode/darkmode";
 import { useSession } from "next-auth/react";
-import { LeftSection } from "components/header/style";
 import { RightSectionContent } from "components/header/Header";
 
 const MenuContainer = styled.div`
@@ -12,19 +13,12 @@ const MenuContainer = styled.div`
 
   @media (max-width: 768px) {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     z-index: 999;
     width: 100%;
     height: fit-content;
     background-color: var(--primary-light-grey);
     padding: 10px 16px;
-  }
-`;
-
-const MobileLeftSection = styled(LeftSection)`
-  @media (max-width: 768px) {
-    margin-left: auto;
   }
 `;
 
@@ -50,7 +44,7 @@ const FullScreenMenu = styled.div<{ $isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   transform: ${({ $isOpen }) =>
     $isOpen ? "translateX(0)" : "translateX(-100%)"};
   transition: transform 0.3s ease-in-out;
@@ -69,8 +63,7 @@ const CloseButton = styled.button`
 `;
 
 const NavbarContainer = styled.div`
-  width: 80%;
-  max-width: 400px;
+  width: 100%;
 `;
 
 const MobileRightSection = styled.div`
@@ -80,8 +73,9 @@ const MobileRightSection = styled.div`
   gap: 16px;
   @media (max-width: 768px) {
     flex-direction: row;
-    justify-content: center;
-    margin-bottom: 20px;
+    align-self: end;
+    margin: 20px;
+    margin-bottom: 50px;
   }
 `;
 
@@ -123,7 +117,6 @@ const MobileHamburgerMenu: React.FC = () => {
   return (
     <>
       <MenuContainer>
-        <MobileLeftSection></MobileLeftSection>
         <HamburgerButton onClick={toggleMenu} aria-label="Toggle menu">
           <HamburgerIcon />
         </HamburgerButton>
@@ -140,6 +133,9 @@ const MobileHamburgerMenu: React.FC = () => {
 
         <NavOptions onNavItemClick={closeMenu} />
         <NavbarContainer></NavbarContainer>
+        <DarkModeContainer>
+          <DarkModeToggle />
+        </DarkModeContainer>
       </FullScreenMenu>
     </>
   );

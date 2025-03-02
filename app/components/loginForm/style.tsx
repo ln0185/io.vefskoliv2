@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import nextImage from "next/image";
-import { Form as GlobalForm, Wrapper } from "globalStyles/globalStyles";
+
+import { Form as GlobalForm } from "globalStyles/globalStyles";
 
 export const Form = styled(GlobalForm)`
   padding: 2.5rem 3.5rem 2.5rem 3.5rem;
@@ -8,9 +8,10 @@ export const Form = styled(GlobalForm)`
   border: 1px solid var(--secondary-dark);
   background-color: var(--primary-light-grey);
   gap: 2rem;
+  background-color: var(--primary-light-grey);
 `;
 
-export const Logo = styled(nextImage)`
+export const Logo = styled.div`
   width: 150px;
   height: 154px;
 `;

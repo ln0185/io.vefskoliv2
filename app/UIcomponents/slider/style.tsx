@@ -31,7 +31,7 @@ export const SliderTrack = styled.input<{
     background: linear-gradient(
       to right,
       ${({ $selectable }) =>
-          $selectable ? "var(--theme-module3-100)" : "var(--theme-module3-60)"}
+          $selectable ? "var(--primary-default)" : "var(--primary-light-blue)"}
         ${(props) => props.$sliderPercentage + "%"},
       var(--theme-module3-30) ${(props) => props.$sliderPercentage}%
     );
@@ -44,9 +44,9 @@ export const SliderTrack = styled.input<{
     background: linear-gradient(
       to right,
       ${({ $selectable }) =>
-          $selectable ? "var(--theme-module3-100)" : "var(--theme-module3-60)"}
+          $selectable ? "var(--primary-default)" : "var(--primary-light-blue)"}
         ${(props) => props.$sliderPercentage + "%"},
-      var(--theme-module3-30) ${(props) => props.$sliderPercentage}%
+      var(--primary-light-grey) ${(props) => props.$sliderPercentage}%
     );
     height: 3px;
     border-radius: 5px;
@@ -57,9 +57,9 @@ export const SliderTrack = styled.input<{
     background: linear-gradient(
       to right,
       ${({ $selectable }) =>
-          $selectable ? "var(--theme-module3-100)" : "var(--theme-module3-60)"}
+          $selectable ? "var(--primary-default)" : "var(--primary-light-blue)"}
         ${(props) => props.$sliderPercentage + "%"},
-      var(--theme-module3-30) ${(props) => props.$sliderPercentage}%
+      var(--primary-light-grey) ${(props) => props.$sliderPercentage}%
     );
     border-radius: 8px;
     height: 3px;
@@ -71,7 +71,7 @@ export const SliderTrack = styled.input<{
     height: 12px;
     border-radius: 50%;
     background: ${({ $selectable }) =>
-      $selectable ? "var(--theme-module3-100)" : "var(--theme-module3-60)"};
+      $selectable ? "var(--primary-default)" : "var(--primary-light-blue)"};
     cursor: pointer;
     margin-top: -4px;
   }
@@ -81,7 +81,7 @@ export const SliderTrack = styled.input<{
     height: 20px;
     border-radius: 50%;
     background: ${({ $selectable }) =>
-      $selectable ? "var(--theme-module3-100)" : "var(--theme-module3-60)"};
+      $selectable ? "var(--primary-default)" : "var(--primary-light-blue)"};
     cursor: pointer;
   }
 
@@ -90,7 +90,7 @@ export const SliderTrack = styled.input<{
     height: 20px;
     border-radius: 50%;
     background: ${({ $selectable }) =>
-      $selectable ? "var(--theme-module3-100)" : "var(--theme-module3-60)"};
+      $selectable ? "var(--primary-default)" : "var(--primary-light-blue)"};
     cursor: pointer;
   }
 
@@ -108,7 +108,7 @@ export const ValueContainer = styled.ul`
 export const OptionValue = styled.li<{ $selected?: boolean }>`
   list-style: none;
   color: ${({ $selected }) =>
-    $selected ? "var(--theme-module3-100)" : undefined};
+    $selected ? "var(--primary-default)" : undefined};
   font-size: ${({ $selected }) => ($selected ? "1.25rem" : "1rem")};
   font-weight: ${({ $selected }) => ($selected ? "bold" : "normal")};
   flex: 1;
@@ -120,7 +120,7 @@ export const SliderHelpLink = styled(Link)`
 `;
 
 export const SliderHelpLinkText = styled(SmallText)`
-  color: var(--theme-module3-100);
+  color: var(--primary-default);
 `;
 
 export const GradeSlider = styled.input`

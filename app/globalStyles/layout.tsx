@@ -6,15 +6,15 @@ const breakpoint = "768px";
 
 export const LayoutGrid = styled(motion.div)`
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: auto 1fr;
   grid-template-areas: "hamburger" "main";
   width: 100%;
   height: 100dvh;
   grid-auto-rows: min-content;
 
   @media (min-width: ${breakpoint}) {
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 1fr auto;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-areas:
       "sidebar header"
       "sidebar main";

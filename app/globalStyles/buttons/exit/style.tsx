@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Image from "next/image";
 
 export const Button = styled.button`
-  background-color: var(--primary-black-60);
+  background-color: var(--secondary-dark);
   border: transparent;
   border-radius: 50%;
   font-size: 24px;

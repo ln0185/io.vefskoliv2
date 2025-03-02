@@ -5,7 +5,7 @@ import { Form as GlobalForm } from "globalStyles/globalStyles";
 export const Form = styled(GlobalForm)`
   padding: 2.5rem 3.5rem 2.5rem 3.5rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--theme-module3-100);
+  border: 1px solid var(--primary-default);
   background-color: var(--primary-white);
   gap: 2rem;
 `;

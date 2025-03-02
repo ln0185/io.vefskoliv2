@@ -1,5 +1,5 @@
 .w-md-editor-toolbar {
-  background-color: var(--theme-module3-100);
+  background-color: var(--primary-default);
   color: white;
   border: none;
 }
@@ -17,7 +17,7 @@
 }
 
 .w-md-editor.wmde-markdown-var {
-  border-color: var(--theme-module3-100);
-  border: 1px solid var(--theme-module3-100);
+  border-color: var(--primary-default);
+  border: 1px solid var(--primary-default);
   box-shadow: none;
 }

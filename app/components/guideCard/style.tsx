@@ -11,6 +11,11 @@ export const CardWrapper = styled.div`
   gap: 4px;
   background-color: var(--primary-white);
   border-radius: 20px;
+  @media (max-width: 768px) {
+    margin: auto;
+
+    justify-content: center;
+  }
 `;
 
 export const InfoWrapper = styled.div`
@@ -32,7 +37,7 @@ export const WriteFeedbackContainer = styled.form`
 `;
 
 export const Border = styled.div`
-  border: 1px solid var(--theme-module3-100);
+  border: 1px solid var(--secondary-dark);
   padding: 16px;
   border-radius: 20px;
 `;

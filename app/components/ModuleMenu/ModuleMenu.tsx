@@ -5,6 +5,7 @@ import {
   ModuleOptionContainer,
   Bar,
   DropdownContainer,
+  StyledButton,
 } from "./style";
 import { FilterButton } from "./filterButton";
 
@@ -74,7 +75,7 @@ export const Module = ({
         </div>
 
         <div className="mobile-view">
-          <button onClick={toggleDropdown}>{shownOption} ▼</button>
+          <StyledButton onClick={toggleDropdown}>{shownOption} ▼</StyledButton>
           {isDropdownVisible && (
             <DropdownContainer>
               {options.map((option, index) => {

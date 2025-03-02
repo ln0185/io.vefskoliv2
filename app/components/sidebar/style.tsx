@@ -30,7 +30,7 @@ export const Nav = styled(motion.nav)<OpenProps>`
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
   padding-top: 1rem;
 `;
@@ -75,6 +75,11 @@ export const DarkModeContainer = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   padding: 1.5rem;
+
+  @media (max-width: 768px) {
+    align-self: end;
+    margin-top: 100px;
+  }
 `;
 
 export const MultiToDoContainer = styled.div`

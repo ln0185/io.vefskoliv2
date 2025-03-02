@@ -16,7 +16,7 @@ export const GuideCardContainer = styled.div`
   background-color: var(--primary-white);
   border: solid 1px var(--card-border);
   width: 100%;
-  height: 100%;
+
   transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out,
     background-color 0.2s ease-in-out;
 
@@ -25,7 +25,12 @@ export const GuideCardContainer = styled.div`
   }
   @media (max-width: 768px) {
     width: 95vw;
+    max-width: 370px;
     padding: auto;
+    &:hover {
+      transform: none;
+    }
+    transition: none;
   }
 `;
 
