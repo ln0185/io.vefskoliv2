@@ -46,7 +46,11 @@ export const FilterButton = ({
     <FilterContainer>
       <FilterButtonStyled onClick={() => setIsOpen(!isOpen)}>
         <FilterIcon />
-        {filter.guideCategory ? `Sort By: ${filter.guideCategory}` : "Sort By"}
+        <span>
+          {filter.guideCategory
+            ? `Sort By: ${filter.guideCategory}`
+            : "Sort By"}
+        </span>
       </FilterButtonStyled>
 
       {isOpen && (

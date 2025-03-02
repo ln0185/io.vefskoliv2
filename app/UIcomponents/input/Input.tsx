@@ -35,6 +35,6 @@ export const Input = ({ label, id, error, ...props }: InputProps) => {
 };
 
 export const ErrorMessage = styled(SmallText)`
-  color: var(--error-failure-100);
+  color: var(--fail-text);
   font-size: 14px;
 `;

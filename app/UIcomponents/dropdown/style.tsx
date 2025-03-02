@@ -66,7 +66,7 @@ export const DropDownContainer = styled.div<{
   z-index: ${(props) => props.$zIndex ?? 2};
   top: 0;
   border-radius: ${radius};
-  border: 1px solid var(--theme-module3-100);
+  border: 1px solid var(--primary-default);
   width: 100%;
   overflow: hidden;
   max-height: ${(props) => (props.$isOpen ? maxHeight : minHeightSmall)};
@@ -89,13 +89,13 @@ export const Accordian = styled.div<{ $title?: boolean }>`
   height: fit-content;
   color: ${(props) => (props.$title ? "white" : "black")};
   background-color: ${(props) =>
-    props.$title ? "var(--theme-module3-100)" : "white"};
+    props.$title ? "var(--primary-default)" : "white"};
   width: 100%;
 `;
 
 export const AccordianOptionContainer = styled(Accordian)`
   &:hover {
-    background-color: var(--theme-module3-100);
+    background-color: var(--primary-default);
     color: white;
   }
 `;

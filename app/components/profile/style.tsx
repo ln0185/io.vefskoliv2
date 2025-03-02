@@ -105,7 +105,7 @@ export const ProfileDetails = styled.div`
 export const AdditionalInfo = styled.p`
   font-size: 14px;
   text-transform: uppercase;
-  color: var(--theme-module3-100);
+  color: var(--primary-default);
 `;
 
 export const Form = styled.form`

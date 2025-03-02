@@ -84,7 +84,10 @@ const EditProfileScreen = ({ user }: { user: AdapterUser }) => {
           </ProfileName>
           <AdditionalInfo>{user.role}</AdditionalInfo>
           <AdditionalInfo
-            style={{ color: "var(--primary-black-100)", textTransform: "none" }}
+            style={{
+              color: "var(--primary-light-grey)",
+              textTransform: "none",
+            }}
           >
             {user.email}
           </AdditionalInfo>

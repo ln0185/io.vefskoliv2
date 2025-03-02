@@ -1,7 +1,7 @@
 export enum StyleColors {
-  green = "var(--error-success-100)",
-  purple = "var(--theme-module3-100)",
-  red = "var(--error-failure-100)",
-  orange = "var(--error-warning-100)",
-  lightGrey = "var(--primary-black-10)",
+  green = "var(--pass-text)",
+  purple = "#6b0080",
+  red = "var(--fail-text)",
+  orange = "#ff7b00",
+  lightGrey = "var(--primary-light-grey)",
 }

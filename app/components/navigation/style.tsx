@@ -54,7 +54,7 @@ export const DesktopNav = styled(Nav)`
 
 export const MobileNav = styled(Nav)`
   display: flex;
-  border: solid 1px var(--theme-module3-100);
+  border: solid 1px var(--primary-default);
   box-sizing: border-box;
   @media (min-width: ${breakpoint}) {
     display: none;
@@ -70,11 +70,11 @@ export const OpenTrayButton = styled.button<{ $opened?: boolean }>`
     props.$opened
       ? `
   border: none;
-  background-color: var(--theme-module3-100);
+  background-color: var(--primary-default);
   color: var(--primary-white);
   border-radius: 0;
   &:hover {
-    background-color: var(--theme-module3-60);
+    background-color: var(--primary-light-blue);
   }
 `
       : `
@@ -83,7 +83,7 @@ export const OpenTrayButton = styled.button<{ $opened?: boolean }>`
   color: var(--theme-module3-100);
   border-radius: 8px;
   &:hover {
-    background-color: var(--primary-black-10);
+    background-color: var(--primary-light-grey);
   }
 `}
 

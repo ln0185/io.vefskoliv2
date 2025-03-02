@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 export const InfoWrapper = styled.div`
-  border: 1px solid var(--theme-module3-100);
+  border: 1px solid var(--primary-default);
   border-radius: 20px;
   padding: 1rem;
   display: grid;

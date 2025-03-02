@@ -32,10 +32,12 @@ export const NotificationIconContainer = styled.div`
 
 export const RedIconContainer = styled.div`
   position: absolute;
-  height: 8px;
-  width: 10px;
-  top: 85px;
-  left: 130px;
+  height: 16px;
+  width: 16px;
+  top: 50%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+  overflow: visible;
   z-index: 1;
 `;
 

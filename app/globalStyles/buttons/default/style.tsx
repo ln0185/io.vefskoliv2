@@ -5,16 +5,16 @@ const BREAKPOINT = "680px";
 export const Button = styled.button<{ $styletype: "default" | "outlined" }>`
   background-color: ${(props) =>
     props.$styletype === "default"
-      ? "var(--theme-module3-100)"
-      : "transparent"};
+      ? "var(--primary-default)"
+      : "var(--primary-default)"};
   border: ${(props) =>
     props.$styletype === "default"
-      ? "none"
-      : "1px solid var(--theme-module3-100)"};
+      ? "1px solid var(--primary-default)"
+      : "1px solid var(--primary-default)"};
   color: ${(props) =>
     props.$styletype === "default"
       ? "var(--primary-white)"
-      : "var(--theme-module3-100)"};
+      : "var(--primary-white)"};
   border-radius: 8px;
   font-size: 12px;
   padding: 4px 12px;
@@ -27,8 +27,12 @@ export const Button = styled.button<{ $styletype: "default" | "outlined" }>`
   &:hover {
     background-color: ${(props) =>
       props.$styletype === "default"
-        ? "var(--theme-module3-hover)"
-        : "var(--primary-black-10)"};
+        ? "var(--primary-light-blue)"
+        : "var(--primary-light-blue)"};
+    color: ${(props) =>
+      props.$styletype === "default"
+        ? "var(--primary-default)"
+        : "var(--primary-default)"};
   }
 
   @media (min-width: ${BREAKPOINT}) {

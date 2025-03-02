@@ -1,7 +1,7 @@
 "use client";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { SidebarIcon, VefskolinnLogo } from "assets/Icons";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { DarkModeToggle } from "components/darkmode/darkmode";
 import {
   Nav,

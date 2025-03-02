@@ -21,7 +21,7 @@ export const Option = styled.div<{ $color: StyleColors }>`
 `;
 
 export const SelectedRing = styled.div`
-  border: 2px solid var(--theme-module3-100);
+  border: 2px solid var(--primary-default);
   background-color: none;
   border-radius: 50%;
   width: 20px;
