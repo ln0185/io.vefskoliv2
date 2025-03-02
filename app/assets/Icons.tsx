@@ -514,7 +514,7 @@ export const SidebarIcon = ({ stroke = "#8e92bc" }: { stroke?: string }) => (
 const notificationIconLabel = "Notification icon";
 export const NotificationIcon = ({
   color,
-  size = "52",
+  size = "25",
 }: {
   color?: string;
   size?: string;
