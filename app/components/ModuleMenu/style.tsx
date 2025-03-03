@@ -30,6 +30,11 @@ export const ModuleContainer = styled.div<{ $zIndex?: number }>`
   }
 
   @media (max-width: 850px) {
+    position: fixed;
+    top: 0;
+    padding: 10px 0;
+    z-index: 1001;
+
     .desktop-view {
       display: none;
     }
@@ -82,16 +87,17 @@ export const DropdownContainer = styled.div`
   position: absolute;
   top: 100%;
   width: 95%;
-
   background: var(--primary-white);
   border: 1px solid var(--secondary-light-200);
   border-radius: 8px;
-  z-index: 50;
+  z-index: 9999;
 
   ${ModuleOptionContainer} {
     padding: 10px;
+    z-index: 9999;
   }
 `;
+
 export const StyledButton = styled.button`
   padding: 10px;
   background-color: var(--primary-default);
@@ -100,6 +106,7 @@ export const StyledButton = styled.button`
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
+  transform: translateX(60px);
 `;
 
 export const FilterContainer = styled.div`
@@ -109,6 +116,7 @@ export const FilterContainer = styled.div`
   top: calc(50% - 10px);
   transform: translateY(-50%);
   @media (max-width: 768px) {
+    right: 26px;
     top: 55%;
     transform: translateY(-50%);
   }
@@ -184,6 +192,6 @@ export const Bar = styled.div`
   background-color: var(--secondary-light-200);
 
   @media (max-width: 768px) {
-    bottom: 0px;
+    display: none;
   }
 `;

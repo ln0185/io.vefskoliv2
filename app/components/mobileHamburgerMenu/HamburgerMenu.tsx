@@ -7,6 +7,7 @@ import { DarkModeContainer } from "components/sidebar/style";
 import { DarkModeToggle } from "components/darkmode/darkmode";
 import { useSession } from "next-auth/react";
 import { RightSectionContent } from "components/header/Header";
+import { Module as ModuleMenu } from "components/ModuleMenu/ModuleMenu";
 
 const MenuContainer = styled.div`
   display: none;
@@ -15,9 +16,9 @@ const MenuContainer = styled.div`
     display: flex;
     align-items: center;
     z-index: 999;
-    width: 100%;
+    width: fit-content;
     height: fit-content;
-    background-color: var(--primary-light-grey);
+    /* background-color: var(--primary-light-grey); */
     padding: 10px 16px;
   }
 `;

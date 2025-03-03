@@ -54,7 +54,6 @@ export const Guides = ({
         setModule={setSelectedModule}
         filter={filter}
       />
-
       <GradeAverageContainer>
         <AverageRow>
           <AverageLabel>Coding </AverageLabel>
