@@ -39,43 +39,32 @@ export const NavLink = styled(Link)<SelectedProps>`
   &:hover {
     background-color: var(--primary-light-blue);
     color: var(--primary-default);
+
+    svg path {
+      stroke: var(--primary-default);
+    }
   }
 `;
 
-// export const NavLink = styled(Link)<SelectedProps>`
-//   position: relative;
-//   display: flex;
-//   height: 2.5rem;
-//   width: 100%;
-//   align-items: center;
-//   border-radius: 0.375rem;
-//   transition: color 0.2s, background-color 0.2s;
-//   background-color: ${(props) =>
-//     props.$isSelected ? "var(--primary-light-blue)" : "transparent"};
-//   color: ${(props) =>
-//     props.$isSelected
-//       ? "var(--primary-default)"
-//       : "var(--secondary-light-300)"};
-
-//   &:hover {
-//     background-color: ${(props) =>
-//       props.$isSelected
-//         ? "var(--primary-light-blue)"
-//         : "var(--primary-light-blue)"};
-//   }
-// `;
-
 export const IconWrapper = styled(motion.div)`
-  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  width: 2.5rem;
-  place-content: center;
   font-size: 1.125rem;
+  width: 40px;
+  object-fit: contain;
+`;
+
+export const InsideWrapper = styled.div`
+  width: 24px;
+  border: 1px solid green;
 `;
 
 export const LinkText = styled(motion.span)`
   font-size: 1rem;
   font-weight: 500;
-    @media (max-width: 768px) {
-   font-size: 1.5rem;
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
