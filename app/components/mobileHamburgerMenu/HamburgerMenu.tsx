@@ -14,10 +14,10 @@ const MenuContainer = styled.div`
   @media (max-width: 768px) {
     display: flex;
     align-items: center;
-    z-index: 999;
-    width: 100%;
+    z-index: 2;
+    width: 100px;
     height: fit-content;
-    background-color: var(--primary-light-grey);
+    background-color: var(--primary-white);
     padding: 10px 16px;
   }
 `;

@@ -109,3 +109,4 @@ export const Module = ({
     </SubheaderContainer>
   );
 };
+export default Module;
