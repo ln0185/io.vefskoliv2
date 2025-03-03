@@ -7,7 +7,13 @@ import {
   CalendarIcon,
   LectureIcon,
 } from "assets/Icons";
-import { LinksContainer, NavLink, IconWrapper, LinkText } from "./style";
+import {
+  LinksContainer,
+  NavLink,
+  IconWrapper,
+  LinkText,
+  InsideWrapper,
+} from "./style";
 import { usePathname } from "next/navigation";
 
 type IconProps = {
@@ -98,14 +104,14 @@ const Option = React.memo(
         prefetch
         onClick={handleClick}
       >
-        <IconWrapper>
+        <IconWrapper layout>
           <Icon stroke={iconColor} />
         </IconWrapper>
         {open && (
           <LinkText
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
           >
             {title}
           </LinkText>
