@@ -15,9 +15,9 @@ const MenuContainer = styled.div`
     display: flex;
     align-items: center;
     z-index: 2;
-    width: 100%;
+    width: 100px;
     height: fit-content;
-    background-color: var(--primary-light-grey);
+    background-color: var(--primary-white);
     padding: 10px 16px;
   }
 `;

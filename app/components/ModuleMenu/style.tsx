@@ -7,9 +7,10 @@ export const SubheaderContainer = styled.div`
   padding: 10px;
   flex-wrap: wrap;
   @media (max-width: 768px) {
-    position: sticky;
-    margin-top: 10px;
-    padding-right: 15px;
+    position: absolute;
+    top: 0px;
+    left: 32%;
+    width: 64%;
   }
 `;
 
@@ -109,7 +110,7 @@ export const FilterContainer = styled.div`
   top: calc(50% - 10px);
   transform: translateY(-50%);
   @media (max-width: 768px) {
-    top: 55%;
+    top: calc(50%);
     transform: translateY(-50%);
   }
 `;
@@ -184,6 +185,6 @@ export const Bar = styled.div`
   background-color: var(--secondary-light-200);
 
   @media (max-width: 768px) {
-    bottom: 0px;
+    display: none;
   }
 `;
