@@ -33,9 +33,9 @@ export const Profile = ({ session }: { session: Session | null }) => {
   if (!user) {
     return (
       <Wrapper>
-        <ProfileImageContainer>
-          <ProfileIcon size="32" />
-        </ProfileImageContainer>
+        <ImageWrapper>
+          <ProfileIcon size="42" />
+        </ImageWrapper>
       </Wrapper>
     );
   }
