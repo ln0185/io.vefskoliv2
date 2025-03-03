@@ -14,7 +14,7 @@ const MenuContainer = styled.div`
   @media (max-width: 768px) {
     display: flex;
     align-items: center;
-    z-index: 999;
+    z-index: 2;
     width: 100%;
     height: fit-content;
     background-color: var(--primary-light-grey);
