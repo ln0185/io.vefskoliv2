@@ -58,7 +58,7 @@ export const RightSectionContent = ({
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
+  console.log("session", session);
   if (status === "loading" || !session) {
     return (
       <>
@@ -97,7 +97,7 @@ export const RightSectionContent = ({
       <NotificationDropdown>
         <NotificationIcon size="20" />
       </NotificationDropdown>
-      <Profile session={session} />
+      <Profile session={session || null} />
     </>
   );
 };
