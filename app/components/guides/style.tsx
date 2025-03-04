@@ -23,7 +23,6 @@ export const GradeAverageContainer = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: end;
-  padding-right: 10px;
 
   @media (max-width: 768px) {
     text-align: center;
