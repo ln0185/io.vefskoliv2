@@ -11,6 +11,7 @@ export const SubheaderContainer = styled.div`
     top: 0px;
     left: 32%;
     width: 64%;
+    background-color: var(--primary-white);
   }
 `;
 
@@ -38,7 +39,6 @@ export const ModuleContainer = styled.div<{ $zIndex?: number }>`
     .mobile-view {
       display: block;
       font-weight: 600;
-      color: var(--secondary-dark);
     }
   }
 `;
